@@ -14,9 +14,19 @@ class Character {
 	int damageDealt;
 };
 
+class Time {
+	public:
+	static int hour;
+	int timeSpent;
+
+
+};
+
 
 
 int main() {
+	Time day;
+	day.hour = 0;
 	int choice; //Temporary variable to store choices of player.
 	Character player; // Players information
 	Character monster;
@@ -76,4 +86,9 @@ int main() {
 		}
 	} while (monster.hp > 0 || player.hp >0);
 	system("pause");
+}
+
+int DurationSystem() {
+	
+
 }
