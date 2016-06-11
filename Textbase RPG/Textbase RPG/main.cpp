@@ -149,7 +149,7 @@ int DaySystem(int choice) {
 		
 	}*/
 	 if (choice == 2) {
-		 day.CalculateTime(4);
+		 day.CalculateTime(1); // Edit the number in bracket here to change the time added
 		
 
 	}
