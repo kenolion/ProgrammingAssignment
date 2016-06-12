@@ -10,6 +10,7 @@ Date : 10/6/2016
 #include <string> //STRING DATA TYPE?!
 int battleSystem();
 int daySystem(int choice);
+int tempPointer;
 using namespace std;
 
 
@@ -41,22 +42,23 @@ class Time {
 		return day.hour;
 	}
 }day;
-int choice; ////Temporary variable to store choices of player.
+int choice=99; ////Temporary variable to store choices of player.
 class Menu {
 	public:
 	// ALL List of items in a menu will be here
 	string mainMenuItems[3] = { "Start Game", "Options", "Exit" };
 	string optionsMenuItems[4] = { "Zer","Keith","Ben","Test" };
-	int menuSystem(int itemsMenu,string menu[25]) {
+	string battleMenuItems[2] = { "Attack","Run" };
+	
+	// Code for accepting arrow keys and enters
+	int menuSystem(int itemsMenu,string menu[25],string description) {
 		
 		int pointer = 0;
-
 		while (true)
 		{
 			system("cls");
 			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); // SETS TEXT COLOR TO WHITE
-			cout << "Main Menu\n\n";
-
+			cout << description;
 			for (int i = 0; i < itemsMenu; ++i) {
 				if (i == pointer) {
 					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11); //sets text color to cyan
@@ -82,14 +84,17 @@ class Menu {
 					}
 					break;
 				}
-				else if (GetAsyncKeyState(VK_RETURN) != 0) {
+				//else if (GetAsyncKeyState(0x5A)) {
+				else if (GetAsyncKeyState()) {
 					return pointer;
 				}
+				
 			}
 
 			Sleep(150);
 		}
 	}
+	//Code to decide what each item in a menu do
 	int mainMenu(int pointer){
 		switch (pointer) {
 		case 0: {
@@ -102,11 +107,13 @@ class Menu {
 		case 2:
 			exit(0);
 		}
-
+				
 		}
 
 	}
+	
 }menu;
+
 
 
 
@@ -114,12 +121,14 @@ int main() {
 	Character player;
 	day.hour = 24;
 	//Menu system start from here
-	int tempPointer;
-	tempPointer = menu.menuSystem(3,menu.mainMenuItems); // This calls the menu system function (x,y) X represents the number of list in the menu and Y represents the Items to be displayed
+	string welcome = "Welcome to a Text based RPG game!\n";
+	tempPointer = menu.menuSystem(3,menu.mainMenuItems,welcome); // This calls the menu system function (x,y) X represents the number of list in the menu and Y represents the Items to be displayed
 	menu.mainMenu(tempPointer); // This function accepts the pointer value from above and decides on what to do next
 	///////
 	cout << "Please Enter your name: ";
+	
 	cin >> player.name;  //Gets player name
+	
 	cout << "Master " << player.name << ". What job do you want to choose next?" << endl;
 	cout << "1.Swordsman" << endl << "2.Archer" << endl << "3.Deprived" << endl;
 	cin >> player.job;  // Getting input from player to choose their job
@@ -138,6 +147,8 @@ int main() {
 		cout << "Deprived";
 		break;
 	}
+	
+	battleSystem();
 	/*
 	////////// TIMER COUNTDOWN SYSTEM(MAYBE USE TO KEEP THE SUSPENSE OF UPGRADING WEAPONS?
 	for (int a = 5; a >=0; a--) {
@@ -146,6 +157,7 @@ int main() {
 	}
 	*/
 	// DAY NIGHT SYSTEM
+	/*
 	while (choice != 3) {
 		system("cls");
 		cout << "Time now is: ";
@@ -169,8 +181,8 @@ int main() {
 		cin >> choice;
 		daySystem(choice);
 		
-		
-	}
+		*/
+	
 	system("pause");
 }
 
@@ -189,14 +201,10 @@ int battleSystem() {
 	//////// Simeple BATTLE SYSTEM   /////////
 	system("cls");
 	srand(time(NULL));
-	cout << endl << "You have encountered a (monsters name)!" << endl;
-	cout << "Monster Hp :" << monster.hp << endl;
+	string test = "You have encountered a(monsters name)!\nWhat would you do?\n";
 	do {																	// do while loop to enable a turn based like battle system
-		cout << "What would you do?" << endl;
-		cout << "1.Attack" << endl << "2.Run" << endl;
-		cin >> choice;
-		system("cls");
-		if (choice == 1) {
+		choice = menu.menuSystem(2, menu.battleMenuItems,test);
+		if (choice == 0) {
 			player.damageDealt = rand() % player.maxAtk + player.minAtk; // CALCULATING THE ATTACK RANGE
 			monster.damageDealt = rand() % monster.maxAtk + monster.minAtk; // calculating monster attack
 			monster.hp -= player.damageDealt; //MINUSING THE MONSTERS HP
@@ -205,6 +213,8 @@ int battleSystem() {
 			cout << "The monster did " << monster.damageDealt << " damage" << endl;
 			cout << "You now have " << player.hp << " hp left" << endl;
 			cout << "The monster now has " << monster.hp << "hp" << endl;
+			Sleep(2000);
+			system("cls");
 		}
 	} while (monster.hp > 0 || player.hp >0);
 	return 0;
