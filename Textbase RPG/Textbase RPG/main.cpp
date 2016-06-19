@@ -36,7 +36,25 @@ int main() {
 	Time day;
 	Character player;
 	Menu menu;
+	string name = "This is the keyboard input menu";
+	int alphabet=97;
+	
+	for (int r = 0; r < 5;r++) {
+		for (int c = 0; c < 6;c++) {
+			
+				menu.alphabetSelection[r][c] =alphabet++;
+				
+			
+		}
+		
+	}
+	menu.menuSystem(5, 6, menu.alphabetSelection, name);
+
+	system("pause");
+	return 0;
+	
 	//Menu system start from here
+	/*
 	string welcome = "Welcome to a Text based RPG game!\n";
 	choice = menu.menuSystem(3, menu.mainMenuItems, welcome); // This calls the menu system function (x,y) X represents the number of list in the menu and Y represents the Items to be displayed
 	
@@ -79,7 +97,7 @@ int main() {
 	//battleSystem();
 	
 	////////// TIMER COUNTDOWN SYSTEM(MAYBE USE TO KEEP THE SUSPENSE OF UPGRADING WEAPONS?
-	day.CdTimer(5);
+	day.CdTimer(5);// the parameter is in seconds so this countsdown is 5 second
 	
 	// DAY NIGHT SYSTEM
 
@@ -91,8 +109,8 @@ int main() {
 		day.CalculateTime(1); // Function to calculate time
 		system("pause");
 	}
-
-
+	
+	*/
 }
 
 int battleSystem(){
@@ -113,7 +131,7 @@ int battleSystem(){
 	srand(time(NULL));
 	string test = "You have encountered a(monsters name)!\nWhat would you do?\n";
 	do {																	// do while loop to enable a turn based like battle system
-		choice = menu.menuSystem(2, menu.battleMenuItems,test); //First parameter is to display how many list you want to show in this case its 2 because theres only attack and run for now.
+		choice = menu.menuSystem(2,0, menu.battleMenuItems,test); //First parameter is to display how many list you want to show in this case its 2 because theres only attack and run for now.
 		if (choice == 0) {										//Second parameter is to pass in an array of string that list out the contents of the menu in this case we want to pass in the string in battlemenuitems and lastly that parameter is to display any text you want in your menu that is not selectable by player
 			player.damageDealt = rand() % player.maxAtk + player.minAtk; // CALCULATING THE ATTACK RANGE
 			monster.damageDealt = rand() % monster.maxAtk + monster.minAtk; // calculating monster attack
