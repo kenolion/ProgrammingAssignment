@@ -8,14 +8,14 @@ Date : 10/6/2016
 #include <time.h> // to use the rand() function
 #include <windows.h>// to use the function sleep
 #include <string> //STRING DATA TYPE?!
+#include "Time.h"
 int battleSystem();
-int daySystem(int choice);
 int tempPointer;
 using namespace std;
 
 
 class Character {
-	public:
+public:
 	char name[15];
 	int job; //1=Swordsman,2= Archer, 3= Deprived(not an actual class just decided to put it there in the mean time)
 	int hp;
@@ -28,31 +28,18 @@ class Character {
 	int weaboo;
 };
 
-class Time {
-	public:
-	int hour;
-	int timeSpent;
 
-	int CalculateTime(int hour) {
-		day.hour += hour;
-		if (day.hour>24) {
-			day.hour -= 24; // This changes the actual value of day.hour
-		}
-		
-		return day.hour;
-	}
-}day;
-int choice=99; ////Temporary variable to store choices of player.
+int choice = 99; ////Temporary variable to store choices of player.
 class Menu {
-	public:
+public:
 	// ALL List of items in a menu will be here
 	string mainMenuItems[3] = { "Start Game", "Options", "Exit" };
 	string optionsMenuItems[4] = { "Zer","Keith","Ben","Test" };
 	string battleMenuItems[2] = { "Attack","Run" };
-	
+
 	// Code for accepting arrow keys and enters
-	int menuSystem(int itemsMenu,string menu[25],string description) {
-		
+	int menuSystem(int itemsMenu, string menu[25], string description) {
+
 		int pointer = 0;
 		while (true)
 		{
@@ -73,7 +60,7 @@ class Menu {
 				if (GetAsyncKeyState(VK_UP) != 0) { // Gets the up arrow key and each time its released it will give a random number that wont be 0
 					pointer -= 1;
 					if (pointer == -1) { // Basically brings the pointer to the bottom if the user cursor reaches the toppest
-						pointer = itemsMenu-1; //itemsmenu is placed there because different menu has different amount of items
+						pointer = itemsMenu - 1; //itemsmenu is placed there because different menu has different amount of items
 					}
 					break;
 				}
@@ -84,18 +71,18 @@ class Menu {
 					}
 					break;
 				}
-				//else if (GetAsyncKeyState(0x5A)) {
-				else if (GetAsyncKeyState()) {
+				else if (GetAsyncKeyState(0x5A)) {
+				
 					return pointer;
 				}
-				
+
 			}
 
 			Sleep(150);
 		}
 	}
 	//Code to decide what each item in a menu do
-	int mainMenu(int pointer){
+	int mainMenu(int pointer) {
 		switch (pointer) {
 		case 0: {
 			cout << "Starting game...\n";
@@ -107,28 +94,29 @@ class Menu {
 		case 2:
 			exit(0);
 		}
-				
+
 		}
 
 	}
-	
+
 }menu;
 
 
 
 
 int main() {
+	Time day;
 	Character player;
-	day.hour = 24;
+	
 	//Menu system start from here
 	string welcome = "Welcome to a Text based RPG game!\n";
-	tempPointer = menu.menuSystem(3,menu.mainMenuItems,welcome); // This calls the menu system function (x,y) X represents the number of list in the menu and Y represents the Items to be displayed
+	tempPointer = menu.menuSystem(3, menu.mainMenuItems, welcome); // This calls the menu system function (x,y) X represents the number of list in the menu and Y represents the Items to be displayed
 	menu.mainMenu(tempPointer); // This function accepts the pointer value from above and decides on what to do next
 	///////
 	cout << "Please Enter your name: ";
-	
+
 	cin >> player.name;  //Gets player name
-	
+
 	cout << "Master " << player.name << ". What job do you want to choose next?" << endl;
 	cout << "1.Swordsman" << endl << "2.Archer" << endl << "3.Deprived" << endl;
 	cin >> player.job;  // Getting input from player to choose their job
@@ -147,46 +135,27 @@ int main() {
 		cout << "Deprived";
 		break;
 	}
+
+	//battleSystem();
 	
-	battleSystem();
-	/*
 	////////// TIMER COUNTDOWN SYSTEM(MAYBE USE TO KEEP THE SUSPENSE OF UPGRADING WEAPONS?
-	for (int a = 5; a >=0; a--) {
-		cout << endl << a << "...";
-		Sleep(1000); // time is measured in milli second
-	}
-	*/
+	day.CdTimer(5);
+	
 	// DAY NIGHT SYSTEM
-	/*
+
 	while (choice != 3) {
 		system("cls");
-		cout << "Time now is: ";
-		
-		if ( day.hour >12 || day.hour>=24) { // Check if its 12 p.m to avoid 0 p.m.
-			cout << day.hour - 12;  // this equation only Displays the time, It does not change day.hour value
-		}
-		else {
-			cout << day.hour; // otherwise the time will be displayed normally
-		}
-		if (day.hour > 11 && day.hour <= 23) {  // to check if the time is PM or AM
-			
-			cout << " p.m." << endl;
-			}
-		
-		else{
-			
-			cout << " a.m." << endl;
-		}
-		cout<< endl << "2.Add 1 hour(Temp function to test day/night)";
+		day.DisplayTime(); //Function to display time
+		cout << endl << "2.Add 1 hour(Temp function to test day/night)";
 		cin >> choice;
-		daySystem(choice);
-		
-		*/
-	
-	system("pause");
+		day.CalculateTime(1); // Function to calculate time
+		system("pause");
+	}
+
+
 }
 
-int battleSystem() {
+int battleSystem(){
 	Character player; // Players information
 	Character monster;
 	/////////////////// TEMPORARY DECLARATION AREA WILL BE REMOVED LATER FOR TESTING PURPOSES
@@ -219,24 +188,3 @@ int battleSystem() {
 	} while (monster.hp > 0 || player.hp >0);
 	return 0;
 }
-
-int daySystem(int choice) {
-	/*
-	if (choice == 1) {
-		cout << "Time now is " << day.hour;    // This section tells the player the time if they use check time
-		if (day.hour > 11 && day.hour <= 23) { // It is now commented out for the time being.
-			cout << " p.m" << endl;
-		}
-		else {
-			cout << " a.m" << endl;
-		}
-		
-	}*/
-	 if (choice == 2) {
-		 day.CalculateTime(1); // Edit the number in bracket here to change the time added
-		
-
-	}
-	return 0;
-}
-
