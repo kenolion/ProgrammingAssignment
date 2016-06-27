@@ -9,9 +9,8 @@ Date : 10/6/2016
 #include <windows.h>// to use the function sleep
 #include <string> //STRING DATA TYPE?!
 #include "Time.h"
-#include "Menu.h"
 int battleSystem();
-int tempPointer1,tempPointer2,tempCount; // used for storing temporary values
+int tempPointer;
 using namespace std;
 
 
@@ -31,55 +30,89 @@ public:
 
 
 int choice = 99; ////Temporary variable to store choices of player.
+class Menu {
+public:
+	// ALL List of items in a menu will be here
+	string mainMenuItems[3] = { "Start Game", "Options", "Exit" };
+	string optionsMenuItems[4] = { "Zer","Keith","Ben","Test" };
+	string battleMenuItems[2] = { "Attack","Run" };
+
+	// Code for accepting arrow keys and enters
+	int menuSystem(int itemsMenu, string menu[25], string description) {
+
+		int pointer = 0;
+		while (true)
+		{
+			system("cls");
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15); // SETS TEXT COLOR TO WHITE
+			cout << description;
+			for (int i = 0; i < itemsMenu; ++i) {
+				if (i == pointer) {
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11); //sets text color to cyan
+					cout << menu[i] << endl;
+				}
+				else {
+					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+					cout << menu[i] << endl;
+				}
+			}
+			while (true) {
+				if (GetAsyncKeyState(VK_UP) != 0) { // Gets the up arrow key and each time its released it will give a random number that wont be 0
+					pointer -= 1;
+					if (pointer == -1) { // Basically brings the pointer to the bottom if the user cursor reaches the toppest
+						pointer = itemsMenu - 1; //itemsmenu is placed there because different menu has different amount of items
+					}
+					break;
+				}
+				else if (GetAsyncKeyState(VK_DOWN) != 0) {
+					pointer += 1;
+					if (pointer == itemsMenu) { //Same thing but this time it is softcoded because the amount of items in menu may vary
+						pointer = 0;			//It brings the cursor back to the top when it reaches its end at the bottom
+					}
+					break;
+				}
+				else if (GetAsyncKeyState(0x5A)) {
+				
+					return pointer;
+				}
+
+			}
+
+			Sleep(150);
+		}
+	}
+	//Code to decide what each item in a menu do
+	int mainMenu(int pointer) {
+		switch (pointer) {
+		case 0: {
+			cout << "Starting game...\n";
+			break;
+		}
+		case 1: {
+			cout << "This is the options\n";
+			break;
+		case 2:
+			exit(0);
+		}
+
+		}
+
+	}
+
+}menu;
+
+
+
 
 int main() {
 	Time day;
 	Character player;
-	Menu menu;
-	string name = "This is the keyboard input menu\n";
-	int alphabet=97;
-	
-	for (int r = 0; r < 5;r++) {
-		for (int c = 0; c < 6;c++) {
-			menu.alphabetSelection[r][c] = alphabet++;
-		}
-		
-	}
-	// display name each time i hit Z 
-	for (tempCount = 0; tempCount < 5;) {
-	menu.menuSystem(5, 6, menu.alphabetSelection, name, &tempPointer1, &tempPointer2);
-		if (GetAsyncKeyState(0x5A)) {
-
-			player.name[tempCount] = menu.alphabetSelection[tempPointer1][tempPointer2];
-			tempCount++;
-			cout << player.name;
-			
-		}
-	}
-	
-
-
-	system("pause");
-	return 0;
 	
 	//Menu system start from here
-	/*
 	string welcome = "Welcome to a Text based RPG game!\n";
-	choice = menu.menuSystem(3, menu.mainMenuItems, welcome); // This calls the menu system function (x,y) X represents the number of list in the menu and Y represents the Items to be displayed
-	
+	tempPointer = menu.menuSystem(3, menu.mainMenuItems, welcome); // This calls the menu system function (x,y) X represents the number of list in the menu and Y represents the Items to be displayed
+	menu.mainMenu(tempPointer); // This function accepts the pointer value from above and decides on what to do next
 	///////
-	switch (choice) {
-	case 0: {
-		cout << "Starting game...\n";
-		break;
-	}
-	case 1: {
-		cout << "This is the options\n";
-		break;
-	}
-	case 2:
-		exit(0);
-	}
 	cout << "Please Enter your name: ";
 
 	cin >> player.name;  //Gets player name
@@ -106,7 +139,7 @@ int main() {
 	//battleSystem();
 	
 	////////// TIMER COUNTDOWN SYSTEM(MAYBE USE TO KEEP THE SUSPENSE OF UPGRADING WEAPONS?
-	day.CdTimer(5);// the parameter is in seconds so this countsdown is 5 second
+	day.CdTimer(5);
 	
 	// DAY NIGHT SYSTEM
 
@@ -118,14 +151,13 @@ int main() {
 		day.CalculateTime(1); // Function to calculate time
 		system("pause");
 	}
-	
-	*/
+
+
 }
 
 int battleSystem(){
 	Character player; // Players information
 	Character monster;
-	Menu menu;
 	/////////////////// TEMPORARY DECLARATION AREA WILL BE REMOVED LATER FOR TESTING PURPOSES
 	monster.hp = 100; // Lets assume its 10 for now. going to remove this line of code later
 	player.maxAtk = 10;
@@ -140,9 +172,8 @@ int battleSystem(){
 	srand(time(NULL));
 	string test = "You have encountered a(monsters name)!\nWhat would you do?\n";
 	do {																	// do while loop to enable a turn based like battle system
-		menu.menuSystem(2,0, menu.battleMenuItems,test,&tempPointer1,&tempPointer2); //First parameter is to display how many list you want to show in this case its 2 because theres only attack and run for now.
-		choice = tempPointer1;
-		if (choice == 0) {										//Second parameter is to pass in an array of string that list out the contents of the menu in this case we want to pass in the string in battlemenuitems and lastly that parameter is to display any text you want in your menu that is not selectable by player
+		choice = menu.menuSystem(2, menu.battleMenuItems,test);
+		if (choice == 0) {
 			player.damageDealt = rand() % player.maxAtk + player.minAtk; // CALCULATING THE ATTACK RANGE
 			monster.damageDealt = rand() % monster.maxAtk + monster.minAtk; // calculating monster attack
 			monster.hp -= player.damageDealt; //MINUSING THE MONSTERS HP
