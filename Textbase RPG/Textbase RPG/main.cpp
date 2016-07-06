@@ -25,7 +25,6 @@ int main() {
 	//Menu system start from here
 	///////
 	cout << "Please Enter your name: ";
-
 	cin >> name;  //Gets player name
 	player.setPlayerName(name);
 
@@ -38,27 +37,32 @@ int main() {
 	switch (player.job)
 	{
 	case 1:
-		cout << "Swordsman";
+		cout << "Nerd"; //Higher int
 		break;
 	case 2:
-		cout << "Archer";
+		cout << "Athletic"; //Higher str
 		break;
 	case 3:
-		cout << "Deprived";
+		cout << "Otaku";			// Higher stats ?
 		break;
 	}
+
+	cout << "RING RING\n";
+	cout << "RING RING\n You open your eyes slowly as if they were glued together.\n RING RING\n. Huh?";
+	
+	
 
 	//battleSystem();
 	
 	////////// TIMER COUNTDOWN SYSTEM(MAYBE USE TO KEEP THE SUSPENSE OF UPGRADING WEAPONS?
-	day.CdTimer(5);
+	day.cdTimer(5);
 	battleSystem();
 	
 	// DAY NIGHT SYSTEM
 	/*
 	while (choice != 3) {
 		system("cls");
-		day.DisplayTime(); //Function to display time
+		day.displayTime(); //Function to display time
 		cout << endl << "2.Add 1 hour(Temp function to test day/night)";
 		cin >> choice;
 		day.CalculateTime(1); // Function to calculate time

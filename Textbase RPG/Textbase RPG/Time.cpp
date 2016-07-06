@@ -14,7 +14,7 @@ Time::~Time()
 {
 }
 
-int Time::CalculateTime(int hour) {
+int Time::calculateTime(int hour) {
 	
 	
 	this->hour += hour;
@@ -24,7 +24,7 @@ int Time::CalculateTime(int hour) {
 	return this->hour;
 }
 
-void Time::DisplayTime() {
+void Time::displayTime() {
 	cout << "Time now is: ";
 
 	if (hour > 12 || hour >= 24) { // Check if its 12 p.m to avoid 0 p.m.
@@ -46,7 +46,7 @@ void Time::DisplayTime() {
 
 }
 
-void Time::CdTimer(int second) {
+void Time::cdTimer(int second) {
 	for (int a = 0; a <= second; a++) {
 
 		cout << endl << second - a << "...";

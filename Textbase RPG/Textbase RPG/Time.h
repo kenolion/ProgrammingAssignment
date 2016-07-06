@@ -3,9 +3,9 @@ class Time
 {
 public:
 	Time();
-	void DisplayTime();
-	int CalculateTime(int hour);
-	void CdTimer(int second);
+	void displayTime();
+	int calculateTime(int hour);
+	void cdTimer(int second);
 
 	~Time();
 	
