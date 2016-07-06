@@ -165,7 +165,7 @@ int battleSystem(){
 			monster.hp -= player.damage; //MINUSING THE MONSTERS HP
 			player.hp -= monster.damage; // Monster turn to attack
 			cout << "You did " << player.damage << " damage." << endl;
-			cout << "The monster did " << monster.damage) << " damage" << endl;
+			cout << "The monster did " << monster.damage << " damage" << endl;
 			cout << "You now have " << player.hp << " hp left" << endl;
 			cout << "The monster now has " << monster.hp << "hp" << endl;
 			system("pause");
