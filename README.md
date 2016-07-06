@@ -1,7 +1,7 @@
 # ProgrammingAssignment
 #To-Do List
 ______________________________________________________________________________________________________________________________________
-KEITH AND BEN READ THIS FIRST!!!
+KEITH AND BEN READ THIS FIRST!!!<br>
 [] means ABSOLUTE code that has to be present before submition @ week 8 
 
 {} means extra features that may be implemented after the ABSOLUTE codes are done, you are freely obliged to add suggestions to boost the game's interactivity, features, and etcetera by typing {} with your topic,subject; and typing your topic contents below the curly braces. Anything that makes the game seem more fun and attractive to play.
