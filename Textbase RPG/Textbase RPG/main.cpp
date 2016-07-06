@@ -53,7 +53,7 @@ int main() {
 		cin >> choice;
 		if (choice == 1) {
 			player.damageDealt = rand() % player.maxAtk + player.minAtk; // CALCULATING THE ATTACK RANGE
-			monster.hp -= player.damageDealt; //MINUSING THE MONSTERS HP
+			monster.hp -= player.damageDealt; //MINUSING THE MONSTERS HP look at previous line to see how damage is calculated.
 			cout << "You did " << player.damageDealt << " damage." << endl;
 			cout << "The monster now has " << monster.hp << "hp" << endl;
 		}
