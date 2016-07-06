@@ -101,7 +101,7 @@ int battleSystem(){
 			cout << "You now have " << player.hp << " hp left" << endl;
 			cout << "The monster now has " << monster.hp << "hp" << endl;
 			system("pause");
-			
+			system("cls");
 		}
 	} while (monster.hp > 0 || player.hp >0);
 	return 0;

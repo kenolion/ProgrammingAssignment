@@ -6,7 +6,7 @@
 
 Character::Character()
 {
-	cout << "This is accessing the ";
+
 }
 
 
