@@ -10,23 +10,23 @@ ________________________________________________________________________________
 Part 1 (WEEK 8), MONDAY <br>
 •	Define a class to represent an item. <br>
 •	Create an application that uses an array of objects to represent a collect of items. <br>
-•	Write a driver program to test the methods in the user-defined class <br>
+•	Write a driver program to test the methods in the user-defined class <br><br>
 Part 1 (WEEK 8), MONDAY <br>
 1.	Apply the concepts of classes and objects using an object-oriented programming language. <br>
 2.	Use relevant classes in the predefined library to construct a complete program. <br>
 3.	Use  appropriate constructs and data types. <br>
 4.	Write a program which stores and processes objects in an array. <br>
-5.	Apply good programming style and naming conventions. <br>
+5.	Apply good programming style and naming conventions. <br><br>
 Part 2 (WEEK 13), MONDAY <br>
 •	Analyze the given scenario and  identify the required classes and their relationships. <br>
 •	Define the required classes. <br>
 •	Write test driver(s) to test the function in the user-defined classes. <br>
-•	Modify the application program from Part1 to enable the array to store objects of varying types. <br>
+•	Modify the application program from Part1 to enable the array to store objects of varying types. <br><br>
 Part 2 (WEEK 13), WEDNESDAY <br>
 1.	Develop a subclass from a super class through inheritance. <br>
 2.	Design and use abstract classes. <br>
 3.	Design systems by identify the classes and determining the relationships among the classes. <br>
-4.	Implement the concept of polymorphism in programs. <br>
+4.	Implement the concept of polymorphism in programs. <br><br>
 
 Presentation (WEEK 13), PRESENTATION
 
