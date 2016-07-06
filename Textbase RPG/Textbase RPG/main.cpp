@@ -9,24 +9,10 @@ Date : 10/6/2016
 #include <windows.h>// to use the function sleep
 #include <string> //STRING DATA TYPE?!
 #include "Time.h"
+#include "Character.h"
 int battleSystem();
 int tempPointer;
 using namespace std;
-
-
-class Character {
-public:
-	char name[15];
-	int job; //1=Swordsman,2= Archer, 3= Deprived(not an actual class just decided to put it there in the mean time)
-	int hp;
-	int minAtk;
-	int maxAtk;
-	int damageDealt;
-	int str;
-	int energy;
-	int intell;
-	int weaboo;
-};
 
 
 int choice = 99; ////Temporary variable to store choices of player.
@@ -61,6 +47,7 @@ public:
 					pointer -= 1;
 					if (pointer == -1) { // Basically brings the pointer to the bottom if the user cursor reaches the toppest
 						pointer = itemsMenu - 1; //itemsmenu is placed there because different menu has different amount of items
+					
 					}
 					break;
 				}
@@ -68,6 +55,7 @@ public:
 					pointer += 1;
 					if (pointer == itemsMenu) { //Same thing but this time it is softcoded because the amount of items in menu may vary
 						pointer = 0;			//It brings the cursor back to the top when it reaches its end at the bottom
+						
 					}
 					break;
 				}
@@ -101,13 +89,10 @@ public:
 
 }menu;
 
-
-
-
 int main() {
 	Time day;
 	Character player;
-	
+
 	//Menu system start from here
 	string welcome = "Welcome to a Text based RPG game!\n";
 	tempPointer = menu.menuSystem(3, menu.mainMenuItems, welcome); // This calls the menu system function (x,y) X represents the number of list in the menu and Y represents the Items to be displayed
@@ -140,9 +125,10 @@ int main() {
 	
 	////////// TIMER COUNTDOWN SYSTEM(MAYBE USE TO KEEP THE SUSPENSE OF UPGRADING WEAPONS?
 	day.CdTimer(5);
+	battleSystem();
 	
 	// DAY NIGHT SYSTEM
-
+	/*
 	while (choice != 3) {
 		system("cls");
 		day.DisplayTime(); //Function to display time
@@ -151,7 +137,7 @@ int main() {
 		day.CalculateTime(1); // Function to calculate time
 		system("pause");
 	}
-
+	*/
 
 }
 
@@ -160,30 +146,30 @@ int battleSystem(){
 	Character monster;
 	/////////////////// TEMPORARY DECLARATION AREA WILL BE REMOVED LATER FOR TESTING PURPOSES
 	monster.hp = 100; // Lets assume its 10 for now. going to remove this line of code later
-	player.maxAtk = 10;
-	player.minAtk = 1;
+	player.setMaxAtk(10);
+	player.setMinAtk(1);
 	player.hp = 100;
-	monster.maxAtk = 5;
-	monster.minAtk = 0;
+	monster.setMaxAtk(5);
+	monster.setMinAtk(0);
 
 	///////////////////////
 	//////// Simeple BATTLE SYSTEM   /////////
 	system("cls");
-	srand(time(NULL));
+	srand(time(nullptr));
 	string test = "You have encountered a(monsters name)!\nWhat would you do?\n";
 	do {																	// do while loop to enable a turn based like battle system
 		choice = menu.menuSystem(2, menu.battleMenuItems,test);
 		if (choice == 0) {
-			player.damageDealt = rand() % player.maxAtk + player.minAtk; // CALCULATING THE ATTACK RANGE
-			monster.damageDealt = rand() % monster.maxAtk + monster.minAtk; // calculating monster attack
-			monster.hp -= player.damageDealt; //MINUSING THE MONSTERS HP
-			player.hp -= monster.damageDealt; // Monster turn to attack
-			cout << "You did " << player.damageDealt << " damage." << endl;
-			cout << "The monster did " << monster.damageDealt << " damage" << endl;
+			player.damage = player.damageDealt();
+			monster.damage = monster.damageDealt();
+			monster.hp -= player.damage; //MINUSING THE MONSTERS HP
+			player.hp -= monster.damage; // Monster turn to attack
+			cout << "You did " << player.damage << " damage." << endl;
+			cout << "The monster did " << monster.damage) << " damage" << endl;
 			cout << "You now have " << player.hp << " hp left" << endl;
 			cout << "The monster now has " << monster.hp << "hp" << endl;
-			Sleep(2000);
-			system("cls");
+			system("pause");
+			
 		}
 	} while (monster.hp > 0 || player.hp >0);
 	return 0;
