@@ -1,11 +1,14 @@
 #pragma once
+#include <iostream>
+#include <string>
+using namespace std;
 
 class Character
 {
 public:
 	Character();
 	~Character();
-	char name[15];
+	
 	int job; //1=Swordsman,2= Archer, 3= Deprived(not an actual class just decided to put it there in the mean time)
 	int hp;
 	
@@ -18,11 +21,14 @@ public:
 	int damageDealt();
 	void setMinAtk(int damage);
 	void setMaxAtk(int damage);
-	
+	string getPlayerName();
+	void setPlayerName(string name);
+
 private:
 	int exp;
 	int minAtk;
 	int maxAtk;
+	string PlayerName;
 
 };
 

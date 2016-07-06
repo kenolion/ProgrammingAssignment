@@ -1,6 +1,6 @@
 #include "Character.h"
-#include "iostream"
-using namespace std;
+
+
 
 
 
@@ -32,4 +32,12 @@ void Character::setMinAtk(int damage){
 
 void Character::setMaxAtk(int damage){
 	maxAtk = damage;
+}
+
+void Character::setPlayerName(string name){
+	PlayerName = name;
+}
+
+string Character::getPlayerName() {
+	return PlayerName;
 }
