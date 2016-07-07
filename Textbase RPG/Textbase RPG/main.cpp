@@ -10,6 +10,8 @@ Date : 10/6/2016
 #include <string> //STRING DATA TYPE?!
 #include "Time.h"
 #include "Character.h"
+#include "Player.h"
+#include "Monster.h"
 int battleSystem();
 int tempPointer;
 using namespace std;
@@ -19,7 +21,7 @@ int choice = 99; ////Temporary variable to store choices of player.
 
 int main() {
 	Time day;
-	Character player;
+	Player player;
 	string name;
 
 	//Menu system start from here
@@ -28,12 +30,13 @@ int main() {
 	cin >> name;  //Gets player name
 	player.setPlayerName(name);
 
-	cout << "Master " << player.getPlayerName() << ". What job do you want to choose next?" << endl;
+	cout << "Master " << player.getCharacterName() << ". What job do you want to choose next?" << endl;
 	cout << "1.Swordsman" << endl << "2.Archer" << endl << "3.Deprived" << endl;
-	cin >> player.job;  // Getting input from player to choose their job
+	//cin >> player.job;  // Getting input from player to choose their job
 	cout << "Character Info" << endl; //Displays character Info
-	cout << "Name : " << player.getPlayerName() << endl;
+	cout << "Name : " << player.getCharacterName() << endl;
 	cout << "Class : ";
+	/*
 	switch (player.job)
 	{
 	case 1:
@@ -46,6 +49,7 @@ int main() {
 		cout << "Otaku";			// Higher stats ?
 		break;
 	}
+	*/
 
 	cout << "RING RING\n";
 	cout << "RING RING\n You open your eyes slowly as if they were glued together.\n RING RING\n. Huh?";
@@ -73,15 +77,16 @@ int main() {
 }
 
 int battleSystem(){
-	Character player; // Players information
-	Character monster;
+	Player player; // Players information
+	Monster monster;
 	/////////////////// TEMPORARY DECLARATION AREA WILL BE REMOVED LATER FOR TESTING PURPOSES
-	monster.hp = 100; // Lets assume its 10 for now. going to remove this line of code later
-	player.setMaxAtk(10);
-	player.setMinAtk(1);
-	player.hp = 100;
+	monster.setHp(100); // Lets assume its 10 for now. going to remove this line of code later
 	monster.setMaxAtk(5);
 	monster.setMinAtk(0);
+	player.setMaxAtk(10);
+	player.setMinAtk(1);
+	player.setHp(100);
+	int tempHp=0;
 
 	///////////////////////
 	//////// Simeple BATTLE SYSTEM   /////////
@@ -95,18 +100,25 @@ int battleSystem(){
 			cin.clear();
 			cin.ignore(100, '\n');
 		}
-		if (choice == 1) {
-			player.damage = player.damageDealt();
-			monster.damage = monster.damageDealt();
-			monster.hp -= player.damage; //MINUSING THE MONSTERS HP
-			player.hp -= monster.damage; // Monster turn to attack
+		switch(choice) {
+		case 1:{
+			player.damage = player.attack();
+			monster.damage = monster.attack();
+			monster.setHp(monster.getHp() - player.damage); //MINUSING THE MONSTERS HP
+			player.setHp(player.getHp() - monster.damage); // Monster turn to attack
 			cout << "You did " << player.damage << " damage." << endl;
 			cout << "The monster did " << monster.damage << " damage" << endl;
-			cout << "You now have " << player.hp << " hp left" << endl;
-			cout << "The monster now has " << monster.hp << "hp" << endl;
+			cout << "You now have " << player.getHp() << " hp left" << endl;
+			cout << "The monster now has " << monster.getHp() << "hp" << endl;
 			system("pause");
 			system("cls");
+			break;
 		}
-	} while (monster.hp > 0 || player.hp >0);
+		case 2: {
+
+
+		}
+		}
+	} while (player.getHp() >0 || monster.getHp()>0);
 	return 0;
 }
