@@ -8,27 +8,21 @@ class Character
 public:
 	Character();
 	~Character();
-	
-	int job; //1=Swordsman,2= Archer, 3= Deprived(not an actual class just decided to put it there in the mean time)
-	int hp;
-	
-	int str;
-	int energy;
-	int intell;
-	int weaboo;
-	int damage;
-	int getExp();
-	int damageDealt();
+	//int job; //1=Swordsman,2= Archer, 3= Deprived(not an actual class just decided to put it there in the mean time)
 	void setMinAtk(int damage);
 	void setMaxAtk(int damage);
-	string getPlayerName();
-	void setPlayerName(string name);
+	string getCharacterName();
+	int getHp();
+	void setHp(int hp);
+	int attack(); //Randomly generates the damage with minatk and maxatk
+	int damage; //Temporary stores the damage of the character when attack is called
 
-private:
-	int exp;
+protected:
+	int hp;
+	int str;
 	int minAtk;
 	int maxAtk;
-	string PlayerName;
+	string characterName;
 
 };
 

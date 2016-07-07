@@ -1,4 +1,8 @@
 #pragma once
+#include <iostream>
+#include <Windows.h>
+using namespace std;
+
 class Time
 {
 public:
@@ -10,6 +14,7 @@ public:
 	~Time();
 	
 private:
-	int hour = 24;
+	int hour = 6; //this equates to 6 am in the morning
+	int day = 0;
 };
 

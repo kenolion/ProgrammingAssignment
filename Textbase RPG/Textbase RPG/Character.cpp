@@ -15,12 +15,7 @@ Character::~Character()
 	
 }
 
-int Character::getExp()
-{
-	return this->exp;
-}
-
-int Character::damageDealt() {
+int Character::attack() {
 
 	return rand() % maxAtk + minAtk;
 
@@ -34,10 +29,18 @@ void Character::setMaxAtk(int damage){
 	maxAtk = damage;
 }
 
-void Character::setPlayerName(string name){
-	PlayerName = name;
+
+
+string Character::getCharacterName() {
+	return characterName;
 }
 
-string Character::getPlayerName() {
-	return PlayerName;
+int Character::getHp()
+{
+	return hp;
+}
+
+void Character::setHp(int hp)
+{
+	this->hp = hp;
 }

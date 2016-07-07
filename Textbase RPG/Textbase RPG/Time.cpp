@@ -1,7 +1,4 @@
 #include "Time.h"
-#include <iostream>
-#include <Windows.h>
-using namespace std;
 
 
 Time::Time()
@@ -19,7 +16,8 @@ int Time::calculateTime(int hour) {
 	
 	this->hour += hour;
 	if (this->hour>24) {
-		this->hour -= 24; // This changes the actual value of day.hour
+		this->hour -= 24; // This changes the actual value of day.hour heres where it changes to another day
+		day++;
 	}
 	return this->hour;
 }
