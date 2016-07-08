@@ -14,8 +14,12 @@ public:
 	int getEnergy();
 	void addIntel(int intel);
 	void addStr(int str);
+	int getJob();
+	int setJob(int job);
+
 
 private:
+	int job;
 	int exp;
 	int money;
 	int energy = 10;
