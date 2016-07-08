@@ -1,18 +1,25 @@
 #pragma once
 #include "Character.h"
-
-class Player:public Character
+class Player :public Character
 {
 public:
 	Player();
 	~Player();
-	int energy;
-	int intell;
 	int weaboo;
-	int getExp();
 	void setPlayerName(string name);
-	
+	int getStr();
+	int getIntel();
+	int getExp();
+	int getMoney();
+	int getEnergy();
+	void addIntel(int intel);
+	void addStr(int str);
+
 private:
 	int exp;
+	int money;
+	int energy = 10;
+	int intel = 5;
+	int str = 5;
 };
 

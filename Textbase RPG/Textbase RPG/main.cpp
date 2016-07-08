@@ -12,12 +12,16 @@ Date : 10/6/2016
 #include "Character.h"
 #include "Player.h"
 #include "Monster.h"
+#include "Activities.h"
+
 int battleSystem();
-int tempPointer;
+int tempHp;
 using namespace std;
 
 
-int choice = 99; ////Temporary variable to store choices of player.
+
+
+int choice = 0; ////Temporary variable to store choices of player.
 
 int main() {
 	Time day;
@@ -26,6 +30,7 @@ int main() {
 
 	//Menu system start from here
 	///////
+	battleSystem();
 	cout << "Please Enter your name: ";
 	cin >> name;  //Gets player name
 	player.setPlayerName(name);
@@ -60,7 +65,7 @@ int main() {
 	
 	////////// TIMER COUNTDOWN SYSTEM(MAYBE USE TO KEEP THE SUSPENSE OF UPGRADING WEAPONS?
 	day.cdTimer(5);
-	battleSystem();
+	
 	
 	// DAY NIGHT SYSTEM
 	/*
@@ -79,29 +84,30 @@ int main() {
 int battleSystem(){
 	Player player; // Players information
 	Monster monster;
+	
 	/////////////////// TEMPORARY DECLARATION AREA WILL BE REMOVED LATER FOR TESTING PURPOSES
-	monster.setHp(100); // Lets assume its 10 for now. going to remove this line of code later
-	monster.setMaxAtk(5);
-	monster.setMinAtk(0);
-	player.setMaxAtk(10);
-	player.setMinAtk(1);
+	monster.setHp(100); // Lets assume its 100 for now. going to remove this line of code later
 	player.setHp(100);
-	int tempHp=0;
-
 	///////////////////////
 	//////// Simeple BATTLE SYSTEM   /////////
+	
 	system("cls");
 	srand(time(nullptr));
-	cout << "You encountered a !\n";
+	
 	do {										// do while loop to enable a turn based like battle system
-		cout << "What do you want to do?\n1.Attack\n2.NIGERO(run)";
-		while (!(cin >> choice)) {
-			cout << "Incorrect input. Please try again.\n";
-			cin.clear();
-			cin.ignore(100, '\n');
-		}
+		cout << "You encountered a !\n";
+		cout << "What do you want to do?\n1.Attack\n2.NIGERO(run)\n";
+		cout << "=================================================================\n";
 		switch(choice) {
+		case 0: {
+			cout << "\n\n\n\n\n";
+			break;
+		}
 		case 1:{
+			monster.setMaxAtk(5);
+			monster.setMinAtk(0);
+			player.setMaxAtk(10);
+			player.setMinAtk(1);
 			player.damage = player.attack();
 			monster.damage = monster.attack();
 			monster.setHp(monster.getHp() - player.damage); //MINUSING THE MONSTERS HP
@@ -109,9 +115,7 @@ int battleSystem(){
 			cout << "You did " << player.damage << " damage." << endl;
 			cout << "The monster did " << monster.damage << " damage" << endl;
 			cout << "You now have " << player.getHp() << " hp left" << endl;
-			cout << "The monster now has " << monster.getHp() << "hp" << endl;
-			system("pause");
-			system("cls");
+			cout << "The monster now has " << monster.getHp() << "hp\n" << endl;
 			break;
 		}
 		case 2: {
@@ -119,6 +123,15 @@ int battleSystem(){
 
 		}
 		}
+		cout << "=================================================================\n";
+		cout << "Command:";
+		while (!(cin >> choice)) {
+			cout << "Incorrect input. Please try again.\n";
+			cin.clear();
+			cin.ignore(100, '\n');
+		}
+		system("cls");
 	} while (player.getHp() >0 || monster.getHp()>0);
 	return 0;
 }
+

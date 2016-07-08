@@ -19,10 +19,8 @@ public:
 
 protected:
 	int hp;
-	int str;
 	int minAtk;
 	int maxAtk;
 	string characterName;
 
 };
-
