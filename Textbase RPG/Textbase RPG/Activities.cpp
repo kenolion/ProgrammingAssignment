@@ -15,6 +15,6 @@ int Activities::school(){
 	
 	cout << "You decided to go to school";
 	player.addIntel(2);
-
+	
 
 }

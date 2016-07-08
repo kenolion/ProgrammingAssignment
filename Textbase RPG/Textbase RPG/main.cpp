@@ -27,20 +27,29 @@ int main() {
 	Time day;
 	Player player;
 	string name;
+	int job;
 
 	//Menu system start from here
 	///////
-	battleSystem();
 	cout << "Please Enter your name: ";
 	cin >> name;  //Gets player name
 	player.setPlayerName(name);
 
-	cout << "Master " << player.getCharacterName() << ". What job do you want to choose next?" << endl;
-	cout << "1.Swordsman" << endl << "2.Archer" << endl << "3.Deprived" << endl;
+	cout << "Welcome " << player.getCharacterName() << ". You are a male looking to make the world a better place whilst wanting to produce offspring with your unique skillsets. Pick a style." << endl;
+	cout << "1.Con Man - Gets more discount from shopkeepers, able to execute more actions in the day compared to others." << endl;
+	cout << "2.The Jock - Deals more damage to enemies, also has a higher chance of attracting a female mate." << endl;
+	cin >> job;
+	player.setJob(job);
+	cout << "(There are secret jobs to be picked in the game, explore the game to find out!)" << endl;
+	switch (player.getJob()) {
+	case 1:
+		system("cls");
+		cout << "You have chosen con man.";
+		break;
+
+	}
 	//cin >> player.job;  // Getting input from player to choose their job
-	cout << "Character Info" << endl; //Displays character Info
-	cout << "Name : " << player.getCharacterName() << endl;
-	cout << "Class : ";
+	
 	/*
 	switch (player.job)
 	{
@@ -55,6 +64,7 @@ int main() {
 		break;
 	}
 	*/
+	
 
 	cout << "RING RING\n";
 	cout << "RING RING\n You open your eyes slowly as if they were glued together.\n RING RING\n. Huh?";

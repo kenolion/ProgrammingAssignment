@@ -36,3 +36,13 @@ void Player::addIntel(int intel){
 void Player::addStr(int str){
 	this->str += str;
 }
+
+int Player::getJob()
+{
+	return job;
+}
+
+void Player::setJob(int job)
+{
+	this->job = job;
+}
