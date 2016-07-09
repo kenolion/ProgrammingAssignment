@@ -52,17 +52,20 @@ int Activities::fightCrime()
 	return 0;
 }
 
+
+//randLearningMessage Function
 void randLearningMessage() {
-	string randCom[2];
-	int num = rand() % 2;
+	string randCom[5];
+	int randNum = rand() % 5;
 	int i = 0;
 	string finalCom;
 	ifstream infile("randLearningMessage.txt");
 
-	while (infile.eof() >> randCom[i])
+	while (!infile.eof())
 	{
-		if (num = i) {
-			cout << randCom[num];
+		getline(infile, randCom[i]);
+		if (randNum == i) {
+			cout << randCom[i] << endl;
 		}
 		i++;
 	}

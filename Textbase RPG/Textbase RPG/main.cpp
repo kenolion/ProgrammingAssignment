@@ -14,6 +14,7 @@ Date : 10/6/2016
 #include "Monster.h"
 #include "Activities.h"
 
+
 int battleSystem();
 int tempHp;
 using namespace std;
@@ -28,6 +29,7 @@ void equalSignMaker9000(int eqCount) // COUT'S EQUAL SIGNS
 	}
 }
 int main() {
+	srand(time(nullptr));
 	Time day;
 	Player player;
 	string name;
@@ -145,7 +147,7 @@ int battleSystem(){
 	//////// Simeple BATTLE SYSTEM   /////////
 	
 	system("cls");
-	srand(time(nullptr));
+	
 	
 	do {										// do while loop to enable a turn based like battle system
 		cout << "You encountered a !\n";
