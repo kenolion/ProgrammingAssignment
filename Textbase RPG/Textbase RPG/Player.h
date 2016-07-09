@@ -15,7 +15,7 @@ public:
 	void addIntel(int intel);
 	void addStr(int str);
 	int getJob();
-	int setJob(int job);
+	void setJob(int job);
 
 
 private:

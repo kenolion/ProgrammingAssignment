@@ -18,15 +18,20 @@ int battleSystem();
 int tempHp;
 using namespace std;
 
-
-
-
 int choice = 0; ////Temporary variable to store choices of player.
 
+void equalSignMaker9000(int eqCount) // COUT'S EQUAL SIGNS
+{
+	for (int a = 0; a < eqCount; a++)
+	{
+		cout << "=";
+	}
+}
 int main() {
 	Time day;
 	Player player;
 	string name;
+	Activities doableActions; //doableActions consists of all the actions you can do in the day.
 	int job;
 
 	//Menu system start from here
@@ -34,20 +39,58 @@ int main() {
 	cout << "Please Enter your name: ";
 	cin >> name;  //Gets player name
 	player.setPlayerName(name);
-
-	cout << "Welcome " << player.getCharacterName() << ". You are a male looking to make the world a better place whilst wanting to produce offspring with your unique skillsets. Pick a style." << endl;
-	cout << "1.Con Man - Gets more discount from shopkeepers, able to execute more actions in the day compared to others." << endl;
-	cout << "2.The Jock - Deals more damage to enemies, also has a higher chance of attracting a female mate." << endl;
+	equalSignMaker9000(80); // TYPES OUT HOW MANY EQUAL SIGNS ACCORDING TO HOW MUCH NUMBERS YOU INPUT IN THE PARAMETERS.
+	cout << "\nWelcome " << player.getCharacterName() << ". You are a male looking to make the world a better place whilst \nwanting to produce offspring with your unique skillsets.\n\nSelect a playstyle.\n" << endl;
+	cout << "1.Con Man - Gets more discount from shopkeepers, able to execute more actions inthe day compared to others.\n" << endl;
+	cout << "2.The Jock - Deals more damage to enemies, also has a higher chance of \nattracting a female mate." << endl;
 	cin >> job;
 	player.setJob(job);
 	cout << "(There are secret jobs to be picked in the game, explore the game to find out!)" << endl;
-	switch (player.getJob()) {
-	case 1:
-		system("cls");
-		cout << "You have chosen con man.";
-		break;
 
+	system("cls");
+
+	cout << "You are " << player.getCharacterName();
+	switch (player.getJob()) {
+	case 1: {
+		cout <<",The Con Man. You gained 10 Intelligence and 5 Strength." << endl;
+		break;
 	}
+
+	case 2: {
+		
+		cout <<",The Jock. You gained 10 Strength and 5 Intelligence.\n" << endl << endl;
+		break;
+	}
+	}
+			int action;
+			cout << "Choose your action :" << endl;
+			cout << "1. Go to School" << endl;
+			cout << "2. Go to the Gym" << endl;
+			cout << "3. Go Shopping" << endl;
+			cout << "4. Fight Crime" << endl;
+			cin >> action;
+			system("cls");
+			switch (action) {
+			case 1: {
+				doableActions.school();
+				break;
+			}
+			case 2: {
+				doableActions.gym();
+				break;
+			}
+			case 3: {
+				doableActions.shopping();
+				break;
+			}
+			case 4: {
+				doableActions.fightCrime();
+				break;
+			}
+				
+	}
+
+	
 	//cin >> player.job;  // Getting input from player to choose their job
 	
 	/*
