@@ -6,5 +6,7 @@ class Armours
 public:
 	Armours();
 	~Armours();
+protected:
+
 };
 

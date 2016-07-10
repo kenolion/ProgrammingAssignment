@@ -6,5 +6,7 @@ class Weapons :public Items
 public:
 	Weapons();
 	~Weapons();
+protected:
+	int attackPwr;
 };
 
