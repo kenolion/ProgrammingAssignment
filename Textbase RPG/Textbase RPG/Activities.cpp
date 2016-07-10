@@ -24,47 +24,6 @@ int Activities::school(){
 	randLearningMessage();
 	
 	player.addIntel(2);
-	time.calculateTime(6);
-}
+	
 
-int Activities::adventure()
-{
-	return 0;
-}
-
-int Activities::home()
-{
-	return 0;
-}
-
-int Activities::work()
-{
-	return 0;
-}
-
-int Activities::shopping()
-{
-	return 0;
-}
-
-int Activities::fightCrime()
-{
-	return 0;
-}
-
-void randLearningMessage() {
-	string randCom[2];
-	int num = rand() % 2;
-	int i = 0;
-	string finalCom;
-	ifstream infile("randLearningMessage.txt");
-
-	while (infile.eof() >> randCom[i])
-	{
-		if (num = i) {
-			cout << randCom[num];
-		}
-		i++;
-	}
-	system("pause");
 }
