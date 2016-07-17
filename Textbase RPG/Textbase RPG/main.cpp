@@ -43,7 +43,8 @@ int main() {
 	player.setPlayerName(name);
 	Sleep(1000); //The transition combo, Sleep and CLS.
 	system("cls");
-	equalSignMaker9000(80); // TYPES OUT HOW MANY EQUAL SIGNS ACCORDING TO HOW MUCH NUMBERS YOU INPUT IN THE PARAMETERS.
+	equalSignMaker9000(80); // TYPES OUT HOW MANY EQUAL SIGNS ACCORDING TO HOW MUCH NUMBERS YOU INPUT IN THE PARAMETERS.'
+	
 	cout << "\nWelcome " << player.getCharacterName() << ". You are a male looking to make the world a better place whilst \nwanting to produce offspring with your unique skillsets.\n\nSelect a playstyle.\n" << endl;
 	cout << "1.Con Man - Gets more discount from shopkeepers, able to execute more actions inthe day compared to others.\n" << endl;
 	cout << "2.The Jock - Deals more damage to enemies, also has a higher chance of \nattracting a female mate." << endl << endl;
