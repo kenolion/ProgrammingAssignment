@@ -29,7 +29,7 @@ void equalSignMaker9000(int eqCount) // COUT'S EQUAL SIGNS
 	}
 }
 int main() {
-	srand(time(nullptr));
+	srand(time(nullptr)); //only need to run once
 	Time day;
 	Player player;
 	string name;
@@ -75,6 +75,8 @@ int main() {
 			switch (action) {
 			case 1: {
 				doableActions.school();
+				day.calculateTime(6);
+				player.addIntel(2);
 				break;
 			}
 			case 2: {

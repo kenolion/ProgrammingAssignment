@@ -17,14 +17,12 @@ int Activities::gym()
 }
 
 int Activities::school(){
-	Player player;
-	Time time;
+	
 	
 	cout << "You decided to go to school.\n";
 	randLearningMessage();
 	
-	player.addIntel(2);
-	time.calculateTime(6);
+	return 0;
 }
 
 int Activities::adventure()

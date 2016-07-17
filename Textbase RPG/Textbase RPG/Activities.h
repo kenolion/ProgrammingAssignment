@@ -1,4 +1,6 @@
-#pragma once
+#ifndef ACTIVITIES_H
+#define ACTIVITIES_H
+
 #include "Player.h"
 #include <iostream>
 #include <fstream>
@@ -19,3 +21,4 @@ public:
 	int fightCrime();
 };
 
+#endif // !ACTIVITIES_H
