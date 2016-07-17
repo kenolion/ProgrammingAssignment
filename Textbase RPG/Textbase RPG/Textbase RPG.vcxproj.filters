@@ -36,9 +36,6 @@
     <ClCompile Include="Items.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Armours.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Furnitures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,7 +45,7 @@
     <ClCompile Include="ConsoleWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserInterface.cpp">
+    <ClCompile Include="BattleSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -71,9 +68,6 @@
     <ClInclude Include="Items.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Weapons.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Furnitures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -83,7 +77,7 @@
     <ClInclude Include="ConsoleWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UserInterface.h">
+    <ClInclude Include="BattleSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
