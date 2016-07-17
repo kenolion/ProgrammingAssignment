@@ -33,7 +33,7 @@ void Time::displayTime() {
 	}
 	if (hour > 11 && hour <= 23) {  // to check if the time is PM or AM
 
-		cout << " p.m." << endl;
+		cout << " p.m" << endl;
 	}
 
 	else {
@@ -50,4 +50,9 @@ void Time::cdTimer(int second) {
 		cout << endl << second - a << "...";
 		Sleep(1000); // time is measured in milli second
 	}
+}
+
+int Time::getHour()
+{
+	return hour;
 }

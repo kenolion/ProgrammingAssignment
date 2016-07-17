@@ -10,7 +10,7 @@ public:
 	void displayTime();
 	int calculateTime(int hour);
 	void cdTimer(int second);
-
+	int getHour();
 	~Time();
 	
 private:

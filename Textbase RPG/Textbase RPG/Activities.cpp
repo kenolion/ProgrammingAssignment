@@ -55,12 +55,16 @@ int Activities::fightCrime()
 
 //randLearningMessage Function
 void randLearningMessage() {
-	string randCom[5];
-	int randNum = rand() % 5;
+	Sleep(1000);
+	int randNum = rand() % 16;
 	int i = 0;
-	string finalCom;
 	ifstream infile("randLearningMessage.txt");
-
+	string randCom[16];
+	if (infile.fail()) {
+		cout << "Error Opening File " << endl;
+		system("pause");
+		exit(1);
+	}
 	while (!infile.eof())
 	{
 		getline(infile, randCom[i]);
@@ -68,6 +72,9 @@ void randLearningMessage() {
 			cout << randCom[i] << endl;
 		}
 		i++;
+		
 	}
+	for (int a = 0; a < 80; a++) { cout << "="; };
 	system("pause");
+	Sleep(1000);
 }

@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-class Activities
+class Activities 
 {
 public:
 	Activities();
