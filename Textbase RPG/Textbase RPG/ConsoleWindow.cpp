@@ -1,5 +1,6 @@
 #include "ConsoleWindow.h"
 #include <windows.h>
+#include <iostream>
 
 using namespace std;
 ConsoleWindow::ConsoleWindow() // "ConsoleWindow::ConsoleWindow () To make things your member
@@ -35,4 +36,11 @@ void ConsoleWindow::SetFontColour(int kolor)
 {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, kolor); //SetConsoleTextAttribute allows you to change font color, at will.
+}
+void ConsoleWindow::equalSignMaker9000(int eqCount) // COUT'S EQUAL SIGNS
+{
+	for (int a = 0; a < eqCount; a++)
+	{
+		cout << "=";
+	}
 }

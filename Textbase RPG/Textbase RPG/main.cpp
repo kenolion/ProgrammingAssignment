@@ -13,6 +13,7 @@ Date : 10/6/2016
 #include "Player.h"
 #include "Monster.h"
 #include "Activities.h"
+#include "ConsoleWindow.h"
 #include "Shop.h"
 
 int tempHp;
@@ -20,14 +21,6 @@ int action;
 using namespace std;
 
 int choice = 0; ////Temporary variable to store choices of player.
-
-void equalSignMaker9000(int eqCount) // COUT'S EQUAL SIGNS
-{
-	for (int a = 0; a < eqCount; a++)
-	{
-		cout << "=";
-	}
-}
 
 int main() {
 	srand(time(nullptr));
@@ -37,7 +30,7 @@ int main() {
 	string name;
 	Activities doableActions; //doableActions consists of all the actions you can do in the day.
 	Shop shop;
-	Items item;
+	Items item[10];
 	int job;
 
 	//Menu system start from here
@@ -48,18 +41,17 @@ int main() {
 	player.setPlayerName(name);
 	Sleep(1000); //The transition combo, Sleep and CLS.
 	system("cls");
-	equalSignMaker9000(80); // TYPES OUT HOW MANY EQUAL SIGNS ACCORDING TO HOW MUCH NUMBERS YOU INPUT IN THE PARAMETERS.'
-
+	ConsoleWindow::equalSignMaker9000(80); // TYPES OUT HOW MANY EQUAL SIGNS ACCORDING TO HOW MUCH NUMBERS YOU INPUT IN THE PARAMETERS.'
 	cout << "\nWelcome " << player.getCharacterName() << ". You are a male looking to make the world a better place whilst \nwanting to produce offspring with your unique skillsets.\n\nSelect a playstyle.\n" << endl;
 	cout << "1.Con Man - Gets more discount from shopkeepers, able to execute more actions inthe day compared to others.\n" << endl;
 	cout << "2.The Jock - Deals more damage to enemies, also has a higher chance of \nattracting a female mate." << endl << endl;
 	cout << "(There are secret jobs to be picked in the game, explore the game to find out!)" << endl;
-	equalSignMaker9000(80);
+	ConsoleWindow::equalSignMaker9000(80);
 	cin >> job;
 	player.setJob(job);
 	Sleep(1000);
 	system("cls");
-	equalSignMaker9000(80);
+	ConsoleWindow::equalSignMaker9000(80);
 
 	cout << "You are " << player.getCharacterName();
 
@@ -75,12 +67,13 @@ int main() {
 	}
 	}
 	cout << "***You have 12 hours before nightfall comes. Spend your time wisely.***" << endl;
-	equalSignMaker9000(80);
+	ConsoleWindow::equalSignMaker9000(80);
 	system("pause");
 	Sleep(1000);
+	while (1) {
 	do {
 		system("cls");
-		equalSignMaker9000(80);
+		ConsoleWindow::equalSignMaker9000(80);
 		int action;
 		int a;
 		cout << "Choose your action :" << endl;
@@ -90,10 +83,10 @@ int main() {
 		cout << "4. Fight Crime (6 Hours)" << endl;
 		cout << "5. Visit the Shop( 0 Hours)" << endl;
 		day.displayTime();
-		equalSignMaker9000(80);
+		ConsoleWindow::equalSignMaker9000(80);
 		cin >> action;
 		system("cls");
-		equalSignMaker9000(80);
+		ConsoleWindow::equalSignMaker9000(80);
 		switch (action) {
 			Sleep(1000);
 		case 1: {
@@ -120,34 +113,38 @@ int main() {
 		case 5: {
 			shop.readItemDatabase();
 			shop.displayItems();
-			equalSignMaker9000(80);
+			ConsoleWindow::equalSignMaker9000(80);
 			system("pause");
 			break;
 		}
 		}
-		equalSignMaker9000(80);
+		ConsoleWindow::equalSignMaker9000(80);
 
 	} while (day.getHour() < 13);
 	Sleep(1000);
 	system("cls");
 	Sleep(1500);
-	equalSignMaker9000(80);
+	ConsoleWindow::equalSignMaker9000(80);
 	cout << "Nightfall has come. Monsters arrive in 6 hours." << endl;
 	cout << "Choose your action wisely!:" << endl;
 	cout << "1. Go to the pub and hit on girls. (3 Hours) " << endl;
 	cout << "2. Go home and prepare against the monsters. (1 Hour)" << endl;
 	cout << "3. Stay outside." << endl;
 	day.displayTime();
+	ConsoleWindow::equalSignMaker9000(80);
 	cin >> action;
 	switch (action) {
 		Sleep(1000);
 	case 2: { 
+		day.calculateTime(1);
 		doableActions.home();
 		break;
 	}
 	}
-		equalSignMaker9000(80);
+
+		ConsoleWindow::equalSignMaker9000(80);
 		system("pause");
+	}
 
 		//cin >> player.job;  // Getting input from player to choose their job
 

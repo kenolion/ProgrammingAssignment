@@ -1,6 +1,7 @@
 #include "Activities.h"
 #include "Time.h"
 #include "BattleSystem.h"
+#include "ConsoleWindow.h"
 void randLearningMessage();
 
 Activities::Activities()
@@ -35,11 +36,14 @@ int Activities::home()
 {	
 	Time day;
 	do {
-		cout << "Welcome home. You have 5 hours before the monsters arrive. Every action takes an hour. Choose wisely" << endl;
-		cout << "1.Prepare your Weapons. (+2 Attack before the fight)" << endl;
-		cout << "2.Prepare your Defences. (+2 Health before the fight)" << endl;
-		cout << "3.Prepare scavanging. (2% chance higher of finding a random item from killing a monster)" << endl;
+		system("cls");
+		ConsoleWindow::equalSignMaker9000(80);
+		cout << "Welcome home. You have 5 hours before the monsters arrive.\nEvery action takes an hour. Choose wisely" << endl;
+		cout << "1.Prepare your Weapons. (+2 Attack before the fight) [1 Hour]" << endl;
+		cout << "2.Prepare your Defences. (+2 Health before the fight) [1 Hour]" << endl;
+		cout << "3.Prepare scavanging. (2% chance higher of finding a random item from killing a monster) [1 Hour]" << endl;
 		day.displayTime();
+		ConsoleWindow::equalSignMaker9000(80);
 		cin >> action;
 		switch (action)
 		{
@@ -48,7 +52,7 @@ int Activities::home()
 			day.calculateTime(1);
 		}
 		}
-	}while (day.getHour() < 6);
+	}while (day.getHour() < 24);
 	BattleSystem::battleSystem();
 	return 0;
 }

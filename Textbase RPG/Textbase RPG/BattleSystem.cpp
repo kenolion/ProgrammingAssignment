@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Player.h"
 #include "Monster.h"
+#include "ConsoleWindow.h"
 using namespace std;
 
 BattleSystem::BattleSystem()
@@ -25,10 +26,10 @@ void BattleSystem::battleSystem() {
 	int choice = 0;
 	system("cls");
 
-
+	ConsoleWindow::equalSignMaker9000(80);
 	do {										// do while loop to enable a turn based like battle system
 		cout << "You encountered a !\n";
-		cout << "What do you want to do?\n1.Attack\n2.NIGERO(run)\n";
+		cout << "What do you want to do?\n1.Attack\n2.NIGERO(Run)\n";
 		cout << "=================================================================\n";
 		switch (choice) {
 		case 0: {
@@ -46,8 +47,10 @@ void BattleSystem::battleSystem() {
 			player.setHp(player.getHp() - monster.damage); // Monster turn to attack
 			cout << "You did " << player.damage << " damage." << endl;
 			cout << "The monster did " << monster.damage << " damage" << endl;
-			cout << "You now have " << player.getHp() << " hp left" << endl;
-			cout << "The monster now has " << monster.getHp() << "hp\n" << endl;
+			if (monster.getHp() > 0 && player.getHp() > 0) {
+				cout << "You now have " << player.getHp() << " hp left" << endl;
+				cout << "The monster now has " << monster.getHp() << "hp\n" << endl;
+			}
 			break;
 		}
 		case 2: {
@@ -57,13 +60,15 @@ void BattleSystem::battleSystem() {
 		}
 		cout << "=================================================================\n";
 		cout << "Command:";
+		cout << endl << endl;
+		ConsoleWindow::equalSignMaker9000(80);
 		while (!(cin >> choice)) {
 			cout << "Incorrect input. Please try again.\n";
 			cin.clear();
 			cin.ignore(100, '\n');
 		}
 		system("cls");
-	} while (player.getHp() >0 || monster.getHp()>0);
-	
+	} while (monster.getHp()>0 && player.getHp() >0  );
+
 }
 
