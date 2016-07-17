@@ -1,9 +1,11 @@
 #include "Time.h"
-
+int Time::hour;
+int Time::day;
 
 Time::Time()
 {
-	
+	this->day = 0;
+	this->hour = 6;
 }
 
 

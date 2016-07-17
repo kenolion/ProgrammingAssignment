@@ -14,7 +14,7 @@ public:
 	~Time();
 	
 private:
-	int hour = 6; //this equates to 6 am in the morning
-	int day = 0;
+	static int hour; //this equates to 6 am in the morning
+	static int day;
 };
 
