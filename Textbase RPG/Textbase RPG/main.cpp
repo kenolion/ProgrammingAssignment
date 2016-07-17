@@ -1,4 +1,5 @@
 /*
+Everyday Quest with Waifus and Monsters simulator 2016 #Swag
 C++ Programming Assignment
 Text Based RPG Game
 By : Keith, Ben and Zer
