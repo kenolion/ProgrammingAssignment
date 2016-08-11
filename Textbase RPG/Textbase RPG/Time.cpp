@@ -4,8 +4,6 @@ int Time::day;
 
 Time::Time()
 {
-	this->day = 0;
-	this->hour = 6;
 }
 
 
@@ -13,9 +11,12 @@ Time::~Time()
 {
 }
 
+void Time::setTime(int hour)
+{
+	this->hour = hour;
+}
+
 int Time::calculateTime(int hour) {
-	
-	
 	this->hour += hour;
 	if (this->hour>24) {
 		this->hour -= 24; // This changes the actual value of day.hour heres where it changes to another day

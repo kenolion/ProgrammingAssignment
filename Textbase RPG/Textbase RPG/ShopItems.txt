@@ -1,11 +1,11 @@
-ItemID  Itemname 	  	Price	Damage
-1 	Rusty Switchblade 	5  	3-5
-2	Rusty ShortSword  	10 	5-7
-3 	Bronze SwitchBlade 	15 	8-10 
-4	Bronze ShortSword 	20	11-13
-5	Iron SwitchBlade 	25 	14-15
-6	Iron ShortSword 	30	16-18
-7	Mithril SwitchBlade 	35  	19-21
-8	Mithril ShortSword 	40 	22-24
-9	Adamantite Switchblade  45	25-27
-10	Adamantite ShortSword 	50 	28-29
+ItemID  Itemname 	  	Price	MinDamage MaxDamage
+1 	Rusty Switchblade 	5  	3  	  5
+2	Rusty ShortSword  	10 	5  	  7
+3 	Bronze SwitchBlade 	15 	8  	  10 
+4	Bronze ShortSword 	20	11  	  13
+5	Iron SwitchBlade	25 	14  	  15
+6	Iron ShortSwordz	30	16  	  18
+7	Mithril SwitchBlade 	35  	19  	  21
+8	Mithril ShortSword 	40 	22  	  24
+9	Adamantite Switchblade  45	25  	  27
+10	Adamantite ShortSword 	50 	28  	  30

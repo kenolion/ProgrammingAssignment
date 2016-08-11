@@ -112,7 +112,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Activities.cpp" />
+    <ClCompile Include="BattleSystem.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="ConsoleWindow.cpp" />
     <ClCompile Include="Furnitures.cpp" />
     <ClCompile Include="Items.cpp" />
     <ClCompile Include="main.cpp" />
@@ -123,7 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Activities.h" />
+    <ClInclude Include="BattleSystem.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="ConsoleWindow.h" />
     <ClInclude Include="Furnitures.h" />
     <ClInclude Include="Items.h" />
     <ClInclude Include="Monster.h" />

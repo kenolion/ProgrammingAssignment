@@ -2,6 +2,7 @@
 #define ACTIVITIES_H
 
 #include "Player.h"
+#include "Time.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -19,6 +20,8 @@ public:
 	int	work();
 	int shopping(); //Zer added shopping() and fightcrime()
 	int fightCrime();
+	//Time day;
+	int action;
 };
 
 #endif // !ACTIVITIES_H
