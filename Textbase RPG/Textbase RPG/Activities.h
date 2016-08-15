@@ -18,8 +18,8 @@ public:
 	int adventure();
 	int home();
 	int	work();
-	int shopping(); //Zer added shopping() and fightcrime()
 	int fightCrime();
+	int randEvents();
 	//Time day;
 	int action;
 };

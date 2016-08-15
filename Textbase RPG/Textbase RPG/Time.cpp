@@ -4,6 +4,13 @@ int Time::day;
 
 Time::Time()
 {
+	
+}
+Time::Time(int hour,int day)
+{
+	this->hour = hour;
+	this->day = day;
+
 }
 
 
@@ -16,13 +23,19 @@ void Time::setTime(int hour)
 	this->hour = hour;
 }
 
-int Time::calculateTime(int hour) {
-	this->hour += hour;
-	if (this->hour>24) {
-		this->hour -= 24; // This changes the actual value of day.hour heres where it changes to another day
+int Time::calculateTime(int hour1) {
+	hour += hour1;
+	if (hour>24) {
+		hour -= 24; // This changes the actual value of day.hour heres where it changes to another day
 		day++;
+
+		system("cls");
+		Sleep(1000);
+		cout << "You survived the day. Good job coming this FAR.\nDAY " << Time::getDay() << " starts now.\n";
+		system("pause");
+
 	}
-	return this->hour;
+	return hour;
 }
 
 void Time::displayTime() {
@@ -58,4 +71,8 @@ void Time::cdTimer(int second) {
 int Time::getHour()
 {
 	return hour;
+}
+
+int Time::getDay() {
+	return day;
 }

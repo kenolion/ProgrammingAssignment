@@ -7,13 +7,15 @@ class Time
 {
 public:
 	Time();
+	Time(int hour,int day);
 	void displayTime();
-	int calculateTime(int hour);
+	static int calculateTime(int hour);
 	void cdTimer(int second);
-	int getHour();
+	static int getHour();
+	static int getDay();
 	~Time();
 	void setTime(int hour);
-
+	
 private:
 	static int hour; //this equates to 6 am in the morning
 	static int day;

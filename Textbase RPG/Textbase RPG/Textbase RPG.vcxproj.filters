@@ -39,19 +39,13 @@
     <ClCompile Include="Furnitures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BattleSystem.cpp">
+    <ClCompile Include="Shop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ConsoleWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Shop.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Weapons.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Armours.cpp">
+    <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,24 +74,18 @@
     <ClInclude Include="Shop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BattleSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ConsoleWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Weapons.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Armours.h">
+    <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="WeaponsDatabase.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="ArmoursDatabase.txt">
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="randLearningMessage.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

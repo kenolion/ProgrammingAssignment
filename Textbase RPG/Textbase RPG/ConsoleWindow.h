@@ -4,7 +4,6 @@
 class ConsoleWindow
 {
 
-
 public:
 	static void ShowConsoleCursor(bool torf);
 	static void SetDrawingPoint(int x, int y);
