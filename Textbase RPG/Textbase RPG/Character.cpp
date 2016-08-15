@@ -42,5 +42,6 @@ int Character::getHp()
 
 void Character::setHp(int hp)
 {
+
 	this->hp = hp;
 }

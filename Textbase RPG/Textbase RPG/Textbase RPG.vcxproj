@@ -112,10 +112,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Activities.cpp" />
-    <ClCompile Include="BattleSystem.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="ConsoleWindow.cpp" />
     <ClCompile Include="Furnitures.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Items.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -125,15 +125,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Activities.h" />
-    <ClInclude Include="BattleSystem.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="ConsoleWindow.h" />
     <ClInclude Include="Furnitures.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Items.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="Time.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="randLearningMessage.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
