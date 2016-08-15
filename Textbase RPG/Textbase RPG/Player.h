@@ -5,7 +5,7 @@ class Player :public Character
 public:
 	Player();
 	~Player();
-	int weaboo;
+	
 	void setPlayerName(string name);
 	int getStr();
 	int getIntel();
@@ -25,5 +25,6 @@ private:
 	int energy = 10;
 	int intel = 5;
 	int str = 5;
+	int weaboo;
 };
 

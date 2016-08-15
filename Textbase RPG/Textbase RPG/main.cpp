@@ -16,6 +16,7 @@ Date : 10/6/2016
 #include "Activities.h"
 #include "ConsoleWindow.h"
 #include "Shop.h"
+#include "Weapons.h"
 
 int tempHp;
 int action;
@@ -30,10 +31,22 @@ int main() {
 	Player player;
 	string name;
 	Activities doableActions; //doableActions consists of all the actions you can do in the day.
-	Shop shop;
-	Items item[10];
+	Shop shop;		
+	Weapons weapon;
+	Armours armour;
+	Items *weapons = &weapon;
+	Items *armours = &armour;
+
+
 	int job;
 
+	weapons->readItemDatabase();
+	armours->readItemDatabase();
+	shop.displayWeapon(weapon);
+	system("pause");
+	shop.displayArmour(armour);
+	
+	system("pause");
 	//Menu system start from here
 	///////
 
@@ -83,6 +96,8 @@ int main() {
 		cout << "3. Go Shopping (6 Hours)" << endl;
 		cout << "4. Fight Crime (6 Hours)" << endl;
 		cout << "5. Visit the Shop( 0 Hours)" << endl;
+
+		
 		day.displayTime();
 		ConsoleWindow::equalSignMaker9000(80);
 		cin >> action;
@@ -112,8 +127,7 @@ int main() {
 			break;
 		}
 		case 5: {
-			shop.readItemDatabase();
-			shop.displayItems();
+			//shop.displayItems();
 			ConsoleWindow::equalSignMaker9000(80);
 			system("pause");
 			break;
@@ -186,5 +200,4 @@ int main() {
 
 
 		*/
-
 	}

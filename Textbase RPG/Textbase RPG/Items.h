@@ -2,6 +2,7 @@
 #define ITEM_H
 
 #include <string>
+#include <vector>
 using namespace std;
 
 class Items
@@ -9,14 +10,20 @@ class Items
 public:
 	Items();
 	~Items();
-	void readItemDatabase();
-protected:
-	string tempStr;
-	int itemId[10];
-	int price[10];
-	int maxAtk[10];
-	int minAtk[10];
-	string name[10];
+	struct itemInfo {
+		string tempStr;
+		int itemId;
+		int price;
+		int maxAtk;
+		int minAtk;
+		int defense;
+		string name;
+	};
+	itemInfo item;
+	virtual void readItemDatabase();
+	vector<itemInfo> weaponVector; //vector<data type> vectorname;
+	vector<itemInfo> armourVector;
+	
 };
 
 #endif // !ITEM_H
