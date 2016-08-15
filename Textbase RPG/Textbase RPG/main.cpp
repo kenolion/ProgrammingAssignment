@@ -17,6 +17,8 @@ Date : 10/6/2016
 #include "ConsoleWindow.h"
 #include "Shop.h"
 #include "Game.h"
+#include "Weapons.h"
+#include "Armours.h"
 int tempHp;
 int action;
 using namespace std;
@@ -32,7 +34,12 @@ int main() {
 	string name;
 	Activities doableActions; //doableActions consists of all the actions you can do in the day.
 	Shop shop;
-	Items item[10];
+	Weapons weapon;
+	Armours armour;
+	Items *weapons = &weapon;
+	Items *armours = &armour;
+	weapons->readItemDatabase();
+	armours->readItemDatabase();
 	int job;
 
 	//Menu system start from here
@@ -114,8 +121,24 @@ int main() {
 				break;
 			}
 			case 5: {
-				shop.readItemDatabase();
-				shop.displayItems();
+				while(action != 3){
+				cout << "1.Buy weapons\n";
+				cout << "2.Buy armours\n";
+				cout << "3.Exit Shop\n";
+				cin >> action;
+					switch (action) {
+					case 1:
+						shop.displayWeapon(weapon);
+						system("pause");
+						system("cls");
+						break;
+					case 2:
+						shop.displayArmour(armour);
+						system("pause");
+						system("cls");
+						break;
+				}
+				}
 				ConsoleWindow::equalSignMaker9000(80);
 				system("pause");
 				break;
