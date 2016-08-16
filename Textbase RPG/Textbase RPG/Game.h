@@ -8,6 +8,7 @@ public:
 	Game();
 	~Game();
 	static void battleSystem();
+	static void showItemandStats();
 };
 
 #endif

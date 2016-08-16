@@ -16,19 +16,132 @@ Activities::~Activities()
 
 int Activities::gym()
 {
-	cout << "You decided to go to the gym.\n"; \
+	cout << "You decided to go to the gym.\n"; 
+	cout << "Press THE UP AND DOWN ARROW KEY TO INCREASE THE *ACTIVITIES BAR* \nAND WORK OUT IN THE GYM!!!\n\n";
+	int bar = 0;
+	cout << "(";
+	for (int i = 0; i <= 59; i++) { cout << " "; } // PRINTS OUT 58 SPACES
+	int c = 1;
+	cout << ")";
+	while (bar != 60)
+	{
+		_getch(); // IT WILL STRAIGHT AWAY REGISTER THAT KEY WITHOUT PRESSING ENTER
+		char key = _getch();
+		ConsoleWindow::SetDrawingPoint(c, 5);
+		switch (key) {
+		case KEY_UP:
+		{
+			cout << "|";
+			bar++;
+			c++;
+			break;
+		}
+		case KEY_DOWN:
+		{
+
+			cout << "|";
+			bar++;
+			c++;
+			break;
+		}
+	
+		}
+	}
+	cout << "\n\n";
 	randLearningMessage(2);
+	ConsoleWindow::equalSignMaker9000(80);
+	system("pause");
 	return 0;
 }
 
-int Activities::school() {
+int Activities::school(){
 
 	cout << "You decided to go to school.\n";
-	randLearningMessage(1);
+	cout << "Press THE UP AND DOWN ARROW KEY TO INCREASE THE *ACTIVITIES BAR* \nAND LEARN AT SCHOOL!!!\n\n";
+	int bar = 0;
+	cout << "("; 
+	for (int i = 0; i <= 59; i++) { cout << " "; } // PRINTS OUT 58 SPACES
+	int c = 1;
+	cout << ")";
+	while (bar != 60)
+	{
+		_getch(); // IT WILL STRAIGHT AWAY REGISTER THAT KEY WITHOUT PRESSING ENTER
+		char key = _getch();
+		ConsoleWindow::SetDrawingPoint(c, 5);
+		switch (key) {
+		case KEY_UP:
+		{
+			cout << "|";
+			bar++;
+			c++;
+			break;
+		}
+		case KEY_DOWN:
+		{
 
+			cout << "|";
+			bar++;
+			c++;
+			break;
+		}
+
+		}
+	}
+	cout << "\n\n";
+	randLearningMessage(1);
+	ConsoleWindow::equalSignMaker9000(80);
+	system("pause");
 	return 0;
 }
 
+int Activities::work()
+{
+	cout << "You decided to go to work at your local McDonalds! You're loving it!\n";
+	cout << "Press THE UP AND DOWN ARROW KEY TO INCREASE THE *ACTIVITIES BAR* \nAND WORK FOR MONEY!!!\n\n";
+	int bar = 0;
+	cout << "(";
+	for (int i = 0; i <= 59; i++) { cout << " "; } // PRINTS OUT 58 SPACES
+	int c = 1;
+	cout << ")";
+	while (bar != 60)
+	{
+		_getch(); // IT WILL STRAIGHT AWAY REGISTER THAT KEY WITHOUT PRESSING ENTER
+		char key = _getch();
+		ConsoleWindow::SetDrawingPoint(c, 5);
+		switch (key) {
+		case KEY_UP:
+		{
+			cout << "|";
+			bar++;
+			c++;
+			break;
+		}
+		case KEY_DOWN:
+		{
+
+			cout << "|";
+			bar++;
+			c++;
+			break;
+		}
+
+		}
+	}
+	cout << "\n\n";
+	randLearningMessage(3);
+	ConsoleWindow::equalSignMaker9000(80);
+	system("pause");
+	return 0;
+}
+
+
+int Activities::fightCrime()
+{
+	cout << "You decided to FIGHT CRIME!\n";
+	cout << "Crimes are harder to beat compared to normal monsters.\n";
+	Game::battleSystem();
+	return 0;
+}
 int Activities::adventure()
 {
 	return 0;
@@ -73,21 +186,6 @@ int Activities::home()
 	return 0;
 }
 
-int Activities::work()
-{
-	cout << "You decided to go to work at your local McDonalds! You're loving it!\n";
-	randLearningMessage(3);
-	return 0;
-}
-
-
-int Activities::fightCrime()
-{
-	cout << "You decided to FIGHT CRIME!\n";
-	cout << "Crimes are harder to beat compared to normal monsters.\n";
-	Game::battleSystem();
-	return 0;
-}
 
 int Activities::randEvents()
 {
@@ -97,22 +195,27 @@ int Activities::randEvents()
 
 //randLearningMessage Function
 void randLearningMessage(int textFileNo) {
-	Sleep(1000);
 	int randNum;
 	int i = 0;
 	ifstream infile("randLearningMessage.txt");
 
-	if ( textFileNo == 1) { 
+	if ( textFileNo == 1) { //School Random Messages
 		randNum = rand() % 16; // 0 - 15
+		Sleep(1000);
 	}
-	else if (textFileNo == 2) {
+	else if (textFileNo == 2) { //Gym Random Messages
 		randNum = rand() % 16+16; // 16 - 32
+		Sleep(1000);
 	}
-	else if (textFileNo == 3) {
+	else if (textFileNo == 3) { //Working Random Messages
 		randNum = rand() % 9+33; // 33 - 42
+		Sleep(1000);
+	}
+	else if (textFileNo == 4) { // Workout Motivational Messages
+		randNum = rand() % 10 + 43; // 43 - 53
 	}
 
-	string randCom[50];
+	string randCom[100];
 
 	if (infile.fail()) {
 		cout << "Error Opening File " << endl;
@@ -128,7 +231,4 @@ void randLearningMessage(int textFileNo) {
 		i++;
 		
 	}
-	for (int a = 0; a < 80; a++) { cout << "="; }; //EQUAL SIGN MAKER
-	system("pause");
-	Sleep(1000);
 }

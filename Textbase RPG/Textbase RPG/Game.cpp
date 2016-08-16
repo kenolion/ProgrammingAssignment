@@ -77,3 +77,9 @@ void Game::battleSystem() {
 		Time::calculateTime(6);
 	}
 
+void Game::showItemandStats()
+{
+	ConsoleWindow::SetDrawingPoint(0,0);
+	system("cls");
+
+}
