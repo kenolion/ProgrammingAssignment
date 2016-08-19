@@ -1,5 +1,5 @@
 ItemID  Itemname 	  	Price	MinDamage MaxDamage
-0	Sharp Pencil			|0		1		   2	
+0Sharp Pencil|0		1		   2	
 1 	Rusty Switchblade 		|5  	3  		   5
 2	Rusty ShortSword  		|10 	5  		   7
 3 	Bronze SwitchBlade 		|15 	8  		  10 

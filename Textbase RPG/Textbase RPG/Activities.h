@@ -8,6 +8,7 @@
 #include <string>
 #include <conio.h>
 #include "Monster.h"
+#include "Game.h"
 using namespace std;
 
 class Activities 
@@ -15,13 +16,14 @@ class Activities
 public:
 	Activities();
 	~Activities();
-	int gym(Player *player);
-	int school(Player *player);
-	int adventure(Player *player);
+	int gym();
+	int school();
+	int adventure();
 	int home(Player *player, Weapons weapon, Armours armour, Monster monster);
-	int	work(Player *player); 
+	int	work(); 
 	int fightCrime(Player *player, Weapons weapon, Armours armour, Monster monster);
-	int randEvents(Player *player);
+	int randEvents(Player *player, Weapons weapon, Armours armour, Monster monster);
+	void randLearningMessage(int textFileNo);
 	//Time day;
 	enum InputKey { KEY_UP = 72, KEY_DOWN = 80, KEY_LEFT = 75, KEY_RIGHT = 77 }; 
 	int action;

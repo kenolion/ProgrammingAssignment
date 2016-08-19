@@ -17,6 +17,7 @@ void Weapons::readItemDatabase()
 	getline(Item, item.tempStr);
 	while (!Item.eof())
 	{
+		Item >> item.itemId;
 		getline(Item, item.name, '|');
 		//item.name += " " + item.tempStr;
 		Item >> item.price >> item.minAtk >> item.maxAtk;

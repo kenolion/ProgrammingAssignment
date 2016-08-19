@@ -23,7 +23,6 @@ void Game::battleSystem(Player *player,Weapons weapon,Armours armour,Monster mon
 		///////////////////////
 		//////// Simeple BATTLE SYSTEM   /////////
 		int choice = 0;
-		monster.characterVector[monsterID].characterID = monsterID;
 		player->showItemandStats(weapon,armour);
 		ConsoleWindow::equalSignMaker9000(80);
 		while (monster.getHp()>0 && player->getHp() >0) {										// do while loop to enable a turn based like battle system

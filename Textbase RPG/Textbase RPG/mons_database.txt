@@ -10,3 +10,4 @@ MONSTER ID MONSTERNAME MONSTER ATTACK MONSTER HP
 8 Siowster Monster|30 40 30
 9 Fourhands Monster|130 140 130
 10 Lickitung| 230 150 230
+11 MiddleAged Man| 10 20 50

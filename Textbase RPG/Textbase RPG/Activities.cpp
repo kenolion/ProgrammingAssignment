@@ -130,11 +130,11 @@ int Activities::work()
 }
 
 
-int Activities::fightCrime()
+int Activities::fightCrime(Player *player, Weapons weapon, Armours armour, Monster monster)
 {
 	cout << "You decided to FIGHT CRIME!\n";
 	cout << "Crimes are harder to beat compared to normal monsters.\n";
-	Game::battleSystem();
+	Game::battleSystem(player, weapon, armour, monster, 2);
 	return 0;
 }
 int Activities::adventure()
@@ -142,11 +142,11 @@ int Activities::adventure()
 	return 0;
 }
 
-int Activities::home()
+int Activities::home(Player *player, Weapons weapon, Armours armour, Monster monster)
 {	
 	Time day;
 	do {
-		Game::showItemandStats();
+		player->showItemandStats(weapon, armour);
 		ConsoleWindow::equalSignMaker9000(80);
 		cout << "Welcome home. You have 5 hours before the monsters arrive.\nEvery action takes an hour. Choose wisely" << endl;
 		cout << "1.Prepare your Weapons. (+2 Attack before the fight) [1 Hour]" << endl;
@@ -177,11 +177,11 @@ int Activities::home()
 		}
 		}
 	}while (Time::getHour() < 24);
-	Game::battleSystem();
+	Game::battleSystem(player, weapon, armour, monster, 2);				// NEEDS TO BE EDITED AS WELL for now it will be 2
 	return 0;
 }
 
-int Activities::randEvents()
+int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monster monster)
 {
 
 	static int randNum = 2;
@@ -245,7 +245,7 @@ int Activities::randEvents()
 			cout << "*You shoved him away from you and ready your weapon.\n";
 
 			Sleep(1500);
-			Game::battleSystem();
+			Game::battleSystem(player,weapon,armour,monster,11);
 		}
 		else if (playerinput == 2)
 		{
@@ -261,14 +261,14 @@ int Activities::randEvents()
 			cout << "At your own grave once I'm done with you.\n";
 			
 			Sleep(2500);
-			Game::battleSystem();
+			Game::battleSystem(player, weapon, armour, monster, 11);
 		}
 		else
 		{
 			system("cls");
 			cout << "Middle-aged Man : You're not running anywhere!\n";
 			Sleep(2500);
-			Game::battleSystem();
+			Game::battleSystem(player, weapon, armour, monster, 11);
 		}
 		randNum++;
 		break;
@@ -351,8 +351,8 @@ int Activities::randEvents()
 			system("cls");
 			Sleep(2500);
 			cout << "Highschool Girl : I guess I said too much.\n\n";
-			Sleep(2500);
-			Game::battleSystem();
+			Sleep(2500);														//REMINDER!!!
+			Game::battleSystem(player, weapon, armour, monster, 11);			// NEEDS TO BE CHANGED TO HIGH SCHOOL GIRL
 		}
 	
 	break;
@@ -423,7 +423,7 @@ int Activities::randEvents()
 			Sleep(2000);
 			cout << "??? : Be careful on what you wish for, peasant.";
 			Sleep(2500);
-			Game::battleSystem();
+			Game::battleSystem(player, weapon, armour, monster, 11);			  //UNKNOWN MONSTER NEEDS TO BE EDITED
 			break;
 		}
 
@@ -432,7 +432,7 @@ int Activities::randEvents()
 }
 
 //randLearningMessage Function
-void randLearningMessage(int textFileNo) {
+void Activities::randLearningMessage(int textFileNo) {
 	int randNum;
 	int i = 0;
 	ifstream infile("randLearningMessage.txt");
