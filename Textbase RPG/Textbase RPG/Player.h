@@ -22,9 +22,9 @@ private:
 	int job;
 	int exp;
 	int money;
-	int energy = 10;
-	int intel = 5;
-	int str = 5;
+	int energy;
+	int intel;
+	int str;
 	int weaboo;
 };
 

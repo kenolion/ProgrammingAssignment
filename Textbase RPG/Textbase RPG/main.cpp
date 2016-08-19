@@ -5,6 +5,7 @@ Text Based RPG Game
 By : Keith, Ben and Zer
 Date : 10/6/2016
 */
+#define NOMINMAX
 #include <iostream>
 #include <time.h> // to use the rand() function
 #include <windows.h>// to use the function sleep
@@ -28,7 +29,6 @@ int choice = 0; ////Temporary variable to store choices of player.
 int main() {
 	srand(time(nullptr));
 	Time day(6,1);
-	
 	Player player;
 	Monster monster;
 	string name;
@@ -57,7 +57,11 @@ int main() {
 	cout << "2.The Jock - Deals more damage to enemies, also has a higher chance of \nattracting a female mate." << endl << endl;
 	cout << "(There are secret jobs to be picked in the game, explore the game to find out!)" << endl;
 	ConsoleWindow::equalSignMaker9000(80);
-	cin >> job;
+	while (!(cin >> job) || job <1 || job >1) {
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Enter 1 or 2 to choose your job\n";
+	}
 	player.setJob(job);
 	Sleep(1000);
 	system("cls");
