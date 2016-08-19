@@ -17,8 +17,9 @@ Character::~Character()
 
 int Character::attack() {
 
-	return rand() % maxAtk + minAtk;
 
+	return rand() % maxAtk + minAtk;
+	
 }
 
 void Character::setMinAtk(int damage){

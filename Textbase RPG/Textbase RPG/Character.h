@@ -13,7 +13,7 @@ public:
 	string getCharacterName();														 
 	int getHp();					  												 
 	void setHp(int hp);				  												 
-	int attack(); //Randomly generates the damage with minatk and maxatk			 
+	virtual int attack(); //Randomly generates the damage with minatk and maxatk			 
 	int damage; //Temporary stores the damage of the character when attack is called 
 									  												 
 									  												 

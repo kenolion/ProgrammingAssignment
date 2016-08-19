@@ -17,6 +17,7 @@ public:
 	int getJob();
 	void setJob(int job);
 
+	
 
 private:
 	int job;

@@ -42,6 +42,8 @@ int main() {
 	armours->readItemDatabase();
 	int job;
 
+	doableActions.randEvents();
+
 	//Menu system start from here
 	///////
 	ConsoleWindow::equalSignMaker9000(80);
@@ -157,7 +159,7 @@ int main() {
 		cout << "Choose your action wisely!:" << endl;
 		cout << "1. Go to the pub and hit on girls. (3 Hours) " << endl;
 		cout << "2. Go home and prepare against the monsters. (1 Hour)" << endl;
-		cout << "3. Stay outside." << endl;
+		cout << "3. Stay outside and hunt for rare monsters." << endl;
 		day.displayTime();
 		ConsoleWindow::equalSignMaker9000(80);
 		cin >> action;
@@ -174,6 +176,7 @@ int main() {
 		case 3: {
 			doableActions.randEvents();
 		}
+
 		}
 	}
 
