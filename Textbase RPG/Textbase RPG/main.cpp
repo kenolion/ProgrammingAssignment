@@ -42,19 +42,35 @@ int main() {
 	armours->readItemDatabase();
 	int job;
 
-	doableActions.randEvents();
-
 	//Menu system start from here
 	///////
-	ConsoleWindow::equalSignMaker9000(80);
-	cout << "\nWELCOME TO EVERYDAY QUEST WITH WAIFUS AND MONSTERS SIMULATOR 2016 #Swag\n\n(badly named by Ben)\n\nTo start things off, Name your character!\n";
+	Sleep(2500);
+	cout << "???? : Agent 13324.\n";
+	Sleep(2500);
+	cout << "*Project Agent 13324 Initiated.*\n";
+	Sleep(2500);
+	cout << "???? : Wake up. Slumber time is over.\n";
+	Sleep(2500);
+	cout << "???? : Agent 13324. The world is at stake.\n";
+	Sleep(2500);
+	cout << "???? : Decide a public alias for yourself, Agent 13324.\n";
+	Sleep(2500);
+	cout << "???? : I am no babysitter, and certainly not your mother, so do it.\n\n";
+	Sleep(2500);
 	cout << "Please Enter your name: ";
 	getline(cin,name);  //Gets player name
 	player.setPlayerName(name);
-	Sleep(1000); //The transition combo, Sleep and CLS.
-	Game::showItemandStats();
-	ConsoleWindow::equalSignMaker9000(80); // TYPES OUT HOW MANY EQUAL SIGNS ACCORDING TO HOW MUCH NUMBERS YOU INPUT IN THE PARAMETERS.'
-	cout << "\nWelcome " << player.getCharacterName() << ". You are looking to make the world a better place whilst \nwanting to fulfill yourself with your unique skillsets.\n\nSelect a playstyle.\n" << endl;
+	Sleep(2500);
+	system("cls");
+	cout << "???? : So, '" << player.getCharacterName() << "'. Huh? Can't say I like your decision for that name.\n";
+	Sleep(2500);
+	cout << "???? : " << player.getCharacterName() << ", Listen, I don't have much time.\n";
+	Sleep(2500);
+	cout << "???? : The world is not in a healthy state right now\n\n\n";
+	Sleep(2500);
+	cout << "*PROFESSION SELECTION, ONLINE.*\n";
+	Sleep(2500);
+	ConsoleWindow::equalSignMaker9000(80);
 	cout << "1.Con Man - Gets more discount from shopkeepers, able to execute more actions inthe day compared to others.\n" << endl;
 	cout << "2.The Jock - Deals more damage to enemies, also has a higher chance of \nattracting a female mate." << endl << endl;
 	cout << "(There are secret jobs to be picked in the game, explore the game to find out!)" << endl;
@@ -84,8 +100,12 @@ int main() {
 
 	}
 	}
-	cout << "***You have 12 hours before nightfall comes. Spend your time wisely.***" << endl;
-	ConsoleWindow::equalSignMaker9000(80);
+	
+	Sleep(2500);
+	cout << " ???? : You have 12 hours before the monsters arrive.\n";
+	Sleep(2500);
+	cout << " ???? : Spend your time wisely, Agent 13324.\n";
+	Sleep(2500);
 	system("pause");
 	Sleep(1000);
 	while (1) {
