@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <conio.h>
 using namespace std;
 
 class Activities 
@@ -21,6 +22,7 @@ public:
 	int fightCrime();
 	int randEvents();
 	//Time day;
+	enum InputKey { KEY_UP = 72, KEY_DOWN = 80, KEY_LEFT = 75, KEY_RIGHT = 77 }; 
 	int action;
 };
 

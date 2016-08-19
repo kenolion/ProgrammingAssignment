@@ -45,12 +45,12 @@ int main() {
 	//Menu system start from here
 	///////
 	ConsoleWindow::equalSignMaker9000(80);
-	cout << "WELCOME TO EVERYDAY QUEST WITH WAIFUS AND MONSTERS SIMULATOR 2016 #Swag\n\n(badly named by Ben)\n\nTo start things off, Name your character!\n";
+	cout << "\nWELCOME TO EVERYDAY QUEST WITH WAIFUS AND MONSTERS SIMULATOR 2016 #Swag\n\n(badly named by Ben)\n\nTo start things off, Name your character!\n";
 	cout << "Please Enter your name: ";
 	getline(cin,name);  //Gets player name
 	player.setPlayerName(name);
 	Sleep(1000); //The transition combo, Sleep and CLS.
-	system("cls");
+	Game::showItemandStats();
 	ConsoleWindow::equalSignMaker9000(80); // TYPES OUT HOW MANY EQUAL SIGNS ACCORDING TO HOW MUCH NUMBERS YOU INPUT IN THE PARAMETERS.'
 	cout << "\nWelcome " << player.getCharacterName() << ". You are looking to make the world a better place whilst \nwanting to fulfill yourself with your unique skillsets.\n\nSelect a playstyle.\n" << endl;
 	cout << "1.Con Man - Gets more discount from shopkeepers, able to execute more actions inthe day compared to others.\n" << endl;
@@ -64,7 +64,7 @@ int main() {
 	}
 	player.setJob(job);
 	Sleep(1000);
-	system("cls");
+	Game::showItemandStats();
 	ConsoleWindow::equalSignMaker9000(80);
 
 	cout << "You are " << player.getCharacterName();
@@ -77,7 +77,9 @@ int main() {
 	case 2: {
 
 		cout << ",The Jock. You gained 10 Strength and 5 Intelligence.\n\n" << endl << endl;
+
 		break;
+
 	}
 	}
 	cout << "***You have 12 hours before nightfall comes. Spend your time wisely.***" << endl;
@@ -86,7 +88,7 @@ int main() {
 	Sleep(1000);
 	while (1) {
 		do {
-			system("cls");
+			Game::showItemandStats();
 			ConsoleWindow::equalSignMaker9000(80);
 			int action;
 			int a;
@@ -99,7 +101,7 @@ int main() {
 			day.displayTime();
 			ConsoleWindow::equalSignMaker9000(80);
 			cin >> action;
-			system("cls");
+			Game::showItemandStats();
 			ConsoleWindow::equalSignMaker9000(80);
 			switch (action) {
 				Sleep(1000);
@@ -134,12 +136,12 @@ int main() {
 					case 1:
 						shop.displayWeapon(weapon);
 						system("pause");
-						system("cls");
+						Game::showItemandStats();
 						break;
 					case 2:
 						shop.displayArmour(armour);
 						system("pause");
-						system("cls");
+						Game::showItemandStats();
 						break;
 				}
 				}
@@ -152,7 +154,7 @@ int main() {
 		} while (Time::getHour() < 13);
 
 		Sleep(1000);
-		system("cls");
+		Game::showItemandStats();
 		Sleep(1500);
 		ConsoleWindow::equalSignMaker9000(80);
 		cout << "Nightfall has come. Monsters arrive in 6 hours." << endl;
@@ -225,4 +227,3 @@ int main() {
 
 		*/
 
-	

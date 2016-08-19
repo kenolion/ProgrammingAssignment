@@ -28,7 +28,7 @@ void Game::battleSystem() {
 		///////////////////////
 		//////// Simeple BATTLE SYSTEM   /////////
 		int choice = 0;
-		system("cls");
+		Game::showItemandStats();
 
 		ConsoleWindow::equalSignMaker9000(80);
 		while (monster.getHp()>0 && player.getHp() >0) {										// do while loop to enable a turn based like battle system
@@ -72,8 +72,37 @@ void Game::battleSystem() {
 				cin.ignore(100, '\n');
 			}
 
-			system("cls");
+			Game::showItemandStats();
 		} 
 		Time::calculateTime(6);
 	}
 
+void Game::showItemandStats()
+{
+	system("cls");
+	int c = 21;
+	int d = 21;
+	ConsoleWindow::SetDrawingPoint(1,20);
+	for (int i = 0; i <= 30; i++) { cout << "_"; } //Top line of the box
+	ConsoleWindow::SetDrawingPoint(1, 21);
+	for (int i = 0; i <= 14; i++) { ConsoleWindow::SetDrawingPoint(1, c); cout << "|"; c++; } // Left horizontal line of the box
+	ConsoleWindow::SetDrawingPoint(31, 21);
+	for (int i = 0; i <= 14; i++) { ConsoleWindow::SetDrawingPoint(31, d); cout << "|"; d++; }; //Right horizontal line of the box
+	ConsoleWindow::SetDrawingPoint(1, 35);
+	for (int i = 0; i <= 30; i++) { cout << "¯"; } //Bottom line of the box
+	ConsoleWindow::SetDrawingPoint(2, 22); // Line 1 in the box
+	cout << "STATS";
+	ConsoleWindow::SetDrawingPoint(2, 23); // Line 2 in the box
+	cout << "Strength : 15"; // Updated Strength Value whenever he levels up, when he chooses one of the two jobs at the start of the game;
+	ConsoleWindow::SetDrawingPoint(2, 24); // and etc.
+	cout << "Intelligence : 15"; // Updated Intelligence Value whenever he levels up, when he chooses one of the two jobs at the start of the game;
+	ConsoleWindow::SetDrawingPoint(2, 27);
+	cout << "WEAPON EQUIPPED";
+	ConsoleWindow::SetDrawingPoint(2, 28);
+	cout << "Steel Shortsword"; // Updated Weapons
+	ConsoleWindow::SetDrawingPoint(2, 30);
+	cout << "ARMOR EQUIPPED"; // Updated Armor
+	ConsoleWindow::SetDrawingPoint(2, 31);
+	cout << "Pajamas";
+	ConsoleWindow::SetDrawingPoint(0, 0);
+}
