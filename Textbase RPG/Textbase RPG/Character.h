@@ -7,6 +7,7 @@ class Character
 {
 public:
 	Character();
+	//Character(int hp, int minAtk,int maxAtk);
 	~Character();																	 
 	void setMinAtk(int damage);														 
 	void setMaxAtk(int damage);														 
@@ -21,7 +22,7 @@ protected:
 	int hp;							  												 
 	int minAtk;						  												 
 	int maxAtk;						  												 
-	string characterName;			  												 
+	string characterName;
 																					 
 };																					 
 																					 
