@@ -93,15 +93,15 @@ void Game::showItemandStats()
 	ConsoleWindow::SetDrawingPoint(2, 22); // Line 1 in the box
 	cout << "STATS";
 	ConsoleWindow::SetDrawingPoint(2, 23); // Line 2 in the box
-	cout << "Strength : 5";
+	cout << "Strength : 15"; // Updated Strength Value whenever he levels up, when he chooses one of the two jobs at the start of the game;
 	ConsoleWindow::SetDrawingPoint(2, 24); // and etc.
-	cout << "Intelligence : 10";
+	cout << "Intelligence : 15"; // Updated Intelligence Value whenever he levels up, when he chooses one of the two jobs at the start of the game;
 	ConsoleWindow::SetDrawingPoint(2, 27);
 	cout << "WEAPON EQUIPPED";
 	ConsoleWindow::SetDrawingPoint(2, 28);
-	cout << "Steel Shortsword";
+	cout << "Steel Shortsword"; // Updated Weapons
 	ConsoleWindow::SetDrawingPoint(2, 30);
-	cout << "ARMOR EQUIPPED";
+	cout << "ARMOR EQUIPPED"; // Updated Armor
 	ConsoleWindow::SetDrawingPoint(2, 31);
 	cout << "Pajamas";
 	ConsoleWindow::SetDrawingPoint(0, 0);

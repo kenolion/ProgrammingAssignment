@@ -73,7 +73,9 @@ int main() {
 	case 2: {
 
 		cout << ",The Jock. You gained 10 Strength and 5 Intelligence.\n\n" << endl << endl;
+
 		break;
+
 	}
 	}
 	cout << "***You have 12 hours before nightfall comes. Spend your time wisely.***" << endl;
