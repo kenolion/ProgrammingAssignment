@@ -29,7 +29,6 @@ int choice = 0; ////Temporary variable to store choices of player.
 int main() {
 	srand(time(nullptr));
 	Time day(6,1);
-	Player player;
 	Monster monster;
 	string name;
 	Activities doableActions; //doableActions consists of all the actions you can do in the day.
@@ -38,8 +37,12 @@ int main() {
 	Armours armour;
 	Items *weapons = &weapon;
 	Items *armours = &armour;
-	weapons->readItemDatabase();
+	Player player(" ", 100, 0, 0, 0, 0, 1, 2);			// name , int hp,int job, int money, int intel, int str,int minAtk,int maxAtk
+	
 	armours->readItemDatabase();
+	weapons->readItemDatabase();
+	monster.readMonsterDatabase();
+	
 	int job;
 
 	//Menu system start from here
@@ -49,10 +52,11 @@ int main() {
 	cout << "Please Enter your name: ";
 	getline(cin,name);  //Gets player name
 	player.setPlayerName(name);
+	
 	Sleep(1000); //The transition combo, Sleep and CLS.
-	Game::showItemandStats();
+	player.showItemandStats(weapon,armour);
 	ConsoleWindow::equalSignMaker9000(80); // TYPES OUT HOW MANY EQUAL SIGNS ACCORDING TO HOW MUCH NUMBERS YOU INPUT IN THE PARAMETERS.'
-	cout << "\nWelcome " << player.getCharacterName() << ". You are looking to make the world a better place whilst \nwanting to fulfill yourself with your unique skillsets.\n\nSelect a playstyle.\n" << endl;
+	cout << "\nWelcome " << name << ". You are looking to make the world a better place whilst \nwanting to fulfill yourself with your unique skillsets.\n\nSelect a playstyle.\n" << endl;
 	cout << "1.Con Man - Gets more discount from shopkeepers, able to execute more actions inthe day compared to others.\n" << endl;
 	cout << "2.The Jock - Deals more damage to enemies, also has a higher chance of \nattracting a female mate." << endl << endl;
 	cout << "(There are secret jobs to be picked in the game, explore the game to find out!)" << endl;
@@ -63,8 +67,11 @@ int main() {
 		cout << "Enter 1 or 2 to choose your job\n";
 	}
 	player.setJob(job);
+	
+	
+
 	Sleep(1000);
-	Game::showItemandStats();
+	player.showItemandStats(weapon, armour);
 	ConsoleWindow::equalSignMaker9000(80);
 
 	cout << "You are " << player.getCharacterName();
@@ -72,23 +79,29 @@ int main() {
 	switch (player.getJob()) {
 	case 1: {
 		cout << ",The Con Man. You gained 10 Intelligence and 5 Strength.\n\n" << endl;
+		player.addStr(5);
+		player.addIntel(10);
 		break;
 	}
 	case 2: {
 
 		cout << ",The Jock. You gained 10 Strength and 5 Intelligence.\n\n" << endl << endl;
-
+		player.addStr(10);
+		player.addIntel(5);
 		break;
 
 	}
 	}
+	cout << "Heres some pocket money(+5$)";
+	
+	player.addMoney(5);
 	cout << "***You have 12 hours before nightfall comes. Spend your time wisely.***" << endl;
 	ConsoleWindow::equalSignMaker9000(80);
 	system("pause");
 	Sleep(1000);
 	while (1) {
 		do {
-			Game::showItemandStats();
+			player.showItemandStats(weapon, armour);
 			ConsoleWindow::equalSignMaker9000(80);
 			int action;
 			int a;
@@ -101,28 +114,31 @@ int main() {
 			day.displayTime();
 			ConsoleWindow::equalSignMaker9000(80);
 			cin >> action;
-			Game::showItemandStats();
+			player.showItemandStats(weapon, armour);
 			ConsoleWindow::equalSignMaker9000(80);
 			switch (action) {
 				Sleep(1000);
 			case 1: {
-				doableActions.school();
+				doableActions.school(&player);
+				player.addIntel(2);
 				day.calculateTime(6);
 				break;
 			}
 			case 2: {
-				doableActions.gym();
+				doableActions.gym(&player);
+				player.addStr(2);
 				day.calculateTime(6);
 				break;
 			}
 			case 3: {
-				doableActions.work();
+				doableActions.work(&player);
+				player.addMoney(5);
 				day.calculateTime(6);
 				break;
 			}
 
 			case 4: {
-				doableActions.fightCrime();
+				doableActions.fightCrime(&player, weapon,armour,monster);
 				day.calculateTime(6);
 				break;
 			}
@@ -136,12 +152,12 @@ int main() {
 					case 1:
 						shop.displayWeapon(weapon);
 						system("pause");
-						Game::showItemandStats();
+						player.showItemandStats(weapon, armour);
 						break;
 					case 2:
 						shop.displayArmour(armour);
 						system("pause");
-						Game::showItemandStats();
+						player.showItemandStats(weapon, armour);
 						break;
 				}
 				}
@@ -154,7 +170,7 @@ int main() {
 		} while (Time::getHour() < 13);
 
 		Sleep(1000);
-		Game::showItemandStats();
+		player.showItemandStats(weapon, armour);
 		Sleep(1500);
 		ConsoleWindow::equalSignMaker9000(80);
 		cout << "Nightfall has come. Monsters arrive in 6 hours." << endl;
@@ -172,11 +188,11 @@ int main() {
 		}
 		case 2: {
 			day.calculateTime(1);
-			doableActions.home();
+			doableActions.home(&player,weapon,armour,monster);
 			break;
 		}
 		case 3: {
-			doableActions.randEvents();
+			doableActions.randEvents(&player);
 		}
 		}
 	}

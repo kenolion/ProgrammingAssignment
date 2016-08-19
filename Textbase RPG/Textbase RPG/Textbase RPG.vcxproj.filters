@@ -103,5 +103,8 @@
     <Text Include="WeaponsDatabase.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="mons_database.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

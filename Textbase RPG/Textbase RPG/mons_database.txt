@@ -1,0 +1,12 @@
+MONSTER DATABASE
+MONSTER ID MONSTERNAME MONSTER ATTACK MONSTER HP 
+1 Highschool Monster| 50 60 100
+2 Gas Monster|60 70 100
+3 One EyedMuk|20 30 30
+4 Two EyedMuk|40 50 60
+5 Big Ben|50 60 50
+6 Zer Monster|100 110 100
+7 Keiller Keith|120 130 120
+8 Siowster Monster|30 40 30
+9 Fourhands Monster|130 140 130
+10 Lickitung| 230 150 230

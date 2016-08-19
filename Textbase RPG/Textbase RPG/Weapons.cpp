@@ -17,9 +17,8 @@ void Weapons::readItemDatabase()
 	getline(Item, item.tempStr);
 	while (!Item.eof())
 	{
-		Item >> item.itemId;
-		Item >> item.name >> item.tempStr;
-		item.name += " " + item.tempStr;
+		getline(Item, item.name, '|');
+		//item.name += " " + item.tempStr;
 		Item >> item.price >> item.minAtk >> item.maxAtk;
 		weaponVector.push_back(item); // Pushback adds an array size to the vector 
 	}

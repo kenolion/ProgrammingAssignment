@@ -1,13 +1,12 @@
 #include "Character.h"
 
 
-
-
-
 Character::Character()
 {
 
 }
+
+
 
 
 Character::~Character()
@@ -17,31 +16,30 @@ Character::~Character()
 
 int Character::attack() {
 
-	return rand() % maxAtk + minAtk;
+	return rand() % character.maxAtk + character.minAtk;
 
 }
 
 void Character::setMinAtk(int damage){
-	minAtk = damage;
+	character.minAtk = damage;
 }
 
 void Character::setMaxAtk(int damage){
-	maxAtk = damage;
+	character.maxAtk = damage;
 }
 
 
 
 string Character::getCharacterName() {
-	return characterName;
+	return  character.characterName;
 }
 
 int Character::getHp()
 {
-	return hp;
+	return  character.hp;
 }
 
 void Character::setHp(int hp)
 {
-
-	this->hp = hp;
+	character.hp = hp;
 }

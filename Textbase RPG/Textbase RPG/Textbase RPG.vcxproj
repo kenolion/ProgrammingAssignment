@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ArmoursDatabase.txt" />
+    <Text Include="mons_database.txt" />
     <Text Include="randLearningMessage.txt" />
     <Text Include="WeaponsDatabase.txt" />
   </ItemGroup>
