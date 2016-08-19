@@ -29,6 +29,7 @@ int choice = 0; ////Temporary variable to store choices of player.
 int main() {
 	srand(time(nullptr));
 	Time day(6,1);
+	Player player;
 	Monster monster;
 	string name;
 	Activities doableActions; //doableActions consists of all the actions you can do in the day.
@@ -37,26 +38,39 @@ int main() {
 	Armours armour;
 	Items *weapons = &weapon;
 	Items *armours = &armour;
-	Player player(" ", 100, 0, 0, 0, 0, 1, 2);			// name , int hp,int job, int money, int intel, int str,int minAtk,int maxAtk
-	
-	armours->readItemDatabase();
 	weapons->readItemDatabase();
-	monster.readMonsterDatabase();
-	
+	armours->readItemDatabase();
 	int job;
 
 	//Menu system start from here
 	///////
-	ConsoleWindow::equalSignMaker9000(80);
-	cout << "\nWELCOME TO EVERYDAY QUEST WITH WAIFUS AND MONSTERS SIMULATOR 2016 #Swag\n\n(badly named by Ben)\n\nTo start things off, Name your character!\n";
+	Sleep(2500);
+	cout << "???? : Agent 13324.\n";
+	Sleep(2500);
+	cout << "*Project Agent 13324 Initiated.*\n";
+	Sleep(2500);
+	cout << "???? : Wake up. Slumber time is over.\n";
+	Sleep(2500);
+	cout << "???? : Agent 13324. The world is at stake.\n";
+	Sleep(2500);
+	cout << "???? : Decide a public alias for yourself, Agent 13324.\n";
+	Sleep(2500);
+	cout << "???? : I am no babysitter, and certainly not your mother, so do it.\n\n";
+	Sleep(2500);
 	cout << "Please Enter your name: ";
 	getline(cin,name);  //Gets player name
 	player.setPlayerName(name);
-	
-	Sleep(1000); //The transition combo, Sleep and CLS.
-	player.showItemandStats(weapon,armour);
-	ConsoleWindow::equalSignMaker9000(80); // TYPES OUT HOW MANY EQUAL SIGNS ACCORDING TO HOW MUCH NUMBERS YOU INPUT IN THE PARAMETERS.'
-	cout << "\nWelcome " << name << ". You are looking to make the world a better place whilst \nwanting to fulfill yourself with your unique skillsets.\n\nSelect a playstyle.\n" << endl;
+	Sleep(2500);
+	system("cls");
+	cout << "???? : So, '" << player.getCharacterName() << "'. Huh? Can't say I like your decision for that name.\n";
+	Sleep(2500);
+	cout << "???? : " << player.getCharacterName() << ", Listen, I don't have much time.\n";
+	Sleep(2500);
+	cout << "???? : The world is not in a healthy state right now\n\n\n";
+	Sleep(2500);
+	cout << "*PROFESSION SELECTION, ONLINE.*\n";
+	Sleep(2500);
+	ConsoleWindow::equalSignMaker9000(80);
 	cout << "1.Con Man - Gets more discount from shopkeepers, able to execute more actions inthe day compared to others.\n" << endl;
 	cout << "2.The Jock - Deals more damage to enemies, also has a higher chance of \nattracting a female mate." << endl << endl;
 	cout << "(There are secret jobs to be picked in the game, explore the game to find out!)" << endl;
@@ -67,11 +81,8 @@ int main() {
 		cout << "Enter 1 or 2 to choose your job\n";
 	}
 	player.setJob(job);
-	
-	
-
 	Sleep(1000);
-	player.showItemandStats(weapon, armour);
+	Game::showItemandStats();
 	ConsoleWindow::equalSignMaker9000(80);
 
 	cout << "You are " << player.getCharacterName();
@@ -79,29 +90,27 @@ int main() {
 	switch (player.getJob()) {
 	case 1: {
 		cout << ",The Con Man. You gained 10 Intelligence and 5 Strength.\n\n" << endl;
-		player.addStr(5);
-		player.addIntel(10);
 		break;
 	}
 	case 2: {
 
 		cout << ",The Jock. You gained 10 Strength and 5 Intelligence.\n\n" << endl << endl;
-		player.addStr(10);
-		player.addIntel(5);
+
 		break;
 
 	}
 	}
-	cout << "Heres some pocket money(+5$)";
 	
-	player.addMoney(5);
-	cout << "***You have 12 hours before nightfall comes. Spend your time wisely.***" << endl;
-	ConsoleWindow::equalSignMaker9000(80);
+	Sleep(2500);
+	cout << " ???? : You have 12 hours before the monsters arrive.\n";
+	Sleep(2500);
+	cout << " ???? : Spend your time wisely, Agent 13324.\n";
+	Sleep(2500);
 	system("pause");
 	Sleep(1000);
 	while (1) {
 		do {
-			player.showItemandStats(weapon, armour);
+			Game::showItemandStats();
 			ConsoleWindow::equalSignMaker9000(80);
 			int action;
 			int a;
@@ -114,31 +123,28 @@ int main() {
 			day.displayTime();
 			ConsoleWindow::equalSignMaker9000(80);
 			cin >> action;
-			player.showItemandStats(weapon, armour);
+			Game::showItemandStats();
 			ConsoleWindow::equalSignMaker9000(80);
 			switch (action) {
 				Sleep(1000);
 			case 1: {
-				doableActions.school(&player);
-				player.addIntel(2);
+				doableActions.school();
 				day.calculateTime(6);
 				break;
 			}
 			case 2: {
-				doableActions.gym(&player);
-				player.addStr(2);
+				doableActions.gym();
 				day.calculateTime(6);
 				break;
 			}
 			case 3: {
-				doableActions.work(&player);
-				player.addMoney(5);
+				doableActions.work();
 				day.calculateTime(6);
 				break;
 			}
 
 			case 4: {
-				doableActions.fightCrime(&player, weapon,armour,monster);
+				doableActions.fightCrime();
 				day.calculateTime(6);
 				break;
 			}
@@ -152,12 +158,12 @@ int main() {
 					case 1:
 						shop.displayWeapon(weapon);
 						system("pause");
-						player.showItemandStats(weapon, armour);
+						Game::showItemandStats();
 						break;
 					case 2:
 						shop.displayArmour(armour);
 						system("pause");
-						player.showItemandStats(weapon, armour);
+						Game::showItemandStats();
 						break;
 				}
 				}
@@ -170,14 +176,14 @@ int main() {
 		} while (Time::getHour() < 13);
 
 		Sleep(1000);
-		player.showItemandStats(weapon, armour);
+		Game::showItemandStats();
 		Sleep(1500);
 		ConsoleWindow::equalSignMaker9000(80);
 		cout << "Nightfall has come. Monsters arrive in 6 hours." << endl;
 		cout << "Choose your action wisely!:" << endl;
 		cout << "1. Go to the pub and hit on girls. (3 Hours) " << endl;
 		cout << "2. Go home and prepare against the monsters. (1 Hour)" << endl;
-		cout << "3. Stay outside." << endl;
+		cout << "3. Stay outside and hunt for rare monsters." << endl;
 		day.displayTime();
 		ConsoleWindow::equalSignMaker9000(80);
 		cin >> action;
@@ -188,12 +194,13 @@ int main() {
 		}
 		case 2: {
 			day.calculateTime(1);
-			doableActions.home(&player,weapon,armour,monster);
+			doableActions.home();
 			break;
 		}
 		case 3: {
-			doableActions.randEvents(&player);
+			doableActions.randEvents();
 		}
+
 		}
 	}
 
