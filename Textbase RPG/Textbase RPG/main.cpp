@@ -47,17 +47,17 @@ int main() {
 	//Menu system start from here
 	///////
 	Sleep(sleep);
-	cout << "???? : Agent 13324.\n";
+	cout << "???? : Agent 1447.\n";
 	Sleep(sleep);
-	cout << "*Project Agent 13324 Initiated.*\n";
+	cout << "*Project Agent 1447 Initiated.*\n";
 	Sleep(sleep);
 	cout << "???? : Wake up. Slumber time is over.\n";
 	Sleep(sleep);
-	cout << "???? : Agent 13324. The world is at stake.\n";
+	cout << "???? : Agent 1447. The world is at stake.\n";
 	Sleep(sleep);
-	cout << "???? : Decide a public alias for yourself, Agent 13324.\n";
+	cout << "???? : Decide a public alias for yourself, Agent 1447.\n";
 	Sleep(sleep);
-	cout << "???? : I am no babysitter, and certainly not your mother, so do it.\n\n";
+	cout << "???? : I am no babysitter, and certainly not your mother, so do it.\n\n\n";
 	Sleep(sleep);
 	cout << "Please Enter your name: ";
 	getline(cin,name);  //Gets player name
@@ -68,7 +68,7 @@ int main() {
 	Sleep(sleep);
 	cout << "???? : " << player.getCharacterName() << ", Listen, I don't have much time.\n";
 	Sleep(sleep);
-	cout << "???? : The world is not in a healthy state right now.\n\n\n";
+	cout << "???? : The world is not in a healthy state right now, choose quickly.\n\n\n";
 	Sleep(sleep);
 	cout << "*PROFESSION SELECTION, ONLINE.*\n";
 	Sleep(sleep);
@@ -112,9 +112,9 @@ int main() {
 	}
 	
 	Sleep(2500);
-	cout << " ???? : You have 12 hours before the monsters arrive.\n";
+	cout << "???? : You have 12 hours before the monsters arrive.\n";
 	Sleep(2500);
-	cout << " ???? : Spend your time wisely, Agent 13324.\n";
+	cout << "???? : Spend your time wisely, Agent 1447.\n\n";
 	Sleep(2500);
 	system("pause");
 	Sleep(1000);

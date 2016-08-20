@@ -15,6 +15,7 @@ protected:
 		int maxAtk;
 		string characterName;
 		int characterID;
+		int money;
 	};
 	CharacterInfo character;
 

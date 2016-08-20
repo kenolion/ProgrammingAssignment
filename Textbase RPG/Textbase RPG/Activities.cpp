@@ -133,7 +133,9 @@ int Activities::work()
 int Activities::fightCrime(Player *player, Weapons weapon, Armours armour, Monster monster)
 {
 	cout << "You decided to FIGHT CRIME!\n";
-	cout << "Crimes are harder to beat compared to normal monsters.\n";
+	cout << "Crimes are harder to beat compared to normal monsters. However, the payout is higher.\n";
+	int randNum;
+	randNum = rand() % 2+4; // 4-6
 	Game::battleSystem(player, weapon, armour, monster, 2);
 	return 0;
 }
@@ -184,7 +186,7 @@ int Activities::home(Player *player, Weapons weapon, Armours armour, Monster mon
 int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monster monster)
 {
 
-	static int randNum = 2;
+	static int randNum = 4;
 	int playerinput;
 
 	switch (randNum)
@@ -351,8 +353,8 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			system("cls");
 			Sleep(2500);
 			cout << "Highschool Girl : I guess I said too much.\n\n";
-			Sleep(2500);														//REMINDER!!!
-			Game::battleSystem(player, weapon, armour, monster, 11);			// NEEDS TO BE CHANGED TO HIGH SCHOOL GIRL
+			Sleep(2500);														
+			Game::battleSystem(player, weapon, armour, monster, 1);			
 		}
 	
 	break;
@@ -381,6 +383,9 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			cout << "....nice.....\n\n\n";
 			Sleep(3500);
 			ConsoleWindow::equalSignMaker9000(80);
+			ConsoleWindow::SetDrawingPoint(0, 11);
+			ConsoleWindow::equalSignMaker9000(80);
+			ConsoleWindow::SetDrawingPoint(0, 6);
 			cout << "\nPRESS UP AND DOWN RAPIDLY TO KEEP THE PLAYER AWAKE : \n";
 			int bar = 0;
 			cout << "(";
@@ -413,6 +418,7 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			
 			}
 			Sleep(2500);
+			system("cls");
 			cout << "\n\n\n*You manage to wake yourself up from the sleeping gas.*\n\n\n";
 			Sleep(2500);
 			cout << "WHO IS IT?\n";
@@ -423,10 +429,42 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			Sleep(2000);
 			cout << "??? : Be careful on what you wish for, peasant.";
 			Sleep(2500);
-			Game::battleSystem(player, weapon, armour, monster, 11);			  //UNKNOWN MONSTER NEEDS TO BE EDITED
+			Game::battleSystem(player, weapon, armour, monster, 3);			  //UNKNOWN MONSTER NEEDS TO BE EDITED
 			break;
 		}
-
+		case 3:
+		{
+			system("cls"); //SCENARIO START
+			Sleep(2500);
+			cout << "*You see a small dot in the sky*\n\n";
+			Sleep(2500);
+			cout << "*The dot progressively grows bigger*\n\n";
+			Sleep(2500);
+			cout << "Wait a minute....\n";
+			Sleep(2500);
+			cout << "THAT'S A CREATURE FLYING TOWARDS ME.\n\n";
+			Sleep(2500);
+			Game::battleSystem(player, weapon, armour, monster, 4);
+			break;
+		}
+		case 4:
+		{
+			system("cls");
+			Sleep(1200);
+			cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << ".\n\n\n";
+			Sleep(2500);
+			cout << "???? : Hello, Agent 1447.\n\n";
+			Sleep(2500);
+			cout << "???? : We meet again.\n\n";
+			Sleep(2500);
+			cout << "???? : I see you're trying to purge monsters as usual?\n\n";
+			Sleep(2500);
+			cout << "???? : Good...."; 	Sleep(2500); cout << "..Good...\n\n";
+			Sleep(2500);
+			cout << "???? : Consider this as a gift.\n\n";
+			Sleep(2500);
+			system("pause");
+		}
 	}
 	return 0;
 }

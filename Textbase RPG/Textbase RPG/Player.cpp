@@ -7,7 +7,7 @@ Player::Player(string name,int hp,int job, int money, int intel, int str,int min
 {
 	character.hp = hp;
 	this->job = job;
-	this->money = money;
+	character.money = money;
 	this->intel = intel;
 	this->str = str;
 	character.characterName = name;
@@ -35,12 +35,12 @@ int Player::getIntel(){
 	return this->intel;
 }
 int Player::getMoney(){
-	return this->money;
+	return character.money;
 }
 
 void Player::addMoney(int money)
 {
-	this->money += money;
+	character.money += money;
 }
 
 
@@ -96,6 +96,6 @@ void Player::showItemandStats(Weapons weapon,Armours armour)
 	ConsoleWindow::SetDrawingPoint(2, 31);
 	cout << armour.armourVector[armourID].name;
 	ConsoleWindow::SetDrawingPoint(2, 33);
-	cout << "Money :" << money;
+	cout << "Money :" << character.money;
 	ConsoleWindow::SetDrawingPoint(0, 0);
 }

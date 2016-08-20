@@ -65,6 +65,8 @@ void Game::battleSystem(Player *player,Weapons weapon,Armours armour,Monster mon
 			}
 
 			player->showItemandStats(weapon,armour);
+	//		if (monster.hp < 0 )
+			//	player->addMoney(monster.characterVector[monsterID-1].money)
 		} 
 		Time::calculateTime(6);
 	}

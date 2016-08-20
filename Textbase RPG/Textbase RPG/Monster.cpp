@@ -19,7 +19,7 @@ void Monster::readMonsterDatabase()
 	{
 		Monster >> character.characterID;
 		getline(Monster, character.characterName, '|');
-		Monster >> character.minAtk >> character.maxAtk >> character.hp;
+		Monster >> character.minAtk >> character.maxAtk >> character.hp >> character.money;
 		characterVector.push_back(character); // Pushback adds an array size to the vector 
 	}
 }

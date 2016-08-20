@@ -15,6 +15,7 @@ public:
 	string temp;
 	void readMonsterDatabase();
 	int attack(int monsterID);
+	int moneyDrop;
 
 };
 #endif // !MONSTER_H
