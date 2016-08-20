@@ -97,16 +97,7 @@ void Player::showItemandStats(Weapons weapon,Armours armour,int cursorX,int curs
 	ConsoleWindow::SetDrawingPoint(2, 32);
 	cout << armour.armourVector[armourID].name;
 	ConsoleWindow::SetDrawingPoint(2, 34);
-	cout << "Money :" << money;
+	cout << "Money :" << character.money;
 	ConsoleWindow::SetDrawingPoint(cursorX,cursorY);
 }
 
-int Player::getWeaponID()
-{
-	return weaponID;
-}
-
-int Player::getArmourID()
-{
-	return armourID;
-}
