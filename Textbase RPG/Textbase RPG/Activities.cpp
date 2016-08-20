@@ -146,7 +146,8 @@ int Activities::home(Player *player, Weapons weapon, Armours armour, Monster mon
 {	
 	Time day;
 	do {
-		player->showItemandStats(weapon, armour);
+		ConsoleWindow::getCursorXY();
+		player->showItemandStats(weapon, armour, ConsoleWindow::x, ConsoleWindow::y);
 		ConsoleWindow::equalSignMaker9000(80);
 		cout << "Welcome home. You have 5 hours before the monsters arrive.\nEvery action takes an hour. Choose wisely" << endl;
 		cout << "1.Prepare your Weapons. (+2 Attack before the fight) [1 Hour]" << endl;

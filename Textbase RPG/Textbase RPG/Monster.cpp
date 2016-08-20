@@ -12,8 +12,7 @@ Monster::~Monster()
 void Monster::readMonsterDatabase()
 {
 	ifstream Monster("mons_database.txt");
-	getline(Monster, temp);
-	getline(Monster, temp);
+	getline(Monster, temp,'|');	
 	
 	while (!Monster.eof())
 	{
@@ -26,6 +25,6 @@ void Monster::readMonsterDatabase()
 
 int Monster::attack(int monsterID)
 {
-	return rand() % characterVector[monsterID].maxAtk + characterVector[monsterID].minAtk;
+	return (rand() % (characterVector[monsterID].maxAtk - characterVector[monsterID].minAtk)) +characterVector[monsterID].minAtk;
 }
 

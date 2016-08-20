@@ -39,6 +39,11 @@ int Character::getHp()
 	return  character.hp;
 }
 
+int Character::getHp(int monsterID)
+{
+	return characterVector[monsterID].hp;
+}
+
 void Character::setHp(int hp)
 {
 	character.hp = hp;

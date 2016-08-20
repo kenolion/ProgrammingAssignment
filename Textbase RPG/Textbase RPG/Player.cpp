@@ -67,10 +67,9 @@ int Player::attack()
 	return rand() % character.maxAtk + character.minAtk;
 }
 
-void Player::showItemandStats(Weapons weapon,Armours armour)
+void Player::showItemandStats(Weapons weapon,Armours armour,int cursorX,int cursorY)
 {
 	
-	system("cls");
 	int c = 21;
 	int d = 21;
 	ConsoleWindow::SetDrawingPoint(1, 20);
@@ -83,19 +82,31 @@ void Player::showItemandStats(Weapons weapon,Armours armour)
 	for (int i = 0; i <= 30; i++) { cout << "¯"; } //Bottom line of the box
 	ConsoleWindow::SetDrawingPoint(2, 22); // Line 1 in the box
 	cout << "STATS";
-	ConsoleWindow::SetDrawingPoint(2, 23); // Line 2 in the box
+	ConsoleWindow::SetDrawingPoint(2, 23);
+	cout << "Hp : " << character.hp;
+	ConsoleWindow::SetDrawingPoint(2, 24); // Line 2 in the box
 	cout << "Strength : " <<str; // Updated Strength Value whenever he levels up, when he chooses one of the two jobs at the start of the game;
-	ConsoleWindow::SetDrawingPoint(2, 24); // and etc.
+	ConsoleWindow::SetDrawingPoint(2, 25); // and etc.
 	cout << "Intelligence : " << intel; // Updated Intelligence Value whenever he levels up, when he chooses one of the two jobs at the start of the game;
-	ConsoleWindow::SetDrawingPoint(2, 27);
-	cout << "WEAPON EQUIPPED";
 	ConsoleWindow::SetDrawingPoint(2, 28);
+	cout << "WEAPON EQUIPPED";
+	ConsoleWindow::SetDrawingPoint(2, 29);
 	cout << weapon.weaponVector[weaponID].name; // Updated Weapons
-	ConsoleWindow::SetDrawingPoint(2, 30);
-	cout << "ARMOR EQUIPPED"; // Updated Armor
 	ConsoleWindow::SetDrawingPoint(2, 31);
+	cout << "ARMOR EQUIPPED"; // Updated Armor
+	ConsoleWindow::SetDrawingPoint(2, 32);
 	cout << armour.armourVector[armourID].name;
-	ConsoleWindow::SetDrawingPoint(2, 33);
+	ConsoleWindow::SetDrawingPoint(2, 34);
 	cout << "Money :" << money;
-	ConsoleWindow::SetDrawingPoint(0, 0);
+	ConsoleWindow::SetDrawingPoint(cursorX,cursorY);
+}
+
+int Player::getWeaponID()
+{
+	return weaponID;
+}
+
+int Player::getArmourID()
+{
+	return armourID;
 }
