@@ -32,7 +32,6 @@ private:
 	int weaponID;
 	int armourID;
 	int job;
-	int money;
 	int intel;
 	int str;
 };

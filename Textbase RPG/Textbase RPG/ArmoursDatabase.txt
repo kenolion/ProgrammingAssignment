@@ -1,13 +1,13 @@
 ItemID  Itemname 	  	Price	Defense
 0	School Cloths			0	1
 1	School Pants			0	1
-2 	Rusty Platemail 		5  	3  	  
-3	Rusty Leggings			10 	5  	  
-4 	Bronze Platemail		15 	8  	  
-5	Bronze Leggings			20	11  	  
-6	Iron Platemail			25 	14  	  
-7	Iron Leggings			30	16  	  
-8	Mithril Platemail 		35  19
-9	Mithril Leggings 		40 	22    
-10	Adamantite Platemail	45	25  	  
-11	Adamantite Leggings		50 	28  	  
+2 	Rusty Platemail 		500  	3  	  
+3	Rusty Leggings			1000 	5  	  
+4 	Bronze Platemail		1500 	8  	  
+5	Bronze Leggings			2000	11  	  
+6	Iron Platemail			2500 	14  	  
+7	Iron Leggings			3000	16  	  
+8	Mithril Platemail 		3500  19
+9	Mithril Leggings 		4000 	22    
+10	Adamantite Platemail	4500	25  	  
+11	Adamantite Leggings		5000 	28  	  
