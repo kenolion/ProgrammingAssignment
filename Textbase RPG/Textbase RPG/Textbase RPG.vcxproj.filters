@@ -54,6 +54,12 @@
     <ClCompile Include="Armours.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Potions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Skills.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">
@@ -92,6 +98,12 @@
     <ClInclude Include="Armours.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Potions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Skills.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ArmoursDatabase.txt">
@@ -104,6 +116,12 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="mons_database.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Potions.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Skills.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

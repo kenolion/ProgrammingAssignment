@@ -16,6 +16,13 @@ protected:
 		string characterName;
 		int characterID;
 		int money;
+
+		//SKILLS
+		int skillID;
+		string skillName;
+		int skillManaCost;
+		int skillDamage;
+
 	};
 	CharacterInfo character;
 
@@ -31,6 +38,7 @@ public:
 	virtual int attack(); //Randomly generates the damage with minatk and maxatk			 
 	int damage; //Temporary stores the damage of the character when attack is called 
 	vector<CharacterInfo> characterVector;
+	vector<CharacterInfo> skillVector;
 									  												 
 };						
 

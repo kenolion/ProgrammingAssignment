@@ -5,6 +5,7 @@
 #include "Armours.h"
 #include "Weapons.h"
 
+
 class Player :public Character
 {
 public:
@@ -25,10 +26,12 @@ public:
 	void showItemandStats(Weapons weapon, Armours armour,int cursorX, int cursorY);
 	int getWeaponID();
 	int getArmourID();
+
 private:
 	Armours armour;
 	Weapons weapon;
-	
+
+
 	int weaponID;
 	int armourID;
 	int job;
