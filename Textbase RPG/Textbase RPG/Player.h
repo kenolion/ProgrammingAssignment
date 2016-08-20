@@ -25,6 +25,8 @@ public:
 	void showItemandStats(Weapons weapon, Armours armour,int cursorX, int cursorY);
 	int getWeaponID();
 	int getArmourID();
+	void setWeaponID(int weaponID);
+	void setArmourID(int armourID);
 private:
 	Armours armour;
 	Weapons weapon;

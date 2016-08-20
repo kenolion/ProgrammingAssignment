@@ -15,6 +15,7 @@ public:
 	Game();
 	~Game();
 	static void battleSystem(Player *player, Weapons weapon, Armours armour, Monster monster, int monsterID);
+	
 };
 
 #endif

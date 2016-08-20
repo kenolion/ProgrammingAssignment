@@ -101,3 +101,23 @@ void Player::showItemandStats(Weapons weapon,Armours armour,int cursorX,int curs
 	ConsoleWindow::SetDrawingPoint(cursorX,cursorY);
 }
 
+int Player::getWeaponID()
+{
+	return weaponID;
+}
+
+int Player::getArmourID()
+{
+	return armourID;
+}
+
+void Player::setWeaponID(int weaponID)
+{
+	this->weaponID = weaponID;
+}
+
+void Player::setArmourID(int armourID)
+{
+	this->armourID = armourID;
+}
+

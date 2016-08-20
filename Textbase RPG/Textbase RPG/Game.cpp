@@ -29,8 +29,6 @@ void Game::battleSystem(Player *player,Weapons weapon,Armours armour,Monster mon
 		while (monster.getHp(monsterID-1) > 0 && player->getHp()>0) {// do while loop to enable a turn based like battle system
 			cout << "You encountered a " << monster.characterVector[monsterID - 1].characterName<<endl;
 			cout << "What do you want to do?\n1.Attack\n2.NIGERO(Run)\n";
-			cout << "Monster max atk"<<monster.characterVector[monsterID-1].maxAtk;
-			cout << "Monster min atk" << monster.characterVector[monsterID-1].minAtk << endl;
 			cout << "=================================================================\n";
 			switch (choice) {
 			case 0: {
@@ -77,5 +75,6 @@ void Game::battleSystem(Player *player,Weapons weapon,Armours armour,Monster mon
 		} 
 		Time::calculateTime(6);
 	}
+
 
 

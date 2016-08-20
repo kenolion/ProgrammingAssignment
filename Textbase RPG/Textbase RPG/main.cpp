@@ -116,11 +116,11 @@ int main() {
 	}
 	}
 	
-	Sleep(2500);
+	Sleep(sleep);
 	cout << "???? : You have 12 hours before the monsters arrive.\n";
-	Sleep(2500);
+	Sleep(sleep);
 	cout << "???? : Spend your time wisely, Agent 1447.\n\n";
-	Sleep(2500);
+	Sleep(sleep);
 	system("pause");
 	Sleep(1000);
 	while (1) {
@@ -176,13 +176,13 @@ int main() {
 				cin >> action;
 					switch (action) {
 					case 1:
-						shop.displayWeapon(weapon);
+						shop.displayWeapon(weapon,&player);
 						system("pause");
 						system("cls");
 						player.showItemandStats(weapon, armour,0,0);
 						break;
 					case 2:
-						shop.displayArmour(armour);
+						shop.displayArmour(armour,&player);
 						system("pause");
 						system("cls");
 						player.showItemandStats(weapon, armour,0,0);
