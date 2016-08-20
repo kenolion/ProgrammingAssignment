@@ -15,7 +15,7 @@ public:
 	Shop();
 	~Shop();
 	int displayWeapon(Weapons weapon, Player *player);
-	void displayArmour(Armours armour, Player *player);
+	int displayArmour(Armours armour, Player *player);
 	int choice;
 	int quantity;
 	void displayPotions(Potions potion);

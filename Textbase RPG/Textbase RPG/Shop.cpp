@@ -54,9 +54,9 @@ int Shop::displayWeapon(Weapons weapon,Player *player)
 		    
 		    
 	}	    
-}		    
+		    
 
-void Shop::displayArmour(Armours armour,Player *player)
+int Shop::displayArmour(Armours armour,Player *player)
 {
 
 	system("cls");
@@ -87,10 +87,14 @@ void Shop::displayArmour(Armours armour,Player *player)
 			cout << "No money no talk! ";
 
 		}
+		else if (choice ==armour.armourVector.size()) {
+			return 0;
+		}
 		
 	} while (player->getMoney() <= armour.armourVector[choice].price);
 	player->addMoney(-armour.armourVector[choice].price);
 	player->setArmourID(choice);
+	return 0;
 
 }
 
