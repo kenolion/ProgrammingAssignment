@@ -130,13 +130,13 @@ int Activities::work()
 }
 
 
-int Activities::fightCrime(Player *player, Weapons weapon, Armours armour, Monster monster)
+int Activities::fightCrime(Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster)
 {
 	cout << "You decided to FIGHT CRIME!\n";
 	cout << "Crimes are harder to beat compared to normal monsters. However, the payout is higher.\n";
 	int randNum;
 	randNum = rand() % 2+4; // 4-6
-	Game::battleSystem(player, weapon, armour, monster, 2);
+	Game::battleSystem(potion,player, weapon, armour, monster, randNum);
 	return 0;
 }
 int Activities::adventure()
@@ -144,7 +144,7 @@ int Activities::adventure()
 	return 0;
 }
 
-int Activities::home(Player *player, Weapons weapon, Armours armour, Monster monster)
+int Activities::home(Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster)
 {	
 	Time day;
 	do {
@@ -180,14 +180,14 @@ int Activities::home(Player *player, Weapons weapon, Armours armour, Monster mon
 		}
 		}
 	}while (Time::getHour() < 24);
-	Game::battleSystem(player, weapon, armour, monster, 2);				// NEEDS TO BE EDITED AS WELL for now it will be 2
+	Game::battleSystem(potion,player, weapon, armour, monster, 2);				// NEEDS TO BE EDITED AS WELL for now it will be 2
 	return 0;
 }
 
-int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monster monster)
+int Activities::randEvents(Potions *potion, Player *player, Weapons weapon, Armours armour, Monster monster)
 {
 
-	static int randNum = 4;
+	static int randNum = 5;
 	int playerinput;
 
 	switch (randNum)
@@ -248,7 +248,8 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			cout << "*You shoved him away from you and ready your weapon.\n";
 
 			Sleep(1500);
-			Game::battleSystem(player,weapon,armour,monster,11);
+			Game::battleSystem(potion, player,weapon,armour,monster,11);
+			randNum++;
 		}
 		else if (playerinput == 2)
 		{
@@ -264,14 +265,16 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			cout << "At your own grave once I'm done with you.\n";
 			
 			Sleep(2500);
-			Game::battleSystem(player, weapon, armour, monster, 11);
+			Game::battleSystem(potion, player, weapon, armour, monster, 11);
+			randNum++;
 		}
 		else
 		{
 			system("cls");
 			cout << "Middle-aged Man : You're not running anywhere!\n";
 			Sleep(2500);
-			Game::battleSystem(player, weapon, armour, monster, 11);
+			Game::battleSystem(potion, player, weapon, armour, monster, 11);
+			randNum++;
 		}
 		randNum++;
 		break;
@@ -355,7 +358,8 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			Sleep(2500);
 			cout << "Highschool Girl : I guess I said too much.\n\n";
 			Sleep(2500);														
-			Game::battleSystem(player, weapon, armour, monster, 1);			
+			Game::battleSystem(potion,player, weapon, armour, monster, 1);
+			randNum++;
 		}
 	
 	break;
@@ -383,6 +387,7 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			Sleep(2500);
 			cout << "....nice.....\n\n\n";
 			Sleep(3500);
+
 			ConsoleWindow::equalSignMaker9000(80);
 			ConsoleWindow::SetDrawingPoint(0, 11);
 			ConsoleWindow::equalSignMaker9000(80);
@@ -420,6 +425,7 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			}
 			Sleep(2500);
 			system("cls");
+
 			cout << "\n\n\n*You manage to wake yourself up from the sleeping gas.*\n\n\n";
 			Sleep(2500);
 			cout << "WHO IS IT?\n";
@@ -430,7 +436,8 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			Sleep(2000);
 			cout << "??? : Be careful on what you wish for, peasant.";
 			Sleep(2500);
-			Game::battleSystem(player, weapon, armour, monster, 3);			  //UNKNOWN MONSTER NEEDS TO BE EDITED
+			Game::battleSystem(potion,player, weapon, armour, monster, 3);			  //UNKNOWN MONSTER NEEDS TO BE EDITED
+			randNum++;
 			break;
 		}
 		case 3:
@@ -445,7 +452,8 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			Sleep(2500);
 			cout << "THAT'S A CREATURE FLYING TOWARDS ME.\n\n";
 			Sleep(2500);
-			Game::battleSystem(player, weapon, armour, monster, 4);
+			Game::battleSystem(potion,player, weapon, armour, monster, 4);
+			randNum++;
 			break;
 		}
 		case 4:
@@ -465,6 +473,92 @@ int Activities::randEvents(Player *player, Weapons weapon, Armours armour, Monst
 			cout << "???? : Consider this as a gift.\n\n";
 			Sleep(2500);
 			system("pause");
+			randNum++;
+			break;
+		}
+		case 5:
+		{
+			system("cls");
+			Sleep(1200);
+			cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "."; Sleep(200); cout << "URK-\n\n\n";
+			Sleep(2500);
+			cout << "??? : Greetings, Human.\n";
+			Sleep(2500);
+			cout << "??? : You're probably wondering why you can't talk right now.\n";
+			Sleep(2500);
+			cout << "??? : ..Well that's probably cause my arms are around your neck.\n";
+			Sleep(2500);
+			cout << "??? : Bye bye now. Tell me if you want me to let go yeah?\n";
+			Sleep(2500);
+			cout << "??? : Oh wait, you can't.\n";
+			Sleep(2500);
+			cout << "??? : ";
+			Sleep(2500);
+			cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA"; Sleep(100); cout << "HA\n\n\n"; Sleep(100);
+			Sleep(2500);
+			ConsoleWindow::equalSignMaker9000(80);
+			ConsoleWindow::SetDrawingPoint(0, 16);
+			ConsoleWindow::equalSignMaker9000(80);
+			ConsoleWindow::SetDrawingPoint(0, 11);
+			cout << "\nPRESS UP AND DOWN TO STRUGGLE: \n";
+			int bar = 0;
+			cout << "(";
+			for (int i = 0; i <= 59; i++) { cout << " "; } // PRINTS OUT 58 SPACES
+			int c = 1;
+			cout << ")";
+			while (bar != 60)
+			{
+				_getch(); // IT WILL STRAIGHT AWAY REGISTER THAT KEY WITHOUT PRESSING ENTER
+				char key = _getch();
+				ConsoleWindow::SetDrawingPoint(c, 13);
+				switch (key) {
+				case KEY_UP:
+				{
+					cout << "|";
+					bar++;
+					c++;
+					break;
+				}
+				case KEY_DOWN:
+				{
+
+					cout << "|";
+					bar++;
+					c++;
+					break;
+				}
+
+				}
+
+			}
+			Sleep(2500);
+			system("cls");
+			cout << "*You manage to break free from the strangle hold.*\n\n\n";
+			Sleep(2500);
+			cout << "Aah..\n";
+			Sleep(2500);
+			cout << "Feels good to breath again.\n";
+			Sleep(2500);
+			cout << "Now you've done it, bastard.\n";
+			Sleep(2500);
+			cout << "Don't cry for your mommy once I'm done with you.\n\n";
+			Sleep(1500);
+			cout << "??? : Big words, for a small man that is going to be killed.\n\n";
+			Sleep(1500);
+			system("cls");
+			cout << "*You roundhouse kick the creature in the face*.\n\n";
+			Sleep(1500);
+			system("cls");
+			cout << "*The creature gets sent flying into the wall*\n\n";
+			Sleep(2500);
+			system("cls");
+			cout << "??? : FUCK.\n";
+			Sleep(2500);
+			cout << "??? : FUCK"; Sleep(100); cout << "FUCK"; Sleep(100); cout << "FUCK"; Sleep(100); cout << "FUCK"; Sleep(100); cout << "FUCK"; Sleep(100); cout << "FUCK"; Sleep(100); cout << "FUCK"; Sleep(100); cout << "FUCK"; Sleep(100); cout << "FUCK.\n";
+			Sleep(2500);
+			cout << "??? : YOU BROKE MY JAW."; Sleep(2500); cout << " I'LL FUCKING KILL YOU.\n";
+			Sleep(3500);
+			Game::battleSystem(potion,player, weapon, armour, monster, 7);
 		}
 	}
 	return 0;

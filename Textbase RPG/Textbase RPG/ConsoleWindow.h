@@ -11,6 +11,7 @@ public:
 	static void SetDrawingPoint(int x, int y);
 	static void SetFontColour(int kolor);
 	static void equalSignMaker9000(int eqCount); // COUT'S EQUAL SIGNS
+	static void CIRCLEMAKER9000();
 
 	static void getCursorXY();
 	static int x;

@@ -1,5 +1,5 @@
 #include "ConsoleWindow.h"
-
+#include <math.h>
 using namespace std;
 int ConsoleWindow::x = 0;
 int ConsoleWindow::y = 0;
@@ -60,5 +60,27 @@ void ConsoleWindow::getCursorXY() {
 	if (GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi)) {
 		x = csbi.dwCursorPosition.X;
 		y = csbi.dwCursorPosition.Y;
+	}
+}
+
+void ConsoleWindow::CIRCLEMAKER9000()
+{
+	int circle_radius = 10; // or whatever you want
+
+	for (int i = 0; i <= 2 * circle_radius; i++)
+	{
+		for (int j = 0; j <= 2 * circle_radius; j++)
+		{
+			float distance_to_centre = sqrt((i - circle_radius)*(i - circle_radius) + (j - circle_radius)*(j - circle_radius));
+			if (distance_to_centre > circle_radius - 0.5 && distance_to_centre < circle_radius + 0.5)
+			{
+				cout << "*";
+			}
+			else
+			{
+				cout << " ";
+			}
+		}
+		cout << endl;
 	}
 }

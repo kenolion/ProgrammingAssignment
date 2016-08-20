@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "Game.h"
+
 Player::Player()
 {
 }
@@ -69,7 +71,6 @@ int Player::attack()
 
 void Player::showItemandStats(Weapons weapon,Armours armour,int cursorX,int cursorY)
 {
-	
 	int c = 21;
 	int d = 21;
 	ConsoleWindow::SetDrawingPoint(1, 20);

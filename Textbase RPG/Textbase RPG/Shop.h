@@ -4,6 +4,7 @@
 #include "Items.h"
 #include "Weapons.h"
 #include "Armours.h"
+#include "Potions.h"
 #include "Player.h"
 #include <iostream>
 using namespace std;
@@ -17,6 +18,8 @@ public:
 	void displayArmour(Armours armour, Player *player);
 	int choice;
 	int quantity;
+	void displayPotions(Potions potion);
+
 };
 
 #endif // !SHOP_H

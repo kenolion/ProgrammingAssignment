@@ -8,14 +8,15 @@
 #include "Monster.h"
 #include "ConsoleWindow.h"
 #include "Time.h"
+#include "Potions.h"
 #include <windows.h>// to use the function sleep
 class Game
 {
 public:
 	Game();
 	~Game();
-	static void battleSystem(Player *player, Weapons weapon, Armours armour, Monster monster, int monsterID);
-	
+	static void timeDISPLAY9000();
+	static int battleSystem(Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster, int monsterID);
 };
 
 #endif

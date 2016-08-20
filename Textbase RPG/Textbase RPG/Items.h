@@ -18,11 +18,19 @@ public:
 		int minAtk;
 		int defense;
 		string name;
+
+		//POTIONS
+		int potionQuantity;
+		int potionHeal;
+		
 	};
 	itemInfo item;
+
 	virtual void readItemDatabase();
+
 	vector<itemInfo> weaponVector; //vector<data type> vectorname;
 	vector<itemInfo> armourVector;
+	vector<itemInfo> potionVector;
 	
 };
 

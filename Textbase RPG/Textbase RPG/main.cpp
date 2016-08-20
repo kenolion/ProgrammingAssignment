@@ -20,6 +20,7 @@ Date : 10/6/2016
 #include "Game.h"
 #include "Weapons.h"
 #include "Armours.h"
+#include "Skills.h"
 int tempHp;
 int action;
 using namespace std;
@@ -37,14 +38,23 @@ int main() {
 	Shop shop;
 	Weapons weapon;
 	Armours armour;
+	Potions potion;
+	Skills skills;
+
 	Items *weapons = &weapon;
 	Items *armours = &armour;
+	Items *potions = &potion;
+	
 	monster.readMonsterDatabase();
 	weapons->readItemDatabase();
 	armours->readItemDatabase();
+	potions->readItemDatabase();
+	skills.readSkillsDatabase();
+
+
 	int job;
 	////////////////////////////// TESTING ZONE
-	ConsoleWindow::getCursorXY();
+
 
 	/////////////////////
 	//Menu system start from here
@@ -76,9 +86,9 @@ int main() {
 	cout << "*PROFESSION SELECTION, ONLINE.*\n";
 	Sleep(sleep);
 	ConsoleWindow::equalSignMaker9000(80);
-	cout << "1.Con Man - Gets more discount from shopkeepers, able to execute more actions inthe day compared to others.\n" << endl;
-	cout << "2.The Jock - Deals more damage to enemies, also has a higher chance of \nattracting a female mate." << endl << endl;
-	cout << "(There are secret jobs to be picked in the game, explore the game to find out!)" << endl;
+	cout << "1.Con Man - Notable skills include\n-'YOU ACTIVATED MY TRAP CARD' (70 DAMAGE, 30 MANACOST)\n-'NECK BREAKER' (300 DAMAGE, 50 MANACOST)\n" << endl;
+	cout << "2.The Jock - Notable skills include \n-'MUSCLE BODY SLAM' (200 DAMAGE, 70 MANACOST).\n-'MUSCLE UPPERCUT' (30 DAMAGE, 10 MANACOST)\n" << endl << endl;
+
 	ConsoleWindow::equalSignMaker9000(80);
 	while (!(cin >> job) || job <1 || job >2) {
 		cin.clear();
@@ -91,7 +101,10 @@ int main() {
 
 	ConsoleWindow::equalSignMaker9000(80);
 
-	
+	//GIVEPOTION NOT WORKING
+	potion.givePotion(0, 5); // Gives five normal potions
+	potion.givePotion(1, 1); // Gives one strong potion
+
 	player.addMoney(5);
 	switch (player.getJob()) {
 	case 1: {
@@ -164,15 +177,23 @@ int main() {
 			}
 
 			case 4: {
-				doableActions.fightCrime(&player,weapon,armour,monster);	// NEEDS TO ADD MONEY GAIN AFTER KILLING SOMEONE
+
+				doableActions.fightCrime(&potion,&player,weapon,armour,monster);	// NEEDS TO ADD MONEY GAIN AFTER KILLING SOMEONE
 				day.calculateTime(6);
 				break;
 			}
 			case 5: {
-				while(action != 3){
+				while(action != 4){
+					ConsoleWindow::SetDrawingPoint(0, 0);
+					ConsoleWindow::equalSignMaker9000(80);
+					ConsoleWindow::SetDrawingPoint(0, 5);
+					ConsoleWindow::equalSignMaker9000(80);
+					ConsoleWindow::SetDrawingPoint(0, 1);
 				cout << "1.Buy weapons\n";
 				cout << "2.Buy armours\n";
-				cout << "3.Exit Shop\n";
+				cout << "3.Buy potions\n";
+				cout << "4.Exit Shop\n";
+				ConsoleWindow::SetDrawingPoint(0, 6);
 				cin >> action;
 					switch (action) {
 					case 1:
@@ -187,10 +208,20 @@ int main() {
 						system("cls");
 						player.showItemandStats(weapon, armour,0,0);
 						break;
+					case 3:
+						shop.displayPotions(potion);
+						system("pause");
+						system("cls");
+						player.showItemandStats(weapon, armour, 0, 0);
+						break;
+					case 4:
+					{
+						action = 4;
+					}
 				}
 				}
 				ConsoleWindow::equalSignMaker9000(80);
-				system("pause");
+		
 				break;
 			}
 			}
@@ -217,11 +248,11 @@ int main() {
 		}
 		case 2: {
 			day.calculateTime(1);
-			doableActions.home(&player, weapon, armour, monster);
+			doableActions.home(&potion ,&player, weapon, armour, monster);
 			break;
 		}
 		case 3: {
-			doableActions.randEvents(&player,weapon,armour,monster);
+			doableActions.randEvents(&potion,&player,weapon,armour,monster);
 		}
 
 		}

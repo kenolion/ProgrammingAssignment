@@ -121,7 +121,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Potions.cpp" />
     <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="Skills.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Weapons.cpp" />
   </ItemGroup>
@@ -135,7 +137,9 @@
     <ClInclude Include="Items.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Potions.h" />
     <ClInclude Include="Shop.h" />
+    <ClInclude Include="Skills.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Weapons.h" />
   </ItemGroup>
@@ -143,6 +147,8 @@
     <Text Include="ArmoursDatabase.txt" />
     <Text Include="mons_database.txt" />
     <Text Include="randLearningMessage.txt" />
+    <Text Include="Potions.txt" />
+    <Text Include="Skills.txt" />
     <Text Include="WeaponsDatabase.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

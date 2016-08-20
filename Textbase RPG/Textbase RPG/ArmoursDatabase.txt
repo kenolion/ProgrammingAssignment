@@ -1,13 +1,12 @@
 ItemID  Itemname 	  	Price	Defense
-0	School Cloths			0	1
-1	School Pants			0	1
-2 	Rusty Platemail 		500  	3  	  
-3	Rusty Leggings			1000 	5  	  
-4 	Bronze Platemail		1500 	8  	  
-5	Bronze Leggings			2000	11  	  
-6	Iron Platemail			2500 	14  	  
-7	Iron Leggings			3000	16  	  
-8	Mithril Platemail 		3500  19
-9	Mithril Leggings 		4000 	22    
-10	Adamantite Platemail	4500	25  	  
-11	Adamantite Leggings		5000 	28  	  
+0	School Clothes			0	1
+1	Leather Suit		500  	3  	  
+2	Iron Suit			1000 	5  	  
+3 	Diamond Suit		1500 	8  	  
+4	Tuxedo Suit		2000	11  	  
+5	Rabbit Suit			2500 	14  	  
+6	TARUC Shirt 			3000	16  	  
+7	Baloon Suit 		3500  19
+8	Boxer Pants 		4000 	22    
+9	Azusa Cosplay	4500	25  	  
+10	Bday Suit		5000 	28  	  
