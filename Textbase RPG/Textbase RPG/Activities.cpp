@@ -136,7 +136,7 @@ int Activities::fightCrime(Potions *potion,Player *player, Weapons weapon, Armou
 	cout << "Crimes are harder to beat compared to normal monsters. However, the payout is higher.\n";
 	int randNum;
 	randNum = rand() % 2+4; // 4-6
-	Game::battleSystem(potion,player, weapon, armour, monster, randNum);
+	Game::battleSystem(player,  monster, randNum);
 	return 0;
 }
 int Activities::adventure()
@@ -149,7 +149,7 @@ int Activities::home(Potions *potion,Player *player, Weapons weapon, Armours arm
 	Time day;
 	do {
 		ConsoleWindow::getCursorXY();
-		player->showItemandStats(weapon, armour, ConsoleWindow::x, ConsoleWindow::y);
+		player->showItemandStats(ConsoleWindow::x, ConsoleWindow::y);
 		ConsoleWindow::equalSignMaker9000(80);
 		cout << "Welcome home. You have 5 hours before the monsters arrive.\nEvery action takes an hour. Choose wisely" << endl;
 		cout << "1.Prepare your Weapons. (+2 Attack before the fight) [1 Hour]" << endl;
@@ -180,7 +180,7 @@ int Activities::home(Potions *potion,Player *player, Weapons weapon, Armours arm
 		}
 		}
 	}while (Time::getHour() < 24);
-	Game::battleSystem(potion,player, weapon, armour, monster, 2);				// NEEDS TO BE EDITED AS WELL for now it will be 2
+	Game::battleSystem(player, monster, 2);				// NEEDS TO BE EDITED AS WELL for now it will be 2
 	return 0;
 }
 
@@ -248,7 +248,7 @@ int Activities::randEvents(Potions *potion, Player *player, Weapons weapon, Armo
 			cout << "*You shoved him away from you and ready your weapon.\n";
 
 			Sleep(1500);
-			Game::battleSystem(potion, player,weapon,armour,monster,11);
+			Game::battleSystem( player,monster,11);
 			randNum++;
 		}
 		else if (playerinput == 2)
@@ -265,7 +265,7 @@ int Activities::randEvents(Potions *potion, Player *player, Weapons weapon, Armo
 			cout << "At your own grave once I'm done with you.\n";
 			
 			Sleep(2500);
-			Game::battleSystem(potion, player, weapon, armour, monster, 11);
+			Game::battleSystem(player, monster, 11);
 			randNum++;
 		}
 		else
@@ -273,7 +273,7 @@ int Activities::randEvents(Potions *potion, Player *player, Weapons weapon, Armo
 			system("cls");
 			cout << "Middle-aged Man : You're not running anywhere!\n";
 			Sleep(2500);
-			Game::battleSystem(potion, player, weapon, armour, monster, 11);
+			Game::battleSystem(player, monster, 11);
 			randNum++;
 		}
 		randNum++;
@@ -358,7 +358,7 @@ int Activities::randEvents(Potions *potion, Player *player, Weapons weapon, Armo
 			Sleep(2500);
 			cout << "Highschool Girl : I guess I said too much.\n\n";
 			Sleep(2500);														
-			Game::battleSystem(potion,player, weapon, armour, monster, 1);
+			Game::battleSystem(player, monster, 1);
 			randNum++;
 		}
 	
@@ -436,7 +436,7 @@ int Activities::randEvents(Potions *potion, Player *player, Weapons weapon, Armo
 			Sleep(2000);
 			cout << "??? : Be careful on what you wish for, peasant.";
 			Sleep(2500);
-			Game::battleSystem(potion,player, weapon, armour, monster, 3);			  //UNKNOWN MONSTER NEEDS TO BE EDITED
+			Game::battleSystem(player, monster, 3);			  //UNKNOWN MONSTER NEEDS TO BE EDITED
 			randNum++;
 			break;
 		}
@@ -452,7 +452,7 @@ int Activities::randEvents(Potions *potion, Player *player, Weapons weapon, Armo
 			Sleep(2500);
 			cout << "THAT'S A CREATURE FLYING TOWARDS ME.\n\n";
 			Sleep(2500);
-			Game::battleSystem(potion,player, weapon, armour, monster, 4);
+			Game::battleSystem(player, monster, 4);
 			randNum++;
 			break;
 		}
@@ -558,7 +558,7 @@ int Activities::randEvents(Potions *potion, Player *player, Weapons weapon, Armo
 			Sleep(2500);
 			cout << "??? : YOU BROKE MY JAW."; Sleep(2500); cout << " I'LL FUCKING KILL YOU.\n";
 			Sleep(3500);
-			Game::battleSystem(potion,player, weapon, armour, monster, 7);
+			Game::battleSystem(player, monster, 7);
 		}
 	}
 	return 0;

@@ -11,11 +11,10 @@ class Potions :public Items
 public:
 	Potions();
 	~Potions();
-	
-	string temp;
+
 	int quantity;
 	void readItemDatabase();
-	void givePotion(int potionID, int potionQuantity);
+	/*void givePotion(int potionID, int potionQuantity);*/
 
 
 };

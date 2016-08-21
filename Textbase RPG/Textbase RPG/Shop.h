@@ -18,7 +18,7 @@ public:
 	int displayArmour(Armours armour, Player *player);
 	int choice;
 	int quantity;
-	void displayPotions(Potions potion);
+	int displayPotions(Potions potion,Player *player);
 
 };
 

@@ -16,7 +16,7 @@ public:
 	Game();
 	~Game();
 	static void timeDISPLAY9000();
-	static int battleSystem(Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster, int monsterID);
+	static int battleSystem(Player *player, Monster monster, int monsterID);
 };
 
 #endif

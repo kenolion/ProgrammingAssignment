@@ -29,9 +29,9 @@ int Shop::displayWeapon(Weapons weapon,Player *player)
 		cout << weapon.weaponVector[column].maxAtk << "-";
 		cout << weapon.weaponVector[column].minAtk << endl;
 	}	
-	////// VALIDATION CHECK
+	
 	cout << weapon.weaponVector.size() << "Exit" << endl;
-	cout << weapon.weaponVector[12].price;
+	////// VALIDATION CHECK
 	do{
 	while(!(cin >> choice) ||choice > weapon.weaponVector.size() || choice < 1){
 	cin.clear();
@@ -39,7 +39,7 @@ int Shop::displayWeapon(Weapons weapon,Player *player)
 	cout << "Enter a valid item number!";
 
 	}
-	if (player->getMoney() <= weapon.weaponVector[choice].price) {
+	if (player->getMoney() < weapon.weaponVector[choice].price) {
 
 		cout << "No money no talk";
 
@@ -75,6 +75,7 @@ int Shop::displayArmour(Armours armour,Player *player)
 		cout << armour.armourVector[column].defense << endl;
 	}
 	cout << armour.armourVector.size() << "Exit" << endl;
+	////// VALIDATION CHECK
 	do {
 		while (!(cin >> choice) || choice > armour.armourVector.size() || choice < 1) {
 			cin.clear();
@@ -82,7 +83,7 @@ int Shop::displayArmour(Armours armour,Player *player)
 			cout << "Enter a valid item number!";
 
 		}
-		if (player->getMoney() <= armour.armourVector[choice].price) {
+		if (player->getMoney() < armour.armourVector[choice].price) {
 
 			cout << "No money no talk! ";
 
@@ -98,12 +99,13 @@ int Shop::displayArmour(Armours armour,Player *player)
 
 }
 
-void Shop::displayPotions(Potions potion)
+int Shop::displayPotions(Potions potion,Player *player)
 {
 	system("cls");
 	ConsoleWindow::equalSignMaker9000(80);
 	ConsoleWindow::SetDrawingPoint(0, potion.potionVector.size()+2);
 	ConsoleWindow::equalSignMaker9000(80);
+	ConsoleWindow::getCursorXY();
 	ConsoleWindow::SetDrawingPoint(0, 1);
 
 	cout << "   Potion Name\t\t";
@@ -118,5 +120,46 @@ void Shop::displayPotions(Potions potion)
 
 
 	}
+	ConsoleWindow::SetDrawingPoint(ConsoleWindow::x, ConsoleWindow::y);
+	cout << potion.potionVector.size() << ": Exit" << endl;
+	////// VALIDATION CHECK
+	do {
+		cout << "Enter which potion you want to buy : ";
+		while (!(cin >> choice) || choice > potion.potionVector.size() || choice < 1) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Enter a valid item number!";
+
+
+		}
+		if(choice != 4){
+			if(player->getMoney() >= potion.potionVector[choice - 1].price){
+			cout << "Enter how much you want to buy : ";
+		while (!(cin >> quantity) || quantity > 99 || quantity < 1) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "Enter a valid item number!\n";
+
+
+		}
+			}
+		}
+		//////CALCULATIONS
+		potion.potionVector[choice-1].price *= quantity;
+		if (player->getMoney() < potion.potionVector[choice-1].price) {
+
+			cout << "No money no talk! \n";
+
+		}
+		else if (choice == potion.potionVector.size()) {
+			return 0;
+		}
+
+	} while (player->getMoney() <= potion.potionVector[choice-1].price);
+	
+	player->addMoney(-potion.potionVector[choice-1].price);
+	player->addPotion(quantity,choice-1);
+	return 0;
+
 }
 		    

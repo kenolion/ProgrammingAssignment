@@ -31,7 +31,6 @@ int main() {
 	int sleep = 0;				// to control the duration of Sleep() for debugging purposes
 	srand(time(nullptr));
 	Time day(6,1);
-	Player player(" ", 100, 0, 0, 0, 0, 1, 2);			// name , int hp,int job, int money, int intel, int str,int minAtk,int maxAtk
 	Monster monster;
 	string name;
 	Activities doableActions; //doableActions consists of all the actions you can do in the day.
@@ -50,11 +49,11 @@ int main() {
 	armours->readItemDatabase();
 	potions->readItemDatabase();
 	skills.readSkillsDatabase();
-
+	Player player(" ", 100, 0, 100, 0, 0, 1, 2,weapon,armour,potion);			// name , int hp,int job, int money, int intel, int str,int minAtk,int maxAtk
 
 	int job;
 	////////////////////////////// TESTING ZONE
-
+	player.addPotion(2, 0);
 
 	/////////////////////
 	//Menu system start from here
@@ -102,8 +101,8 @@ int main() {
 	ConsoleWindow::equalSignMaker9000(80);
 
 	//GIVEPOTION NOT WORKING
-	potion.givePotion(0, 5); // Gives five normal potions
-	potion.givePotion(1, 1); // Gives one strong potion
+	//potion.givePotion(0, 5); // Gives five normal potions
+	//potion.givePotion(1, 1); // Gives one strong potion
 
 	player.addMoney(5);
 	switch (player.getJob()) {
@@ -111,7 +110,7 @@ int main() {
 		player.addStr(5);
 		player.addIntel(10);
 		ConsoleWindow::getCursorXY();
-		player.showItemandStats(weapon, armour, ConsoleWindow::x, ConsoleWindow::y);
+		player.showItemandStats( ConsoleWindow::x, ConsoleWindow::y);
 		cout << "You are " << player.getCharacterName();
 		cout << ",The Con Man. You gained 10 Intelligence and 5 Strength.\n\n" << endl;
 		break;
@@ -121,7 +120,7 @@ int main() {
 		player.addStr(10);
 		player.addIntel(5);
 		ConsoleWindow::getCursorXY();
-		player.showItemandStats(weapon, armour, ConsoleWindow::x, ConsoleWindow::y);
+		player.showItemandStats( ConsoleWindow::x, ConsoleWindow::y);
 		cout << "You are " << player.getCharacterName();
 		cout << ",The Jock. You gained 10 Strength and 5 Intelligence.\n\n" << endl << endl;
 		break;
@@ -139,7 +138,7 @@ int main() {
 	while (1) {
 		do {
 			system("cls");
-			player.showItemandStats(weapon, armour,0,0);
+			player.showItemandStats(0,0);
 			ConsoleWindow::equalSignMaker9000(80);
 			int action;
 			int a;
@@ -153,7 +152,7 @@ int main() {
 			ConsoleWindow::equalSignMaker9000(80);
 			cin >> action;
 			system("cls");
-			player.showItemandStats(weapon, armour,0,0);
+			player.showItemandStats(0,0);
 			ConsoleWindow::equalSignMaker9000(80);
 			switch (action) {
 				Sleep(1000);
@@ -200,19 +199,19 @@ int main() {
 						shop.displayWeapon(weapon,&player);
 						system("pause");
 						system("cls");
-						player.showItemandStats(weapon, armour,0,0);
+						player.showItemandStats(0,0);
 						break;
 					case 2:
 						shop.displayArmour(armour,&player);
 						system("pause");
 						system("cls");
-						player.showItemandStats(weapon, armour,0,0);
+						player.showItemandStats(0,0);
 						break;
 					case 3:
-						shop.displayPotions(potion);
+						shop.displayPotions(potion,&player);
 						system("pause");
 						system("cls");
-						player.showItemandStats(weapon, armour, 0, 0);
+						player.showItemandStats( 0, 0);
 						break;
 					case 4:
 					{
@@ -230,7 +229,7 @@ int main() {
 
 		Sleep(1000);
 		system("cls");
-		player.showItemandStats(weapon, armour,0,0);
+		player.showItemandStats(0,0);
 		Sleep(1500);
 		ConsoleWindow::equalSignMaker9000(80);
 		cout << "Nightfall has come. Monsters arrive in 6 hours." << endl;

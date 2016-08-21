@@ -20,12 +20,12 @@ void Game::timeDISPLAY9000()
 }
 
 
-int Game::battleSystem(Potions *potion, Player *player, Weapons weapon, Armours armour, Monster monster, int monsterID) {
+int Game::battleSystem(Player *player, Monster monster, int monsterID) {
 
 	monster.characterVector[monsterID].characterID = monsterID;
 	system("cls");
 	int choice = 0;
-	player->showItemandStats(weapon, armour, 0, 0);
+	player->showItemandStats( 0, 0);
 
 
 	while (monster.getHp(monsterID - 1) > 0 && player->getHp() > 0) {// do while loop to enable a turn based like battle system
@@ -141,28 +141,23 @@ int Game::battleSystem(Potions *potion, Player *player, Weapons weapon, Armours 
 				//BOX DRAWING
 
 				//INTERNAL DATA DRAWING.
-				ConsoleWindow::SetDrawingPoint(1, 10);
-				cout << potion->potionVector[0].itemId << potion->potionVector[0].name << " x " << potion->potionVector[0].potionQuantity << endl;
-				ConsoleWindow::SetDrawingPoint(1, 11);
-				cout << potion->potionVector[1].itemId << potion->potionVector[1].name << " x " << potion->potionVector[1].potionQuantity << endl;
-				ConsoleWindow::SetDrawingPoint(1, 12);
-				cout << potion->potionVector[2].itemId << potion->potionVector[2].name << " x " << potion->potionVector[2].potionQuantity << endl;
+				// EDITED BY KEITH
+				player->showPotions();
 				cout << "\n\nPotion choice (Number) : ";
 				cin >> selection;
-				potion->potionVector[selection - 1].potionQuantity -= 1;
-				potion->quantity -= 1;
+				player->addPotion(-1, selection-1);
 
-				if (potion->potionVector[selection - 1].potionQuantity < 0)
+				if (player->getPotionQuantity(selection-1) < 0)
 				{
-					cout << "You're out of " << potion->potionVector[selection - 1].name << "s!\n\n";
-					potion->potionVector[selection - 1].potionQuantity += 1;
-					potion->quantity += 1;
+					cout << "You're out of " << player->getPotionName(selection-1) << "s!\n\n";
+					player->addPotion(1, selection - 1);
 				}
+
 				else{
 					Sleep(1000);
-					cout << "You used :" << potion->potionVector[selection - 1].name << "!\n";
-					cout << "Player HP + " << potion->potionVector[selection - 1].potionHeal << "!\n\n";
-					player->setHp(player->getHp() + 20);
+					cout << "You used :" << player->getPotionName(selection-1)<< "!\n";
+					cout << "Player HP + " << player->getPotionHeal(selection-1) << "!\n\n";
+					player->setHp(player->getHp() + player->getPotionHeal(selection - 1));
 				}
 
 				Sleep(1000);
@@ -171,7 +166,7 @@ int Game::battleSystem(Potions *potion, Player *player, Weapons weapon, Armours 
 				cout << endl << endl;
 				break;
 			}
-			
+			///////////////////////////////////////////
 		
 		}
 
@@ -184,7 +179,7 @@ int Game::battleSystem(Potions *potion, Player *player, Weapons weapon, Armours 
 		system("cls");
 	}
 
-	player->showItemandStats(weapon, armour, 0, 0);
+	player->showItemandStats( 0, 0); // changed as well to not accept weapon and armour objects
 	Time::calculateTime(6);
 }
 

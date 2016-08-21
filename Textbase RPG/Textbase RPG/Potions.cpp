@@ -25,9 +25,9 @@ void Potions::readItemDatabase()
 	}
 }
 
-void Potions::givePotion(int potionID, int potionQuantity)
-{
-	quantity += potionQuantity;
-   potionVector[potionID].potionQuantity += potionQuantity;
-
-}
+//void Potions::givePotion(int potionID, int potionQuantity)
+//{
+//	quantity[] += potionQuantity;
+//   potionVector[potionID].potionQuantity += potionQuantity;
+//
+//}
