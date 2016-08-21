@@ -32,6 +32,7 @@ int Shop::displayWeapon(Weapons weapon,Player *player)
 	////// VALIDATION CHECK
 	cout << weapon.weaponVector.size() << "Exit" << endl;
 	cout << weapon.weaponVector[12].price;
+	cout << "\n\nEnter the ID of the Weapon you would like to buy : ";
 	do{
 	while(!(cin >> choice) ||choice > weapon.weaponVector.size() || choice < 1){
 	cin.clear();
@@ -75,6 +76,7 @@ int Shop::displayArmour(Armours armour,Player *player)
 		cout << armour.armourVector[column].defense << endl;
 	}
 	cout << armour.armourVector.size() << "Exit" << endl;
+	cout << "\n\nEnter the ID of the Armour you would like to buy : ";
 	do {
 		while (!(cin >> choice) || choice > armour.armourVector.size() || choice < 1) {
 			cin.clear();

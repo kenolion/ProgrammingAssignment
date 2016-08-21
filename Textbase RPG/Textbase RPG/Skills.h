@@ -11,7 +11,7 @@ public:
 	~Skills();
 
 	void readSkillsDatabase();
-
+	void assignPlayerSkills(int playerJob);
 };
 
 #endif

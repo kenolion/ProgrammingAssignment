@@ -10,13 +10,14 @@
 #include "Time.h"
 #include "Potions.h"
 #include <windows.h>// to use the function sleep
+#include "Skills.h"
 class Game
 {
 public:
 	Game();
 	~Game();
 	static void timeDISPLAY9000();
-	static int battleSystem(Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster, int monsterID);
+	static int battleSystem(Skills *skill,Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster, int monsterID);
 };
 
 #endif

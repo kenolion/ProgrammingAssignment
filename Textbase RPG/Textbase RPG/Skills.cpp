@@ -25,3 +25,17 @@ void Skills::readSkillsDatabase()
 		skillVector.push_back(character); // Pushback adds an array size to the vector 
 	}
 }
+
+void Skills::assignPlayerSkills(int playerJob)
+{
+	if (playerJob == 1)
+	{
+		skillVector[0].profession = "Jock";
+	
+	}
+	else if (playerJob == 2)
+	{
+	
+		skillVector[1].profession = "ConMan";
+	}
+}
