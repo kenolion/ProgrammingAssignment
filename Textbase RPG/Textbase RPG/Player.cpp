@@ -69,8 +69,9 @@ void Player::setJob(int job)
 
 int Player::attack()
 {
-
-	return rand() % character.maxAtk + character.minAtk;
+	double strMultiplier;
+	strMultiplier = str * 0.5;
+	return (rand() % character.maxAtk + weapon.weaponVector[weapon.item.itemId].maxAtk + character.minAtk + weapon.weaponVector[weapon.item.itemId].minAtk) + strMultiplier;
 }
 
 void Player::showItemandStats(int cursorX,int cursorY)

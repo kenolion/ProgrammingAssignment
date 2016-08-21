@@ -10,6 +10,7 @@
 #include "Time.h"
 #include "Potions.h"
 #include <windows.h>// to use the function sleep
+#include "Skills.h"
 class Game
 {
 public:

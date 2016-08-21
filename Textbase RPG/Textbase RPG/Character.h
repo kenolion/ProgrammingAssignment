@@ -18,6 +18,7 @@ protected:
 		int money;
 
 		//SKILLS
+		string profession;
 		int skillID;
 		string skillName;
 		int skillManaCost;
@@ -37,8 +38,10 @@ public:
 	void setHp(int hp);				  												 
 	virtual int attack(); //Randomly generates the damage with minatk and maxatk			 
 	int damage; //Temporary stores the damage of the character when attack is called 
+
 	vector<CharacterInfo> characterVector;
 	vector<CharacterInfo> skillVector;
+
 									  												 
 };						
 

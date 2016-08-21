@@ -109,6 +109,7 @@ int main() {
 	case 1: {
 		player.addStr(5);
 		player.addIntel(10);
+		skills.assignPlayerSkills(1); 
 		ConsoleWindow::getCursorXY();
 		player.showItemandStats( ConsoleWindow::x, ConsoleWindow::y);
 		cout << "You are " << player.getCharacterName();
@@ -119,6 +120,7 @@ int main() {
 
 		player.addStr(10);
 		player.addIntel(5);
+		skills.assignPlayerSkills(2);
 		ConsoleWindow::getCursorXY();
 		player.showItemandStats( ConsoleWindow::x, ConsoleWindow::y);
 		cout << "You are " << player.getCharacterName();
@@ -177,7 +179,7 @@ int main() {
 
 			case 4: {
 
-				doableActions.fightCrime(&potion,&player,weapon,armour,monster);	// NEEDS TO ADD MONEY GAIN AFTER KILLING SOMEONE
+				doableActions.fightCrime(&skills,&potion,&player,weapon,armour,monster);	// NEEDS TO ADD MONEY GAIN AFTER KILLING SOMEONE
 				day.calculateTime(6);
 				break;
 			}
@@ -247,11 +249,11 @@ int main() {
 		}
 		case 2: {
 			day.calculateTime(1);
-			doableActions.home(&potion ,&player, weapon, armour, monster);
+			doableActions.home(&skills,&potion ,&player, weapon, armour, monster);
 			break;
 		}
 		case 3: {
-			doableActions.randEvents(&potion,&player,weapon,armour,monster);
+			doableActions.randEvents(&skills,&potion,&player,weapon,armour,monster);
 		}
 
 		}
