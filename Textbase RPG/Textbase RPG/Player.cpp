@@ -253,15 +253,7 @@ string Player::getSkillName(int skillID)
 	return skill.skillVector[skillID-1].skillName;
 }
 
-int Player::getSkillVectorSize()
-{
-	return skill.skillVector.size();
-}
 
-int Player::getPotionVectorSize()
-{
-	return potion.potionVector.size();
-}
 
 
 

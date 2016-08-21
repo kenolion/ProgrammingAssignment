@@ -52,13 +52,11 @@ public:
 	int getPotionQuantity(int potionID);
 	string getPotionName(int potionID);
 	int getPotionHeal(int potionID);
-	int getPotionVectorSize();
 	///////////////////////// SKILLS SETTERS AND GETTERS
 	void showSkills();
 	int getSkillDmg(int skillID);
 	int getSkillCost(int skillID);
 	string getSkillName(int skillID);
-	int getSkillVectorSize();
 	
 };
 
