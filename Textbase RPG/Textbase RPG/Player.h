@@ -5,6 +5,7 @@
 #include "Armours.h"
 #include "Weapons.h"
 #include "Potions.h"
+#include "Skills.h"
 
 class Player :public Character
 {
@@ -28,6 +29,13 @@ public:
 	void addMoney(int money);
 	void addIntel(int intel);
 	void addStr(int str);
+
+	//MANA,HP,MIN AND MAX ATK CALCULATIONS
+	int calculateMana();
+	int calculateHp();
+	int calculateMinAtk();
+	int calculateMaxAtk();
+
 	int getJob();
 	void setJob(int job);
 	int attack();

@@ -1,4 +1,4 @@
 
 1 HP Potion| 50 20 0
 2 BetterPotion| 100 50 0 
-3 StrongerPotion| 200 100 0
+3 BestPotion| 200 100 0

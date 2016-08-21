@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include "Character.h"
 using namespace std;
-
+int Game::bossesLeft = 10;
 
 Game::Game()
 {
@@ -309,4 +309,6 @@ int Game::battleSystem(Player *player, Monster monster, int monsterID) {
 	player->showItemandStats( 0, 0); // changed as well to not accept weapon and armour objects
 	Time::calculateTime(6);
 }
+
+
 

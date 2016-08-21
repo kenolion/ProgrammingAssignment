@@ -49,7 +49,7 @@ int main() {
 	armours->readItemDatabase();
 	potions->readItemDatabase();
 	skills.readSkillsDatabase();
-	Player player(" ", 100, 0, 100, 0, 0, 1, 2,weapon,armour,potion);			// name , int hp,int job, int money, int intel, int str,int minAtk,int maxAtk
+	Player player(" ", 100, 0, 5000, 0, 0, 1, 2,weapon,armour,potion);			// name , int hp,int job, int money, int intel, int str,int minAtk,int maxAtk
 
 	int job;
 	////////////////////////////// TESTING ZONE
@@ -104,14 +104,12 @@ int main() {
 	//potion.givePotion(0, 5); // Gives five normal potions
 	//potion.givePotion(1, 1); // Gives one strong potion
 
-	player.addMoney(5);
+
 	switch (player.getJob()) {
 	case 1: {
 		player.addStr(5);
 		player.addIntel(10);
 		skills.assignPlayerSkills(1); 
-		ConsoleWindow::getCursorXY();
-		player.showItemandStats( ConsoleWindow::x, ConsoleWindow::y);
 		cout << "You are " << player.getCharacterName();
 		cout << ",The Con Man. You gained 10 Intelligence and 5 Strength.\n\n" << endl;
 		break;
@@ -121,15 +119,16 @@ int main() {
 		player.addStr(10);
 		player.addIntel(5);
 		skills.assignPlayerSkills(2);
-		ConsoleWindow::getCursorXY();
-		player.showItemandStats( ConsoleWindow::x, ConsoleWindow::y);
 		cout << "You are " << player.getCharacterName();
 		cout << ",The Jock. You gained 10 Strength and 5 Intelligence.\n\n" << endl << endl;
 		break;
 
 	}
+			
 	}
 	
+	ConsoleWindow::getCursorXY();
+	player.showItemandStats(ConsoleWindow::x, ConsoleWindow::y);
 	Sleep(sleep);
 	cout << "???? : You have 12 hours before the monsters arrive.\n";
 	Sleep(sleep);
@@ -137,10 +136,10 @@ int main() {
 	Sleep(sleep);
 	system("pause");
 	Sleep(1000);
-	while (1) {
+	while (Game::bossesLeft != 0) {
 		do {
 			system("cls");
-			player.showItemandStats(0,0);
+			player.showItemandStats(0, 0);
 			ConsoleWindow::equalSignMaker9000(80);
 			int action;
 			int a;
@@ -148,13 +147,13 @@ int main() {
 			cout << "1. Go to School (6 Hours)" << endl;
 			cout << "2. Go to the Gym (6 Hours)" << endl;
 			cout << "3. Go to work at McDonalds (6 Hours)" << endl;
-			cout << "4. Fight Crime (6 Hours)" << endl;
+			cout << "4. Hunt Crime Bosses ( " << Game::bossesLeft-5 <<" Crime Bosses Left) (6 Hours)" << endl;
 			cout << "5. Visit the Shop( 0 Hours)" << endl;
 			day.displayTime();
 			ConsoleWindow::equalSignMaker9000(80);
 			cin >> action;
 			system("cls");
-			player.showItemandStats(0,0);
+			player.showItemandStats(0, 0);
 			ConsoleWindow::equalSignMaker9000(80);
 			switch (action) {
 				Sleep(1000);
@@ -179,50 +178,47 @@ int main() {
 
 			case 4: {
 
-				doableActions.fightCrime(&player,monster);	// NEEDS TO ADD MONEY GAIN AFTER KILLING SOMEONE
+				doableActions.fightCrime(&player, monster);	// NEEDS TO ADD MONEY GAIN AFTER KILLING SOMEONE
 				day.calculateTime(6);
 				break;
 			}
 			case 5: {
-				while(action != 4){
+				while (action != 4) {
 					ConsoleWindow::SetDrawingPoint(0, 0);
 					ConsoleWindow::equalSignMaker9000(80);
 					ConsoleWindow::SetDrawingPoint(0, 5);
 					ConsoleWindow::equalSignMaker9000(80);
 					ConsoleWindow::SetDrawingPoint(0, 1);
-				cout << "1.Buy weapons\n";
-				cout << "2.Buy armours\n";
-				cout << "3.Buy potions\n";
-				cout << "4.Exit Shop\n";
-				ConsoleWindow::SetDrawingPoint(0, 6);
-				cin >> action;
+					cout << "1.Buy weapons\n";
+					cout << "2.Buy armours\n";
+					cout << "3.Buy potions\n";
+					cout << "4.Exit Shop\n";
+					ConsoleWindow::SetDrawingPoint(0, 6);
+					cin >> action;
 					switch (action) {
 					case 1:
-						shop.displayWeapon(weapon,&player);
-						system("pause");
+						shop.displayWeapon(weapon, &player);
 						system("cls");
-						player.showItemandStats(0,0);
+						player.showItemandStats(0, 0);
 						break;
 					case 2:
-						shop.displayArmour(armour,&player);
-						system("pause");
+						shop.displayArmour(armour, &player);
 						system("cls");
-						player.showItemandStats(0,0);
+						player.showItemandStats(0, 0);
 						break;
 					case 3:
-						shop.displayPotions(potion,&player);
-						system("pause");
+						shop.displayPotions(potion, &player);
 						system("cls");
-						player.showItemandStats( 0, 0);
+						player.showItemandStats(0, 0);
 						break;
 					case 4:
 					{
 						action = 4;
 					}
-				}
+					}
 				}
 				ConsoleWindow::equalSignMaker9000(80);
-		
+
 				break;
 			}
 			}
@@ -231,14 +227,14 @@ int main() {
 
 		Sleep(1000);
 		system("cls");
-		player.showItemandStats(0,0);
+		player.showItemandStats(0, 0);
 		Sleep(1500);
 		ConsoleWindow::equalSignMaker9000(80);
 		cout << "Nightfall has come. Monsters arrive in 6 hours." << endl;
 		cout << "Choose your action wisely!:" << endl;
 		cout << "1. Go to the pub and hit on girls. (3 Hours) " << endl;
-		cout << "2. Go home and prepare against the monsters. (1 Hour)" << endl;
-		cout << "3. Stay outside and hunt for rare monsters." << endl;
+		cout << "2. Go home and farm neutral monsters. (1 Hour Journey)" << endl;
+		cout << "3. Stay outside and hunt for rare boss monsters. ( "<< Game::bossesLeft-5 <<" Midnight Bosses Left )" << endl;
 		day.displayTime();
 		ConsoleWindow::equalSignMaker9000(80);
 		cin >> action;
@@ -249,17 +245,20 @@ int main() {
 		}
 		case 2: {
 			day.calculateTime(1);
-			doableActions.home(&player,monster);
+			doableActions.home(&player, monster);
 			break;
 		}
 		case 3: {
-			doableActions.randEvents(&player,monster);
+			doableActions.randEvents(&player, monster);
 		}
 
 		}
 	}
 
 	ConsoleWindow::equalSignMaker9000(80);
+	cout << "You won the game, Congratulations!\n";
+	cout << "You have beaten this game in" << day.getDay() << "days!";
+	cout << "Try to beat this game in lesser days!\n";
 	system("pause");
 }
 

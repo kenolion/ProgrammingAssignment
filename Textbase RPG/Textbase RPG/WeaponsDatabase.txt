@@ -7,6 +7,6 @@ ItemID  Itemname 	  	Price	MinDamage MaxDamage
 5 Stop Sign|2500      	14  	  15
 6 Go Sign|3000	        16  	  18
 7 TrafficLight|3500    	19  	  21
-8 Dildo |4000 	    22  	  24
+8 Strong Bat |4000 	    22  	  24
 9 Lightsabre|4500	25  	  27
 10 Nokia 3310|5000 	28  	  30

@@ -19,6 +19,7 @@ public:
 	int choice;
 	int quantity;
 	int displayPotions(Potions potion,Player *player);
+	int anger = 0;
 
 };
 

@@ -18,6 +18,7 @@ public:
 	~Game();
 	static void timeDISPLAY9000();
 	static int battleSystem(Player *player, Monster monster, int monsterID);
+	static int bossesLeft;
 };
 
 #endif

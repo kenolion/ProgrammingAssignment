@@ -135,7 +135,7 @@ int Activities::fightCrime(Player *player, Monster monster)
 	cout << "You decided to FIGHT CRIME!\n";
 	cout << "Crimes are harder to beat compared to normal monsters. However, the payout is higher.\n";
 	int randNum;
-	randNum = rand() % 2+4; // 4-6
+	randNum = rand() % 5+15; // 15-20
 	Game::battleSystem(player,  monster, randNum);
 	return 0;
 }
@@ -248,7 +248,7 @@ int Activities::randEvents( Player *player, Monster monster)
 			cout << "*You shoved him away from you and ready your weapon.\n";
 
 			Sleep(1500);
-			Game::battleSystem( player,monster,11);
+			Game::battleSystem( player,monster,1);
 			randNum++;
 		}
 		else if (playerinput == 2)
@@ -265,7 +265,7 @@ int Activities::randEvents( Player *player, Monster monster)
 			cout << "At your own grave once I'm done with you.\n";
 			
 			Sleep(2500);
-			Game::battleSystem(player, monster, 11);
+			Game::battleSystem(player, monster, 1);
 			randNum++;
 		}
 		else
@@ -273,7 +273,7 @@ int Activities::randEvents( Player *player, Monster monster)
 			system("cls");
 			cout << "Middle-aged Man : You're not running anywhere!\n";
 			Sleep(2500);
-			Game::battleSystem(player, monster, 11);
+			Game::battleSystem(player, monster, 1);
 			randNum++;
 		}
 		randNum++;
@@ -358,7 +358,7 @@ int Activities::randEvents( Player *player, Monster monster)
 			Sleep(2500);
 			cout << "Highschool Girl : I guess I said too much.\n\n";
 			Sleep(2500);														
-			Game::battleSystem(player, monster, 1);
+			Game::battleSystem(player, monster, 2);
 			randNum++;
 		}
 	
@@ -472,7 +472,10 @@ int Activities::randEvents( Player *player, Monster monster)
 			Sleep(2500);
 			cout << "???? : Consider this as a gift.\n\n";
 			Sleep(2500);
+			player->addMoney(2500);
+			cout << "You gained 2500 Muneys!!!\n";
 			system("pause");
+			
 			randNum++;
 			break;
 		}
@@ -558,7 +561,7 @@ int Activities::randEvents( Player *player, Monster monster)
 			Sleep(2500);
 			cout << "??? : YOU BROKE MY JAW."; Sleep(2500); cout << " I'LL FUCKING KILL YOU.\n";
 			Sleep(3500);
-			Game::battleSystem(player, monster, 7);
+			Game::battleSystem(player, monster, 5);
 		}
 	}
 	return 0;
