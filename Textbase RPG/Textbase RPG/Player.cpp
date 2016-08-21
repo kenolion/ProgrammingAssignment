@@ -227,7 +227,7 @@ void Player::showSkills()
 	ConsoleWindow::SetDrawingPoint(1, 10);
 	cout << "Skills : \t\t   DMG\t\tManaCost";
 
-		for (int a = 0; a < skill.skillVector.size()-1; a++)
+		for (int a = 0; a < skill.skillVector.size(); a++)
 		{
 			ConsoleWindow::SetDrawingPoint(1, 11 + a);
 			cout << a + 1 << skill.skillVector[a].skillName;
