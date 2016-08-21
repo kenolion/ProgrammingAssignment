@@ -4,7 +4,7 @@
 #include "Character.h"
 #include <fstream>
 
-class Skills : public Character
+class Skills
 {
 public:
 	Skills();
