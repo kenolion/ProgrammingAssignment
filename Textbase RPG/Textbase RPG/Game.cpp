@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include "Character.h"
 using namespace std;
-
+int Game::bossesLeft = 10;
 
 Game::Game()
 {
@@ -165,4 +165,3 @@ int Game::battleSystem(Player *player, Monster monster, int monsterID) {
 		return 0;
 	}
 
-}

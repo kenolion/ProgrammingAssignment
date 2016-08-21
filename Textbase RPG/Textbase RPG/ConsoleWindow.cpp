@@ -74,6 +74,7 @@ void ConsoleWindow::CIRCLEMAKER9000()
 			float distance_to_centre = sqrt((i - circle_radius)*(i - circle_radius) + (j - circle_radius)*(j - circle_radius));
 			if (distance_to_centre > circle_radius - 0.5 && distance_to_centre < circle_radius + 0.5)
 			{
+				ConsoleWindow::SetDrawingPoint(26, 20);
 				cout << "*";
 			}
 			else

@@ -23,7 +23,7 @@ protected:
 		string skillName;
 		int skillManaCost;
 		int skillDamage;
-
+		int Mana;
 	};
 	CharacterInfo character;
 

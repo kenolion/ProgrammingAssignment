@@ -58,6 +58,27 @@ void Player::addStr(int str){
 	this->str += str;
 }
 
+int Player::calculateMana()
+{
+	return character.Mana = (intel * 1.5) + 100;
+
+}
+
+int Player::calculateHp()
+{
+	return  character.hp = (str * 1.5) + 100;
+}
+
+int Player::calculateMinAtk()
+{
+	return character.minAtk = character.minAtk + weapon.weaponVector[weapon.item.itemId].minAtk;
+}
+
+int Player::calculateMaxAtk()
+{
+	return character.maxAtk = character.maxAtk + weapon.weaponVector[weapon.item.itemId].maxAtk;
+}
+
 int Player::getJob()
 {
 
@@ -83,32 +104,44 @@ void Player::showItemandStats(int cursorX,int cursorY)
 	int c = 21;
 	int d = 21;
 	ConsoleWindow::SetDrawingPoint(1, 20);
-	for (int i = 0; i <= 30; i++) { cout << "_"; } //Top line of the box
-	ConsoleWindow::SetDrawingPoint(1, 21);
-	for (int i = 0; i <= 14; i++) { ConsoleWindow::SetDrawingPoint(1, c); cout << "|"; c++; } // Left horizontal line of the box
-	ConsoleWindow::SetDrawingPoint(31, 21);
-	for (int i = 0; i <= 14; i++) { ConsoleWindow::SetDrawingPoint(31, d); cout << "|"; d++; }; //Right horizontal line of the box
-	ConsoleWindow::SetDrawingPoint(1, 35);
-	for (int i = 0; i <= 30; i++) { cout << "¯"; } //Bottom line of the box
+	for (int i = 0; i <= 60; i++) { cout << "_"; } //Top line of the box
+	for (int i = 0; i <= 17; i++) { ConsoleWindow::SetDrawingPoint(1, c); cout << "|"; c++; } // Left horizontal line of the box
+	for (int i = 0; i <= 17; i++) { ConsoleWindow::SetDrawingPoint(61, d); cout << "|"; d++; }; //Right horizontal line of the box
+	ConsoleWindow::SetDrawingPoint(1, 38);
+	for (int i = 0; i <= 60; i++) { cout << "¯"; } //Bottom line of the box
+
 	ConsoleWindow::SetDrawingPoint(2, 22); // Line 1 in the box
 	cout << "STATS";
 	ConsoleWindow::SetDrawingPoint(2, 23);
-	cout << "Hp : " << character.hp;
+	cout << "Hp : " << calculateHp();
+	ConsoleWindow::SetDrawingPoint(32, 23);
+	cout << "Total Damage : " << character.minAtk + weapon.weaponVector[weapon.item.itemId].minAtk << '-' << character.maxAtk + weapon.weaponVector[weapon.item.itemId].maxAtk;
 	ConsoleWindow::SetDrawingPoint(2, 24); // Line 2 in the box
-	cout << "Strength : " <<str; // Updated Strength Value whenever he levels up, when he chooses one of the two jobs at the start of the game;
+	cout << "Mana : " << calculateMana();
 	ConsoleWindow::SetDrawingPoint(2, 25); // and etc.
+	cout << "Strength : " << str;  // Updated Strength Value whenever he levels up, when he chooses one of the two jobs at the start of the game;
+	ConsoleWindow::SetDrawingPoint(2, 26);
 	cout << "Intelligence : " << intel; // Updated Intelligence Value whenever he levels up, when he chooses one of the two jobs at the start of the game;
 	ConsoleWindow::SetDrawingPoint(2, 28);
 	cout << "WEAPON EQUIPPED";
 	ConsoleWindow::SetDrawingPoint(2, 29);
 	cout << weapon.weaponVector[weapon.item.itemId].name; // Updated Weapons
-	ConsoleWindow::SetDrawingPoint(2, 31);
-	cout << "ARMOR EQUIPPED"; // Updated Armor
+	ConsoleWindow::SetDrawingPoint(32, 29);
+	cout << "Minimum Weapon Attack : " << weapon.weaponVector[weapon.item.itemId].minAtk;
+	ConsoleWindow::SetDrawingPoint(32, 30);
+	cout << "Maximum Weapon Attack : " << weapon.weaponVector[weapon.item.itemId].maxAtk;
 	ConsoleWindow::SetDrawingPoint(2, 32);
+	cout << "ARMOR EQUIPPED"; // Updated Armor
+	ConsoleWindow::SetDrawingPoint(2, 33);
 	cout << armour.armourVector[armour.item.itemId].name;
-	ConsoleWindow::SetDrawingPoint(2, 34);
-	cout << "Money :" << character.money;
+	ConsoleWindow::SetDrawingPoint(2, 35);
+	cout << "MONEY";
+	ConsoleWindow::SetDrawingPoint(2, 36);
+	cout << character.money;
+	ConsoleWindow::SetDrawingPoint(32, 36);
+	cout << "Fulfillment Bar :"; for (int i = 10; i > Game::bossesLeft; i--) { cout << "|"; }
 	ConsoleWindow::SetDrawingPoint(cursorX,cursorY);
+
 }
 
 /////////////// WEAPON DEFINITION
