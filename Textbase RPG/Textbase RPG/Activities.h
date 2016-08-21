@@ -20,10 +20,10 @@ public:
 	int gym();
 	int school();
 	int adventure();
-	int home(Skills *skills,Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster);
+	int home( Player *player, Monster monster);
 	int	work(); 
-	int fightCrime(Skills *skills,Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster);
-	int randEvents(Skills *skills,Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster);
+	int fightCrime( Player *player, Monster monster);
+	int randEvents( Player *player, Monster monster);
 	void randLearningMessage(int textFileNo);
 	//Time day;
 	enum InputKey { KEY_UP = 72, KEY_DOWN = 80, KEY_LEFT = 75, KEY_RIGHT = 77 }; 

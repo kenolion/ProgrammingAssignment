@@ -179,7 +179,7 @@ int main() {
 
 			case 4: {
 
-				doableActions.fightCrime(&skills,&potion,&player,weapon,armour,monster);	// NEEDS TO ADD MONEY GAIN AFTER KILLING SOMEONE
+				doableActions.fightCrime(&player,monster);	// NEEDS TO ADD MONEY GAIN AFTER KILLING SOMEONE
 				day.calculateTime(6);
 				break;
 			}
@@ -249,11 +249,11 @@ int main() {
 		}
 		case 2: {
 			day.calculateTime(1);
-			doableActions.home(&skills,&potion ,&player, weapon, armour, monster);
+			doableActions.home(&player,monster);
 			break;
 		}
 		case 3: {
-			doableActions.randEvents(&skills,&potion,&player,weapon,armour,monster);
+			doableActions.randEvents(&player,monster);
 		}
 
 		}

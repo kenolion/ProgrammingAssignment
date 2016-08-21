@@ -130,7 +130,7 @@ int Activities::work()
 }
 
 
-int Activities::fightCrime(Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster)
+int Activities::fightCrime(Player *player, Monster monster)
 {
 	cout << "You decided to FIGHT CRIME!\n";
 	cout << "Crimes are harder to beat compared to normal monsters. However, the payout is higher.\n";
@@ -144,7 +144,7 @@ int Activities::adventure()
 	return 0;
 }
 
-int Activities::home(Potions *potion,Player *player, Weapons weapon, Armours armour, Monster monster)
+int Activities::home(Player *player,  Monster monster)
 {	
 	Time day;
 	do {
@@ -184,7 +184,7 @@ int Activities::home(Potions *potion,Player *player, Weapons weapon, Armours arm
 	return 0;
 }
 
-int Activities::randEvents(Potions *potion, Player *player, Weapons weapon, Armours armour, Monster monster)
+int Activities::randEvents( Player *player, Monster monster)
 {
 
 	static int randNum = 5;
