@@ -47,7 +47,17 @@ int Player::getMoney(){
 
 void Player::addMoney(int money)
 {
-	character.money += money;
+	character.money += money*goldMultiplier;
+}
+
+void Player::setGoldMultiplier(double multiplier)
+{
+	goldMultiplier += multiplier;
+}
+
+double Player::getGoldMultiplier()
+{
+	return goldMultiplier;
 }
 
 
@@ -145,7 +155,7 @@ void Player::showItemandStats(int cursorX,int cursorY)
 	ConsoleWindow::SetDrawingPoint(2, 36);
 	cout << character.money;
 	ConsoleWindow::SetDrawingPoint(32, 36);
-	cout << "Fulfillment Bar :"; for (int i = 10; i > Game::bossesLeft; i--) { cout << "|"; }
+	cout << "Fulfillment Bar :"; for (int i = 10; i > Game::midnightBosses + Game::morningBosses; i--) { cout << "|"; }
 	ConsoleWindow::SetDrawingPoint(cursorX,cursorY);
 
 }

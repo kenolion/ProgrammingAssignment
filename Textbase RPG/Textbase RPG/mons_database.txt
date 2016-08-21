@@ -7,16 +7,15 @@ MONSTER ID MONSTERNAME MONSTER ATTACK MONSTER HP MONSTER PAYOUT|
 5 Midnight Grengar| 80 90 120 1200
 6 One EyedMuk|20 30 30 300
 7 Two EyedMuk|40 50 60 350
-8 Big Ben|3 6 20 250 
-9 Three EyedMuk|100 110 100 1200 
-10 Four EyedMuk|120 130 120 1400
-11 Siowster Monster|125 135 125 1500
-12 Fourhands Monster|130 140 130 1600
-13 Fivehands Monster| 230 150 230 1700 
-14 Sixhands Monster | 330 350 330 1800
+8 Big Ben|50 60 50 450 
+9 Three EyedMuk|30 40 320 1200 
+10 Four EyedMuk|40 50 160 1400
+11 Siowster Monster|20 40 150 1500
+12 Fourhands Monster|60 20 130 1600
+13 Fivehands Monster| 50 60 330 1700 
+14 Ultra Tanky Monster | 10 20 1000 1800
 15 Robber| 440 450 480 2000
 16 Pyro| 450 460 490  2200
 17 MafiaLord| 460 470 500 2400
 18 Mafioso| 470 480 510 2600
 19 Bank Robber| 480 490 520 2800
-20 Heist Planner| 490 500 530 3000

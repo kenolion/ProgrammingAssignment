@@ -152,9 +152,9 @@ int Activities::home(Player *player,  Monster monster)
 		player->showItemandStats(ConsoleWindow::x, ConsoleWindow::y);
 		ConsoleWindow::equalSignMaker9000(80);
 		cout << "Welcome home. You have 5 hours before the monsters arrive.\nEvery action takes an hour. Choose wisely" << endl;
-		cout << "1.Prepare your Weapons. (+2 Attack before the fight) [1 Hour]" << endl;
-		cout << "2.Prepare your Defences. (+2 Health before the fight) [1 Hour]" << endl;
-		cout << "3.Prepare scavanging. (2% chance higher of finding a random item from killing a monster) [1 Hour]" << endl;
+		cout << "1.Prepare your Weapons. (+4 Attack before the fight) [1 Hour]" << endl;
+		cout << "2.Prepare your Defences. (+4 Health before the fight) [1 Hour]" << endl;
+		cout << "3.More payout, more money given for every monster kill [1 Hour]" << endl;
 		day.displayTime();
 		ConsoleWindow::equalSignMaker9000(80);
 		cin >> action;
@@ -163,31 +163,40 @@ int Activities::home(Player *player,  Monster monster)
 		case 1:
 		{
 			day.calculateTime(1);
+			player->setMinAtk(player->getMinAtk()+2);
+			player->setMaxAtk(player->getMaxAtk()+ 2);
 			break;
-			//Attack + 2
+		    
 		}
 		case 2:
 		{
 			day.calculateTime(1);
 			break;
-			//Health + 2
+			player->setHp(player->getHp() + 4);
 		}
 		case 3:
 		{
+			player->setGoldMultiplier(0.5);
 			day.calculateTime(1);
 			break;
-			//Chance to find items +2
+			
 		}
+	
+	
 		}
+		system("cls");
+		player->showItemandStats(0, 0);
 	}while (Time::getHour() < 24);
-	Game::battleSystem(player, monster, 2);				// NEEDS TO BE EDITED AS WELL for now it will be 2
+	int randNum;
+	randNum = rand() % 8 + 6; //6 - 14
+	Game::battleSystem(player, monster, randNum);				// NEEDS TO BE EDITED AS WELL for now it will be 2
 	return 0;
 }
 
 int Activities::randEvents( Player *player, Monster monster)
 {
 
-	static int randNum = 5;
+	static int randNum = 0;
 	int playerinput;
 
 	switch (randNum)
@@ -213,7 +222,7 @@ int Activities::randEvents( Player *player, Monster monster)
 		Sleep(2500);
 		cout << "Middle-aged Man : You've got quite an attractive sword right there.\n";
 		Sleep(2500);
-		cout<<"  Middle-aged Man : Mind If I take it from you ? \n\n\n";
+		cout<<"Middle-aged Man : Mind If I take it from you ? \n\n\n";
 		Sleep(3500); //SCENARIO END
 
 		cout << " CHOOSE YOUR ACTION.\n";
@@ -254,7 +263,7 @@ int Activities::randEvents( Player *player, Monster monster)
 		else if (playerinput == 2)
 		{
 			system("cls");
-			cout <<" You chose to say :' Mind your own business old bag. I'll give you 10 seconds to run before I\n\t show 'YOU' an attractive beating'.\n\n\n";
+			cout <<"'Mind your own business old bag. I'll give you 10 seconds to run before I show 'YOU' an attractive beating'.\n\n\n";
 			Sleep(2500);
 			cout << "Middle-aged Man : Woah now.\n";
 			Sleep(2500);

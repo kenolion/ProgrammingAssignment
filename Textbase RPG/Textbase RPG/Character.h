@@ -33,7 +33,9 @@ public:
 	Character();
 	~Character();																	 
 	void setMinAtk(int damage);														 
-	void setMaxAtk(int damage);														 
+	void setMaxAtk(int damage);	
+	int getMinAtk();
+	int getMaxAtk();
 	string getCharacterName();														 
 	int getHp();
 	int getHp(int monsterID);

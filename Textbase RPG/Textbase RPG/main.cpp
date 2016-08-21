@@ -28,7 +28,7 @@ using namespace std;
 int choice = 0; ////Temporary variable to store choices of player.
 
 int main() {
-	int sleep = 0;				// to control the duration of Sleep() for debugging purposes
+	int sleep = 2500;				// to control the duration of Sleep() for debugging purposes
 	srand(time(nullptr));
 	Time day(6,1);
 	Monster monster;
@@ -121,13 +121,30 @@ int main() {
 	ConsoleWindow::getCursorXY();
 	player.showItemandStats(ConsoleWindow::x, ConsoleWindow::y);
 	Sleep(sleep);
-	cout << "???? : You have 12 hours before the monsters arrive.\n";
+	cout << "???? : You have 12 hours before the neutral monsters arrive.\n";
 	Sleep(sleep);
-	cout << "???? : Spend your time wisely, Agent 1447.\n\n";
+	cout << "???? : You will be free once your fulfillment bar is full.\n";
 	Sleep(sleep);
+	cout << "???? : Kill 5 Midnight Bosses and 5 Crime Bosses to fill your fulfillment Bar.\n";
+	Sleep(sleep);
+	cout << "???? : I don't recommend hunting for those bosses at the start\n";
+	Sleep(sleep);
+	cout << "???? : You'll get destroyed.\n";
+	Sleep(sleep);
+	cout << "???? : My advice, go for the neutral monsters at night at your home.Agent.\n";
+	Sleep(sleep);
+	cout << "???? : Your modified home allows you to boost your survival for the fight.\n";
+	Sleep(sleep);
+	cout << "???? : However, the survival boosts last for only one night.\n";
+	Sleep(sleep);
+	cout << "???? : Strengthen yourself at the gym, go to school for more intelligence.\n";
+	Sleep(sleep);
+	cout << "???? : Those are permanent upgrades.\n";
+	Sleep(sleep);
+	cout << "???? : Good luck, " << player.getCharacterName() << "\n";
 	system("pause");
 	Sleep(1000);
-	while (Game::bossesLeft != 0) {
+	while (Game::midnightBosses!= 0 && Game::morningBosses!=0) {
 		do {
 			system("cls");
 			player.showItemandStats(0, 0);
@@ -138,7 +155,7 @@ int main() {
 			cout << "1. Go to School (6 Hours)" << endl;
 			cout << "2. Go to the Gym (6 Hours)" << endl;
 			cout << "3. Go to work at McDonalds (6 Hours)" << endl;
-			cout << "4. Hunt Crime Bosses ( " << Game::bossesLeft-5 <<" Crime Bosses Left) (6 Hours)" << endl;
+			cout << "4. Hunt Crime Bosses ( " << Game::morningBosses <<" Crime Bosses Left) (6 Hours)" << endl;
 			cout << "5. Visit the Shop( 0 Hours)" << endl;
 			day.displayTime();
 			ConsoleWindow::equalSignMaker9000(80);
@@ -225,7 +242,7 @@ int main() {
 		cout << "Choose your action wisely!:" << endl;
 		cout << "1. Go to the pub and hit on girls. (3 Hours) " << endl;
 		cout << "2. Go home and farm neutral monsters. (1 Hour Journey)" << endl;
-		cout << "3. Stay outside and hunt for rare boss monsters. ( "<< Game::bossesLeft-5 <<" Midnight Bosses Left )" << endl;
+		cout << "3. Stay outside and hunt for rare boss monsters. ( "<< Game::midnightBosses <<" Midnight Bosses Left )" << endl;
 		day.displayTime();
 		ConsoleWindow::equalSignMaker9000(80);
 		cin >> action;
@@ -235,6 +252,7 @@ int main() {
 			//Ben's Harem System
 		}
 		case 2: {
+			system("cls");
 			day.calculateTime(1);
 			doableActions.home(&player, monster);
 			break;
