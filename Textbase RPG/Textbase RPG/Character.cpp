@@ -28,7 +28,17 @@ void Character::setMaxAtk(int damage){
 	character.maxAtk = damage;
 }
 
+int Character::getMinAtk()
+{
+	return character.minAtk;
+}
 
+
+
+int Character::getMaxAtk()
+{
+	return character.maxAtk;
+}
 
 string Character::getCharacterName() {
 	return  character.characterName;

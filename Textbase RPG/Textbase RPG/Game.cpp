@@ -3,7 +3,8 @@
 #include <cstdlib>
 #include "Character.h"
 using namespace std;
-int Game::bossesLeft = 10;
+int Game::midnightBosses = 5;
+int Game::morningBosses = 5;
 
 Game::Game()
 {
@@ -24,15 +25,18 @@ void Game::timeDISPLAY9000()
 int Game::battleSystem(Player *player, Monster monster, int monsterID) {
 
 	monster.characterVector[monsterID].characterID = monsterID;
-	system("cls");
+
 	int choice = 0;
 	while (monster.getHp(monsterID - 1) > 0 && player->getHp() > 0) {// do while loop to enable a turn based like battle system
 		monster.damage = monster.attack(monsterID - 1);			//generated monsters damage each loop because monster will attack each round
-		ConsoleWindow::equalSignMaker9000(80);
+	
 		do {												// THIS do while loop is to loop until player wants to exit from potion or skill menu condition at LINE 136
+			system("cls");
+			ConsoleWindow::equalSignMaker9000(80);
 			cout << "You encountered a" << monster.characterVector[monsterID - 1].characterName << endl;					//1. DISPLAY ENCOUNTER MESSAGE																							
 			cout << "What do you want to do?\n1.Attack\n2.NIGERO(Run)\n3.Potion\n4.Skills\n";
 			ConsoleWindow::equalSignMaker9000(80);
+
 
 
 			while (!(cin >> choice)) {																						//2. GET USER INPUT
@@ -136,15 +140,16 @@ int Game::battleSystem(Player *player, Monster monster, int monsterID) {
 
 			}
 		} while (choice == -5);								// value to not exit , sentinel value(?)forgot whats it called
+
 		if (monster.getHp(monsterID - 1) > 0) {
+			cout << "The enemy has "<< monster.characterVector[monsterID-1].hp<<" Hp left\n" ;
 			player->setHp(player->getHp() - monster.damage); // Monster turn to attack
-			cout << "The monster did " << monster.damage << " damage" << endl;
+			cout << "The enemy did " << monster.damage << " damage" << endl;
+			cout << "You have " << player->getHp() << " HP left\n";
 			system("pause");
+			
 		}
-		ConsoleWindow::equalSignMaker9000(80);
 
-
-		Time::calculateTime(6);
 	}										/// EXITING WHILE LOOP
 	if (player->getHp() <= 0) {
 		cout << "You died. Game over.\n";
@@ -160,6 +165,23 @@ int Game::battleSystem(Player *player, Monster monster, int monsterID) {
 		cout << "You gained " << monster.characterVector[monsterID - 1].money << " muneys.\n";
 		player->addMoney(monster.characterVector[monsterID - 1].money);
 		Sleep(1000);
+
+		if (monster.characterVector[monsterID - 1].characterID == monster.characterVector[1].characterID || monster.characterVector[monsterID - 1].characterID == monster.characterVector[2].characterID || monster.characterVector[monsterID - 1].characterID == monster.characterVector[3].characterID || monster.characterVector[monsterID - 1].characterID == monster.characterVector[4].characterID || monster.characterVector[monsterID - 1].characterID == monster.characterVector[5].characterID)
+		{
+			cout << "Congratulations! Midnight Mini Boss "<< monster.characterVector[monsterID - 1].characterName << " Annihilated!!! \n";
+			cout << "Fulfillment Bar Increased!!\n";
+			Game::midnightBosses--;
+		}
+		else if(monster.characterVector[monsterID - 1].characterID == monster.characterVector[15].characterID || monster.characterVector[monsterID - 1].characterID == monster.characterVector[16].characterID || monster.characterVector[monsterID - 1].characterID == monster.characterVector[17].characterID || monster.characterVector[monsterID - 1].characterID == monster.characterVector[18].characterID || monster.characterVector[monsterID - 1].characterID == monster.characterVector[19].characterID)
+		{
+			cout << "Congratulations! Crime Mini Boss" << monster.characterVector[monsterID - 1].characterName << "Annihilated!!! \n";
+			cout << "Fulfillment Bar Increased!!\n";
+			Game::morningBosses++;
+		}
+
+		Sleep(1000);
+		ConsoleWindow::equalSignMaker9000(80);
+		Time::calculateTime(6);
 		system("cls");
 		return 0;
 	}

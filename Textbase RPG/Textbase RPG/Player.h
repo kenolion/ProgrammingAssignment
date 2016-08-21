@@ -18,6 +18,7 @@ private:
 	int job;
 	int intel;
 	int str;
+	double goldMultiplier;
 public:
 	Player();
 	Player(string name, int hp, int job, int money, int intel, int str, int minAtk, int maxAtk, Weapons weapon,Armours armour, Potions potion);
@@ -28,14 +29,17 @@ public:
 	int getIntel();
 	int getMoney();
 	void addMoney(int money);
+	void setGoldMultiplier(double multiplier);
+	double getGoldMultiplier();
 	void addIntel(int intel);
 	void addStr(int str);
-
+	
 	//MANA,HP,MIN AND MAX ATK CALCULATIONS
 	int calculateMana();
 	int calculateHp();
 	int calculateMinAtk();
 	int calculateMaxAtk();
+
 
 	int getJob();
 	void setJob(int job);
