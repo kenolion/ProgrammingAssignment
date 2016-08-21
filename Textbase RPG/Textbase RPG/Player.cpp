@@ -5,9 +5,9 @@ Player::Player()
 {
 }
 
-Player::Player(string name,int hp,int job, int money, int intel, int str,int minAtk,int maxAtk, Weapons weapon, Armours armour,Potions potion)
+Player::Player(string name,int maxhp,int job, int money, int intel, int str,int minAtk,int maxAtk, Weapons weapon, Armours armour,Potions potion)
 {
-	character.hp = hp;
+	character.maxHp = maxhp;
 	this->job = job;
 	character.money = money;
 	this->intel = intel;
@@ -56,17 +56,23 @@ void Player::addIntel(int intel){
 }
 void Player::addStr(int str){
 	this->str += str;
+	calculateHp();
 }
 
 int Player::calculateMana()
 {
-	return character.Mana = (intel * 1.5) + 100;
+	return character.mana = (intel * 1.5) + 100;
 
+}
+
+void Player::generateMana()
+{
+	character.
 }
 
 int Player::calculateHp()
 {
-	return  character.hp = (str * 1.5) + 100;
+	return  character.maxHp = (str * 1.5) + 100;
 }
 
 int Player::calculateMinAtk()
@@ -113,7 +119,7 @@ void Player::showItemandStats(int cursorX,int cursorY)
 	ConsoleWindow::SetDrawingPoint(2, 22); // Line 1 in the box
 	cout << "STATS";
 	ConsoleWindow::SetDrawingPoint(2, 23);
-	cout << "Hp : " << calculateHp();
+	cout << "Hp : " << getHp();
 	ConsoleWindow::SetDrawingPoint(32, 23);
 	cout << "Total Damage : " << character.minAtk + weapon.weaponVector[weapon.item.itemId].minAtk << '-' << character.maxAtk + weapon.weaponVector[weapon.item.itemId].maxAtk;
 	ConsoleWindow::SetDrawingPoint(2, 24); // Line 2 in the box

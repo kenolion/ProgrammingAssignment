@@ -20,7 +20,7 @@ private:
 	int str;
 public:
 	Player();
-	Player(string name, int hp, int job, int money, int intel, int str, int minAtk, int maxAtk, Weapons weapon,Armours armour, Potions potion);
+	Player(string name, int maxhp, int job, int money, int intel, int str, int minAtk, int maxAtk, Weapons weapon,Armours armour, Potions potion);
 	~Player();
 	///////////////////////// PLAYERS STATS SETTERS AND GETTERS
 	void setPlayerName(string name);
@@ -33,6 +33,7 @@ public:
 
 	//MANA,HP,MIN AND MAX ATK CALCULATIONS
 	int calculateMana();
+	void generateMana();
 	int calculateHp();
 	int calculateMinAtk();
 	int calculateMaxAtk();

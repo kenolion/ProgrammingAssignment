@@ -54,7 +54,8 @@ int main() {
 	int job;
 	////////////////////////////// TESTING ZONE
 	player.addPotion(2, 0);
-	
+	unsigned int test = -5;
+	cout << test;
 	/////////////////////
 	//Menu system start from here
 	///////
@@ -97,29 +98,26 @@ int main() {
 	player.setJob(job);
 	Sleep(1000);
 	system("cls");
-	
 	ConsoleWindow::equalSignMaker9000(80);
-
 	player.addMoney(5);
+	cout << "You are " << player.getCharacterName();
 	switch (player.getJob()) {
 	case 1: {
 		player.addStr(5);
 		player.addIntel(10);
-		cout << "You are " << player.getCharacterName();
 		cout << ",The Con Man. You gained 10 Intelligence and 5 Strength.\n\n" << endl;
 		break;
 	}
 	case 2: {
-
 		player.addStr(10);
 		player.addIntel(5);
-		cout << "You are " << player.getCharacterName();
 		cout << ",The Jock. You gained 10 Strength and 5 Intelligence.\n\n" << endl << endl;
 		break;
 
 	}
 			
 	}
+	
 	ConsoleWindow::getCursorXY();
 	player.showItemandStats(ConsoleWindow::x, ConsoleWindow::y);
 	Sleep(sleep);

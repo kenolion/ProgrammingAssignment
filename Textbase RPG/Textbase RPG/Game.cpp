@@ -27,7 +27,7 @@ int Game::battleSystem(Player *player, Monster monster, int monsterID) {
 	system("cls");
 	int choice = 0;
 	while (monster.getHp(monsterID - 1) > 0 && player->getHp() > 0) {// do while loop to enable a turn based like battle system
-		monster.damage = monster.attack(monsterID - 1);			//generated monsters damage each loop because monster will attack each round
+		monster.damage = monster.attack(monsterID - 1,player->);			//generated monsters damage each loop because monster will attack each round
 		ConsoleWindow::equalSignMaker9000(80);
 		do {												// THIS do while loop is to loop until player wants to exit from potion or skill menu condition at LINE 136
 			cout << "You encountered a" << monster.characterVector[monsterID - 1].characterName << endl;					//1. DISPLAY ENCOUNTER MESSAGE																							

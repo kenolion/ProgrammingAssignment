@@ -14,7 +14,7 @@ public:
 	
 	string temp;
 	void readMonsterDatabase();
-	int attack(int monsterID);
+	int attack(int monsterID,int playersArmour);
 	int moneyDrop;
 
 };

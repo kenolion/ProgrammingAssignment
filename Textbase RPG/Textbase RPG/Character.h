@@ -10,7 +10,8 @@ class Character
 {
 protected:
 	struct CharacterInfo {
-		int hp;
+		int maxHp;
+		int currentHp;
 		int minAtk;
 		int maxAtk;
 		string characterName;
@@ -23,7 +24,8 @@ protected:
 		string skillName;
 		int skillManaCost;
 		int skillDamage;
-		int Mana;
+		int maxMana;
+		int currentMana;
 	};
 	CharacterInfo character;
 

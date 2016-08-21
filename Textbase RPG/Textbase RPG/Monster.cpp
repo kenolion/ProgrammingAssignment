@@ -23,8 +23,9 @@ void Monster::readMonsterDatabase()
 	}
 }
 
-int Monster::attack(int monsterID)
+int Monster::attack(int monsterID,int playersArmour)
 {
-	return (rand() % (characterVector[monsterID].maxAtk - characterVector[monsterID].minAtk)) +characterVector[monsterID].minAtk;
+	unsigned int damage = ((rand() % (characterVector[monsterID].maxAtk - characterVector[monsterID].minAtk)) + characterVector[monsterID].minAtk) - playersArmour;
+	return damage;
 }
 

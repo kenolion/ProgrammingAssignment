@@ -115,7 +115,6 @@
     <ClCompile Include="Armours.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="ConsoleWindow.cpp" />
-    <ClCompile Include="Furnitures.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Items.cpp" />
     <ClCompile Include="main.cpp" />
@@ -132,7 +131,6 @@
     <ClInclude Include="Armours.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="ConsoleWindow.h" />
-    <ClInclude Include="Furnitures.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Items.h" />
     <ClInclude Include="Monster.h" />
@@ -151,6 +149,9 @@
     <Text Include="randLearningMessage.txt" />
     <Text Include="Potions.txt" />
     <Text Include="WeaponsDatabase.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
