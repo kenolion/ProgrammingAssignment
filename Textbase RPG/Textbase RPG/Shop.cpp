@@ -147,6 +147,9 @@ int Shop::displayPotions(Potions potion,Player *player)
 		}
 			}
 		}
+		else if (choice == potion.potionVector.size()) {
+			return 0;
+		}
 		//////CALCULATIONS
 		potion.potionVector[choice-1].price *= quantity;
 		if (player->getMoney() < potion.potionVector[choice-1].price) {
@@ -154,9 +157,7 @@ int Shop::displayPotions(Potions potion,Player *player)
 			cout << "No money no talk! \n";
 
 		}
-		else if (choice == potion.potionVector.size()) {
-			return 0;
-		}
+		
 
 	} while (player->getMoney() <= potion.potionVector[choice-1].price);
 	

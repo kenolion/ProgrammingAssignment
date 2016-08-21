@@ -121,7 +121,10 @@
     <Text Include="Potions.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="Skills.txt">
+    <Text Include="JockSkills.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="ConManSkills.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

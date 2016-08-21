@@ -12,30 +12,25 @@ Skills::~Skills()
 }
 
 
-void Skills::readSkillsDatabase()
+void Skills::readSkillsDatabase(int job)
 {
-	ifstream Skills("Skills.txt");
+	string filename;
+	switch(job){
+case 1:
+	filename = "ConManSkills.txt";
+	break;
+case 2:
+	filename = "JockSkills.txt";
+	break;
+	}
+	ifstream Skills(filename);
 
 	while (!Skills.eof())
 	{
 		Skills >> character.skillID;
 		getline(Skills, character.skillName, '|');
 		Skills >> character.skillDamage >> character.skillManaCost;
-
 		skillVector.push_back(character); // Pushback adds an array size to the vector 
 	}
 }
 
-void Skills::assignPlayerSkills(int playerJob)
-{
-	if (playerJob == 1)
-	{
-		skillVector[0].profession = "Jock";
-	
-	}
-	else if (playerJob == 2)
-	{
-	
-		skillVector[1].profession = "ConMan";
-	}
-}

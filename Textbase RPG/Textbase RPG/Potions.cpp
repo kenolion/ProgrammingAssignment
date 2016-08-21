@@ -24,10 +24,3 @@ void Potions::readItemDatabase()
 		potionVector.push_back(item); // Pushback adds an array size to the vector 
 	}
 }
-
-//void Potions::givePotion(int potionID, int potionQuantity)
-//{
-//	quantity[] += potionQuantity;
-//   potionVector[potionID].potionQuantity += potionQuantity;
-//
-//}

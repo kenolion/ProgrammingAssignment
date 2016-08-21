@@ -10,8 +10,7 @@ public:
 	Skills();
 	~Skills();
 
-	void readSkillsDatabase();
-	void assignPlayerSkills(int playerJob);
+	void readSkillsDatabase(int job);
 };
 
 #endif

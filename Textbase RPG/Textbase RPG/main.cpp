@@ -38,23 +38,23 @@ int main() {
 	Weapons weapon;
 	Armours armour;
 	Potions potion;
-	Skills skills;
-
+	Skills skill;
 	Items *weapons = &weapon;
 	Items *armours = &armour;
 	Items *potions = &potion;
+
 	
 	monster.readMonsterDatabase();
 	weapons->readItemDatabase();
 	armours->readItemDatabase();
 	potions->readItemDatabase();
-	skills.readSkillsDatabase();
+	
 	Player player(" ", 100, 0, 100, 0, 0, 1, 2,weapon,armour,potion);			// name , int hp,int job, int money, int intel, int str,int minAtk,int maxAtk
 
 	int job;
 	////////////////////////////// TESTING ZONE
 	player.addPotion(2, 0);
-
+	
 	/////////////////////
 	//Menu system start from here
 	///////
@@ -72,8 +72,8 @@ int main() {
 	cout << "???? : I am no babysitter, and certainly not your mother, so do it.\n\n\n";
 	Sleep(sleep);
 	cout << "Please Enter your name: ";
-	getline(cin,name);  //Gets player name
-	player.setPlayerName(name);
+	getline(cin,name);			//Gets player name
+	player.setPlayerName(name);	//Sets player name
 	Sleep(sleep);
 	system("cls");
 	cout << "???? : So, '" << player.getCharacterName() << "'. Huh? Can't say I like your decision for that name.\n";
@@ -97,21 +97,14 @@ int main() {
 	player.setJob(job);
 	Sleep(1000);
 	system("cls");
-
+	
 	ConsoleWindow::equalSignMaker9000(80);
-
-	//GIVEPOTION NOT WORKING
-	//potion.givePotion(0, 5); // Gives five normal potions
-	//potion.givePotion(1, 1); // Gives one strong potion
 
 	player.addMoney(5);
 	switch (player.getJob()) {
 	case 1: {
 		player.addStr(5);
 		player.addIntel(10);
-		skills.assignPlayerSkills(1); 
-		ConsoleWindow::getCursorXY();
-		player.showItemandStats( ConsoleWindow::x, ConsoleWindow::y);
 		cout << "You are " << player.getCharacterName();
 		cout << ",The Con Man. You gained 10 Intelligence and 5 Strength.\n\n" << endl;
 		break;
@@ -120,16 +113,14 @@ int main() {
 
 		player.addStr(10);
 		player.addIntel(5);
-		skills.assignPlayerSkills(2);
-		ConsoleWindow::getCursorXY();
-		player.showItemandStats( ConsoleWindow::x, ConsoleWindow::y);
 		cout << "You are " << player.getCharacterName();
 		cout << ",The Jock. You gained 10 Strength and 5 Intelligence.\n\n" << endl << endl;
 		break;
 
 	}
 	}
-	
+	ConsoleWindow::getCursorXY();
+	player.showItemandStats(ConsoleWindow::x, ConsoleWindow::y);
 	Sleep(sleep);
 	cout << "???? : You have 12 hours before the monsters arrive.\n";
 	Sleep(sleep);

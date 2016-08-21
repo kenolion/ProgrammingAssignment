@@ -18,7 +18,7 @@ protected:
 		int money;
 
 		//SKILLS
-		string profession;
+		int profession;
 		int skillID;
 		string skillName;
 		int skillManaCost;

@@ -20,7 +20,8 @@ Player::Player(string name,int hp,int job, int money, int intel, int str,int min
 	this->potion = potion;
 	this->weapon.item.itemId = 0;				//Sets the players weapon ID at the start to 0 which is his pencil
 	this->armour.item.itemId = 0;
-
+	this->skill = skill;
+	character.profession = job;
 }
 
 
@@ -59,16 +60,19 @@ void Player::addStr(int str){
 
 int Player::getJob()
 {
-	return job;
+
+	return character.profession;
 }
 
 void Player::setJob(int job)
 {
-	this->job = job;
+	skill.readSkillsDatabase(job);
+	character.profession = job;
 }
 
 int Player::attack()
 {
+	
 	double strMultiplier;
 	strMultiplier = str * 0.5;
 	return (rand() % character.maxAtk + weapon.weaponVector[weapon.item.itemId].maxAtk + character.minAtk + weapon.weaponVector[weapon.item.itemId].minAtk) + strMultiplier;
@@ -107,6 +111,7 @@ void Player::showItemandStats(int cursorX,int cursorY)
 	ConsoleWindow::SetDrawingPoint(cursorX,cursorY);
 }
 
+/////////////// WEAPON DEFINITION
 int Player::getWeaponID()
 {
 	return weapon.item.itemId;
@@ -127,6 +132,8 @@ void Player::setArmourID(int armourID)
 	this->armour.item.itemId = armourID;
 }
 
+
+/////////////////// POTIONS DEFINITION
 void Player::addPotion(int quantity, int potionID)
 {
 	potion.potionVector[potionID].potionQuantity += quantity;
@@ -134,28 +141,96 @@ void Player::addPotion(int quantity, int potionID)
 
 void Player::showPotions()
 {
-	ConsoleWindow::SetDrawingPoint(1, 10);
+	int c = 10;
+	ConsoleWindow::SetDrawingPoint(ConsoleWindow::x,ConsoleWindow::y );
+	for (int i = 0; i <= 25; i++) { cout << "_"; } //Top line of the box
+	ConsoleWindow::getCursorXY();
+	c = ConsoleWindow::y+1;
+	for (int i = 0; i <= 3; i++) { ConsoleWindow::SetDrawingPoint(0, c); cout << "|"; c++; } // Left horizontal line of the box
+	ConsoleWindow::getCursorXY();
+	c = ConsoleWindow::y;
+	for (int i = 0; i <= 3; i++) { ConsoleWindow::SetDrawingPoint(25, c); cout << "|"; c--; } // Right horizontal line of the box
+	ConsoleWindow::SetDrawingPoint(0, ConsoleWindow::y+1);
+	for (int i = 0; i <= 25; i++) { cout << "¯"; } //Bottom line of the box
+
+	ConsoleWindow::SetDrawingPoint(1, ConsoleWindow::y-3);
 	cout << potion.potionVector[0].itemId << potion.potionVector[0].name << " x " << potion.potionVector[0].potionQuantity << endl;
-	ConsoleWindow::SetDrawingPoint(1, 11);
+	ConsoleWindow::SetDrawingPoint(1, ConsoleWindow::y -2);
 	cout << potion.potionVector[1].itemId << potion.potionVector[1].name << " x " << potion.potionVector[1].potionQuantity << endl;
-	ConsoleWindow::SetDrawingPoint(1, 12);
+	ConsoleWindow::SetDrawingPoint(1, ConsoleWindow::y + -1);
 	cout << potion.potionVector[2].itemId << potion.potionVector[2].name << " x " << potion.potionVector[2].potionQuantity << endl;
+
+	
 }
 
 int Player::getPotionQuantity(int potionID)
 {
-	return potion.potionVector[potionID].potionQuantity;
+	return potion.potionVector[potionID-1].potionQuantity;
 }
 
 string Player::getPotionName(int potionID)
 {
-	return potion.potionVector[potionID].name;
+	return potion.potionVector[potionID-1].name;
 }
 
 int Player::getPotionHeal(int potionID)
 {
-	return potion.potionVector[potionID].potionHeal;
+	return potion.potionVector[potionID-1].potionHeal;
 }
+
+////////////////////////////////
+
+void Player::showSkills()
+{
+	int y = 10;
+	ConsoleWindow::SetDrawingPoint(0, 9);
+	for (int i = 0; i <= 50; i++) { cout << "_"; } //Top line of the box
+	for (int i = 0; i <= 6; i++) { ConsoleWindow::SetDrawingPoint(0, y); cout << "|"; y++; } // Left horizontal line of the box
+	y = 10;
+	for (int i = 0; i <= 6; i++) {  ConsoleWindow::SetDrawingPoint(50, y); cout << "|"; y++; } // Right horizontal line of the box
+	ConsoleWindow::SetDrawingPoint(0, 16);
+	for (int i = 0; i <= 50; i++) { cout << "¯"; } //Bottom line of the box
+
+	ConsoleWindow::SetDrawingPoint(1, 10);
+	cout << "Skills : \t\t   DMG\t\tManaCost";
+
+		for (int a = 0; a < skill.skillVector.size()-1; a++)
+		{
+			ConsoleWindow::SetDrawingPoint(1, 11 + a);
+			cout << a + 1 << skill.skillVector[a].skillName;
+			ConsoleWindow::SetDrawingPoint(27, 11 + a);
+			cout << skill.skillVector[a].skillDamage;
+			ConsoleWindow::SetDrawingPoint(42, 11 + a);
+			cout << skill.skillVector[a].skillManaCost << "\n";
+		}
+}
+
+int Player::getSkillDmg(int skillID)
+{
+	return skill.skillVector[skillID-1].skillDamage;
+}
+
+int Player::getSkillCost(int skillID)
+{
+	return skill.skillVector[skillID-1].skillManaCost;
+}
+
+string Player::getSkillName(int skillID)
+{
+	return skill.skillVector[skillID-1].skillName;
+}
+
+int Player::getSkillVectorSize()
+{
+	return skill.skillVector.size();
+}
+
+int Player::getPotionVectorSize()
+{
+	return potion.potionVector.size();
+}
+
+
 
 
 
