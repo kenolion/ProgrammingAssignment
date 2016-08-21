@@ -11,7 +11,7 @@ Shop::~Shop()
 {
 }
 
-int Shop::displayWeapon(Weapons weapon,Player *player)
+int Shop::displayWeapon(Weapons weapon,Player *player) //DISPLAY WEAPON DATA
 {
 	system("cls");
 	ConsoleWindow::equalSignMaker9000(80);
@@ -22,7 +22,7 @@ int Shop::displayWeapon(Weapons weapon,Player *player)
 	cout << "Item price\t";
 	cout << "Weapon Damage\n";
 
-	for (int column = 1; column < weapon.weaponVector.size()-1; column++) 
+	for (int column = 1; column < weapon.weaponVector.size()-1; column++)  
 	{
 		cout << weapon.weaponVector[column].itemId <<"\t";
 		cout << weapon.weaponVector[column].name <<"\t\t";
@@ -43,7 +43,7 @@ int Shop::displayWeapon(Weapons weapon,Player *player)
 	cout << "Enter a valid item number!";
 
 	}
-	if (anger == 2) 
+	if (anger == 2) //WHEN ANGER = 2, SHOP KEEPER KICKS PLAYER OUT
 	{
 		Sleep(1000); 
 		cout << "\nShopkeeper : Fuck off.\n\n"; // ZER ADDED THIS

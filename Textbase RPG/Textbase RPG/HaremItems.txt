@@ -1,0 +1,11 @@
+ItemID	ItemName		Category	Price		Effect					Description
+0	Cigarette Pack		Unique		500		Earn Additional +50% Affection		A unique gift for a Party Girl.
+1	Double Hair Bow		Unique		500		Earn Additional +50% Affection		A unique gift for a Cheerleader.
+2	Sushi Roller		Unique		500		Earn Additional +50% Affection		A unique gift for a Japanese Lady.
+3	Retro Controller	Unique		500		Earn Additional +50% Affection 		A unique gift for a Gamer Girl.
+4	Soda			Food		100		Allow player to talk to girl +1		A sweet bubbly beverage thats mostly water and syrup.	
+5	Pizza			Food		200		Allow player to talk to girl +2		A slice of piping hot pizza with all the toppings.
+6	Cupcakes		Food		300		Allow player to talk to girl +3		A variety pack of adorably delicious mini cupcakes.
+7	Lollipop		Food		400		Allow player to talk to girl +4		A classic treat for the child in all of us.
+8	Sun lotion		Accessory	1500		Increase Flirtation Trait of the girl	Beach.
+9	Wedding Ring		Accessory	2000		Increase Romance Trait of the girl.	Paris.

@@ -1,0 +1,7 @@
+GirlNumber	Name			Age	Birthday		Education						Occupation		Cup Size	Hobby			Favorite Color		 MostDesiredTrait			LovesGiftType				LikesFoodType
+1			Tiffany Maye|	20	22nd December|	Currently enrolled in college|	Student|			C		Cheerleading|	Milky Pink|		 		Flirtation, Romance|		Cheerleader|			Breakfast,Candy|
+2			Aiko Yumi|		28	9th November|	College| 						Lecturer|			D		Gambling|		Mint Green|				Flirtation|					Toys|					Fruit,Veggies|
+3			Audrey Belrose|	21	6th April|		Currently enrolled in college|	Student|			B		Shopping|		Velvet Red|				Romance|					Toys, Dress|			JunkFood, Fruit|
+4			Jessi Maye|		36	27th January|	Dropout|						Adult actress|		DD		Drinking|		Orange|					Talent,Flirtation,Romance|	Toys|					Desset, JunkFood|
+				
+

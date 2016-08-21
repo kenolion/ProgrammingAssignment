@@ -34,7 +34,7 @@ int Game::battleSystem(Player *player, Monster monster, int monsterID) {
 			system("cls");
 			ConsoleWindow::equalSignMaker9000(80);
 			cout << "You encountered a" << monster.characterVector[monsterID - 1].characterName << endl;					//1. DISPLAY ENCOUNTER MESSAGE																							
-			cout << "What do you want to do?\n1.Attack\n2.NIGERO(Run)\n3.Potion\n4.Skills\n";
+			cout << "What do you want to do?\n1.Attack\n2.NIGERO(Run)(30% Chance)\n3.Potion\n4.Skills\n";
 			ConsoleWindow::equalSignMaker9000(80);
 
 
@@ -139,7 +139,7 @@ int Game::battleSystem(Player *player, Monster monster, int monsterID) {
 			}
 
 			}
-		} while (choice == -5);								// value to not exit , sentinel value(?)forgot whats it called
+		} while (choice == -5);								// sentinel value(?)
 
 		if (monster.getHp(monsterID - 1) > 0) {
 			cout << "The enemy has "<< monster.characterVector[monsterID-1].hp<<" Hp left\n" ;

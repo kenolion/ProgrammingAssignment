@@ -60,6 +60,12 @@
     <ClCompile Include="Skills.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Girls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Harem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Time.h">
@@ -104,6 +110,12 @@
     <ClInclude Include="Skills.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Girls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Harem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ArmoursDatabase.txt">
@@ -125,6 +137,12 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="ConManSkills.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="GirlsTraits.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="HaremItems.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

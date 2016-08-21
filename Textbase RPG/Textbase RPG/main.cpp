@@ -5,6 +5,7 @@ Text Based RPG Game
 By : Keith, Ben and Zer
 Date : 10/6/2016
 */
+
 #define NOMINMAX
 #include <iostream>
 #include <time.h> // to use the rand() function
@@ -21,6 +22,9 @@ Date : 10/6/2016
 #include "Weapons.h"
 #include "Armours.h"
 #include "Skills.h"
+#include "Girls.h"
+#include "Harem.h"
+
 int tempHp;
 int action;
 using namespace std;
@@ -39,27 +43,28 @@ int main() {
 	Armours armour;
 	Potions potion;
 	Skills skill;
+	Harem harem;
 	Items *weapons = &weapon;
 	Items *armours = &armour;
 	Items *potions = &potion;
 
 	
-	monster.readMonsterDatabase();
+	monster.readMonsterDatabase(); //READ TEXT FILE FUNCTIONS
 	weapons->readItemDatabase();
 	armours->readItemDatabase();
 	potions->readItemDatabase();
 	
-	Player player(" ", 100, 0, 100, 0, 0, 1, 2,weapon,armour,potion);			// name , int hp,int job, int money, int intel, int str,int minAtk,int maxAtk
+	Player player(" ", 100, 0, 100, 0, 0, 1, 2,weapon,armour,potion);	//PLAYER CONSTRUCTOR -> name , int hp,int job, int money, int intel, int str,int minAtk,int maxAtk
 
 	int job;
 	////////////////////////////// TESTING ZONE
-	player.addPotion(2, 0);
+	
 	
 	/////////////////////
 	//Menu system start from here
 	///////
 	Sleep(sleep);
-	cout << "???? : Agent 1447.\n";
+	cout << "???? : Agent 1447.\n";  //INTRODUCTION TEXT
 	Sleep(sleep);
 	cout << "*Project Agent 1447 Initiated.*\n";
 	Sleep(sleep);
@@ -84,11 +89,11 @@ int main() {
 	Sleep(sleep);
 	cout << "*PROFESSION SELECTION, ONLINE.*\n";
 	Sleep(sleep);
-	ConsoleWindow::equalSignMaker9000(80);
+	ConsoleWindow::equalSignMaker9000(80); //A FUNCTION THAT MAKES EQUAL SIGNS
 	cout << "1.Con Man - Notable skills include\n-'YOU ACTIVATED MY TRAP CARD' (70 DAMAGE, 30 MANACOST)\n-'NECK BREAKER' (300 DAMAGE, 50 MANACOST)\n" << endl;
 	cout << "2.The Jock - Notable skills include \n-'MUSCLE BODY SLAM' (200 DAMAGE, 70 MANACOST).\n-'MUSCLE UPPERCUT' (30 DAMAGE, 10 MANACOST)\n" << endl << endl;
 
-	ConsoleWindow::equalSignMaker9000(80);
+	ConsoleWindow::equalSignMaker9000(80); //A FUNCTION THAT MAKES EQUAL SIGNS
 	while (!(cin >> job) || job <1 || job >2) {
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -100,7 +105,8 @@ int main() {
 	
 	ConsoleWindow::equalSignMaker9000(80);
 
-	player.addMoney(5);
+	player.addMoney(5); // GIVE PLAYER 5 MONEY 
+	player.addPotion(5,0); //GIVE PLAYER 5 BASIC POTIONS
 	switch (player.getJob()) {
 	case 1: {
 		player.addStr(5);
@@ -120,10 +126,10 @@ int main() {
 	}
 			
 	}
-	ConsoleWindow::getCursorXY();
+	ConsoleWindow::getCursorXY(); 
 	player.showItemandStats(ConsoleWindow::x, ConsoleWindow::y);
 	Sleep(sleep);
-	cout << "???? : You have 12 hours before the neutral monsters arrive.\n";
+	cout << "???? : You have 12 hours before the neutral monsters arrive.\n"; //MORE INTRODUCTION TEXTS
 	Sleep(sleep);
 	cout << "???? : You will be free once your fulfillment bar is full.\n";
 	Sleep(sleep);
@@ -146,14 +152,14 @@ int main() {
 	cout << "???? : Good luck, " << player.getCharacterName() << "\n";
 	system("pause");
 	Sleep(1000);
-	while (Game::midnightBosses!= 0 && Game::morningBosses!=0) {
+	while (Game::midnightBosses!= 0 && Game::morningBosses!=0) { //WIN WHEN MORNING BOSSES AND MIDNIGHT BOSSES ARE DEFEATED.
 		do {
 			system("cls");
-			player.showItemandStats(0, 0);
+			player.showItemandStats(0, 0); // A function that shows player's weapon, armour, HP, Intelligence, Strength, Money and etcetera.
 			ConsoleWindow::equalSignMaker9000(80);
 			int action;
 			int a;
-			cout << "Choose your action :" << endl;
+			cout << "Choose your action :" << endl; //Day Actions
 			cout << "1. Go to School (6 Hours)" << endl;
 			cout << "2. Go to the Gym (6 Hours)" << endl;
 			cout << "3. Go to work at McDonalds (6 Hours)" << endl;
@@ -187,13 +193,12 @@ int main() {
 			}
 
 			case 4: {
-
 				doableActions.fightCrime(&player, monster);	// NEEDS TO ADD MONEY GAIN AFTER KILLING SOMEONE
 				day.calculateTime(6);
 				break;
 			}
 			case 5: {
-				while (action != 4) {
+				while (action != 4) { //SHOP
 					ConsoleWindow::SetDrawingPoint(0, 0);
 					ConsoleWindow::equalSignMaker9000(80);
 					ConsoleWindow::SetDrawingPoint(0, 5);
@@ -233,7 +238,7 @@ int main() {
 			}
 			}
 
-		} while (Time::getHour() < 13);
+		} while (Time::getHour() < 13); //IF HOURS MORE THAN 12, CHANGE TO NIGHT TIME
 
 		Sleep(1000);
 		system("cls");
@@ -242,8 +247,8 @@ int main() {
 		ConsoleWindow::equalSignMaker9000(80);
 		cout << "Nightfall has come. Monsters arrive in 6 hours." << endl;
 		cout << "Choose your action wisely!:" << endl;
-		cout << "1. Go to the pub and hit on girls. (3 Hours) " << endl;
-		cout << "2. Go home and farm neutral monsters. (1 Hour Journey)" << endl;
+		cout << "1. Go to the pub and hit on girls. (3 Hours) " << endl; //BEN'S HAREM SYSTEM
+		cout << "2. Go home and farm neutral monsters. (1 Hour Journey)" << endl; 
 		cout << "3. Stay outside and hunt for rare boss monsters. ( "<< Game::midnightBosses <<" Midnight Bosses Left )" << endl;
 		day.displayTime();
 		ConsoleWindow::equalSignMaker9000(80);
@@ -252,11 +257,12 @@ int main() {
 			Sleep(1000);
 		case 1: {
 			//Ben's Harem System
+			harem.menu();
 		}
 		case 2: {
 			system("cls");
-			day.calculateTime(1);
-			doableActions.home(&player, monster);
+			day.calculateTime(1); // ADD ONE HOUR to day
+			doableActions.home(&player, monster); //PASS IN ALL VARIABLES IN PLAYER AND MONSTER
 			break;
 		}
 		case 3: {

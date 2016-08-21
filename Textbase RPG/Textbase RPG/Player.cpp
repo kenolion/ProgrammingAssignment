@@ -5,7 +5,7 @@ Player::Player()
 {
 }
 
-Player::Player(string name,int hp,int job, int money, int intel, int str,int minAtk,int maxAtk, Weapons weapon, Armours armour,Potions potion)
+Player::Player(string name,int hp,int job, int money, int intel, int str,int minAtk,int maxAtk, Weapons weapon, Armours armour,Potions potion) 
 {
 	character.hp = hp;
 	this->job = job;

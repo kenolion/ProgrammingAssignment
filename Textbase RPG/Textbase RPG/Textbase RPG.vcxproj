@@ -117,6 +117,8 @@
     <ClCompile Include="ConsoleWindow.cpp" />
     <ClCompile Include="Furnitures.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Girls.cpp" />
+    <ClCompile Include="Harem.cpp" />
     <ClCompile Include="Items.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -134,6 +136,8 @@
     <ClInclude Include="ConsoleWindow.h" />
     <ClInclude Include="Furnitures.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Girls.h" />
+    <ClInclude Include="Harem.h" />
     <ClInclude Include="Items.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
@@ -146,6 +150,8 @@
   <ItemGroup>
     <Text Include="ArmoursDatabase.txt" />
     <Text Include="ConManSkills.txt" />
+    <Text Include="GirlsTraits.txt" />
+    <Text Include="HaremItems.txt" />
     <Text Include="JockSkills.txt" />
     <Text Include="mons_database.txt" />
     <Text Include="randLearningMessage.txt" />
